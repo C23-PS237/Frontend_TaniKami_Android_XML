@@ -13,19 +13,33 @@
         <action
             android:id="@+id/action_nav_home_to_detailFragment"
             app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_addProductFragment"
+            app:destination="@id/addProductFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_article"
-        android:name="com.bangkit.tanikami_xml.ui.article.ArticleFragment"
+        android:name="com.bangkit.tanikami_xml.ui.article.article_start.ArticleFragment"
         android:label="fragment_article"
-        tools:layout="@layout/fragment_article" />
+        tools:layout="@layout/fragment_article" >
+        <action
+            android:id="@+id/action_nav_article_to_detailArticleFragment"
+            app:destination="@id/detailArticleFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_profile"
         android:name="com.bangkit.tanikami_xml.ui.profile.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_nav_profile_to_historyBuyFragment"
+            app:destination="@id/historyBuyFragment" />
+        <action
+            android:id="@+id/action_nav_profile_to_historySellFragment"
+            app:destination="@id/historySellFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_detection"
@@ -38,8 +52,8 @@
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <action
-            android:id="@+id/action_detailFragment_to_nav_home"
-            app:destination="@id/nav_home" />
+            android:id="@+id/action_detailFragment_to_confirmPaymentFragment"
+            app:destination="@id/confirmPaymentFragment" />
     </fragment>
 
     <fragment
@@ -80,4 +94,65 @@
             android:id="@+id/action_registerFragment_to_nav_home"
             app:destination="@id/nav_home" />
     </fragment>
+
+    <fragment
+        android:id="@+id/addProductFragment"
+        android:name="com.bangkit.tanikami_xml.ui.product.adding_editing.AddProductFragment"
+        android:label="fragment_add_product"
+        tools:layout="@layout/fragment_add_product" >
+        <action
+            android:id="@+id/action_addProductFragment_to_confirmAddProductFragment"
+            app:destination="@id/confirmAddProductFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/confirmAddProductFragment"
+        android:name="com.bangkit.tanikami_xml.ui.product.confirm_add.ConfirmAddProductFragment"
+        android:label="fragment_confirm_add_product"
+        tools:layout="@layout/fragment_confirm_add_product" >
+        <action
+            android:id="@+id/action_confirmAddProductFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/confirmPaymentFragment"
+        android:name="com.bangkit.tanikami_xml.ui.payment.confirmation_payment.ConfirmPaymentFragment"
+        android:label="fragment_confirm_payment"
+        tools:layout="@layout/fragment_confirm_payment" >
+        <action
+            android:id="@+id/action_confirmPaymentFragment_to_paymentsStepFragment"
+            app:destination="@id/paymentsStepFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailArticleFragment"
+        android:name="com.bangkit.tanikami_xml.ui.article.detail_article.DetailArticleFragment"
+        android:label="fragment_detail_article"
+        tools:layout="@layout/fragment_detail_article" />
+    <fragment
+        android:id="@+id/historyBuyFragment"
+        android:name="com.bangkit.tanikami_xml.ui.history.buying_history.HistoryBuyFragment"
+        android:label="fragment_history_buy"
+        tools:layout="@layout/fragment_history_buy" />
+    <fragment
+        android:id="@+id/historySellFragment"
+        android:name="com.bangkit.tanikami_xml.ui.history.selling_history.HistorySellFragment"
+        android:label="fragment_history_sell"
+        tools:layout="@layout/fragment_history_sell" />
+    <fragment
+        android:id="@+id/paymentsStepFragment"
+        android:name="com.bangkit.tanikami_xml.ui.payment.payment_steps.PaymentsStepFragment"
+        android:label="fragment_payments_step"
+        tools:layout="@layout/fragment_payments_step" >
+        <action
+            android:id="@+id/action_paymentsStepFragment_to_uploadingBillFragment"
+            app:destination="@id/uploadingBillFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/uploadingBillFragment"
+        android:name="com.bangkit.tanikami_xml.ui.payment.uploading_bill.UploadingBillFragment"
+        android:label="fragment_uploading_bill"
+        tools:layout="@layout/fragment_uploading_bill" />
 </navigation>
