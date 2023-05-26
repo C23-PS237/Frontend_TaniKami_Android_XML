@@ -1,5 +1,6 @@
 package com.bangkit.tanikami_xml
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.findNavController
@@ -21,6 +22,16 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         val navView: BottomNavigationView = binding.navBotView
+        //navView.itemActiveIndicatorColor = getColorStateList(androidx.appcompat.R.color.primary_dark_material_dark)
+        //navView.itemIconTintList = null
+
+//        if (navView.isPressed) {
+//            navView.itemTextColor = getColorStateList(R.color.green700)
+//            navView.itemIconTintList = getColorStateList(R.color.green700)
+//        } else {
+//            navView.itemTextColor = getColorStateList(R.color.green200)
+//            navView.itemIconTintList = getColorStateList(R.color.green200)
+//        }
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         val appbarConfiguration = AppBarConfiguration(
