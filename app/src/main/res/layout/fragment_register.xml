@@ -1,39 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.onBoarding.OnBoardingFragment">
+    tools:context=".ui.register.RegisterFragment">
 
     <Button
-        android:id="@+id/to_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TO Register"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        android:layout_marginBottom="12dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/to_login"/>
-
-    <Button
-        android:id="@+id/to_login"
+        android:id="@+id/to_login_reg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TO Login"
         android:textStyle="bold"
         android:textSize="25sp"
+        android:layout_marginBottom="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/label_on"/>
+        app:layout_constraintBottom_toTopOf="@+id/to_home_reg"/>
 
-    <TextView
-        android:id="@+id/label_on"
+    <Button
+        android:id="@+id/to_home_reg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Onboarding Fragment"
+        android:text="TO Home"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/label_reg"/>
+
+    <TextView
+        android:id="@+id/label_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register Fragment"
         android:textStyle="bold"
         android:textAlignment="center"
         android:textSize="26sp"

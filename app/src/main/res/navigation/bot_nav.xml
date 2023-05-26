@@ -3,29 +3,81 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bot_nav"
-    app:startDestination="@id/nav_home">
+    app:startDestination="@id/onBoardingFragment">
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.bangkit.tanikami_xml.home.HomeFragment"
+        android:name="com.bangkit.tanikami_xml.ui.home.HomeFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_article"
-        android:name="com.bangkit.tanikami_xml.article.ArticleFragment"
+        android:name="com.bangkit.tanikami_xml.ui.article.ArticleFragment"
         android:label="fragment_article"
         tools:layout="@layout/fragment_article" />
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.bangkit.tanikami_xml.profile.ProfileFragment"
+        android:name="com.bangkit.tanikami_xml.ui.profile.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/nav_detection"
-        android:name="com.bangkit.tanikami_xml.detection.DetectionFragment"
+        android:name="com.bangkit.tanikami_xml.ui.detection.DetectionFragment"
         android:label="fragment_detection"
         tools:layout="@layout/fragment_detection" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.bangkit.tanikami_xml.ui.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.bangkit.tanikami_xml.ui.onBoarding.OnBoardingFragment"
+        android:label="fragment_on_boarding"
+        tools:layout="@layout/fragment_on_boarding" >
+        <action
+            android:id="@+id/action_onBoardingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_onBoardingFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.bangkit.tanikami_xml.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.bangkit.tanikami_xml.ui.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 </navigation>

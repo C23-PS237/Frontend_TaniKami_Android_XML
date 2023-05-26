@@ -4,24 +4,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.login.LoginFragment">
 
     <Button
-        android:id="@+id/to_detail"
+        android:id="@+id/to_register_log"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TO DETAIL"
+        android:text="TO Register"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/to_home_log"/>
+
+    <Button
+        android:id="@+id/to_home_log"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TO Home"
         android:textStyle="bold"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/label"/>
+        app:layout_constraintBottom_toTopOf="@+id/label_log"/>
 
     <TextView
-        android:id="@+id/label"
+        android:id="@+id/label_log"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home Fragment"
+        android:text="Login Fragment"
         android:textStyle="bold"
         android:textAlignment="center"
         android:textSize="26sp"
