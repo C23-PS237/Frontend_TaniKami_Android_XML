@@ -23,7 +23,9 @@
     <string name="hint_address">Address</string>
     <string name="hint_phone_number">Phone Number</string>
     <string name="hint_age">Age</string>
-    
+    <string name="main_ver">Tani Kami ver 1.0.0</string>
+    <string name="description_main">TaniKami is created to help farmer to sell their harvest directly to customer in another area even in bountiful harvest season.</string>
+    <string name="welcome">Welcome to TaniKami</string>
 
 
 </resources>

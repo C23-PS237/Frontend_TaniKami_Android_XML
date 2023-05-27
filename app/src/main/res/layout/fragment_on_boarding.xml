@@ -6,25 +6,74 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.onBoarding.OnBoardingFragment">
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/bg_pic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/rice"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/welcoming_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_24sdp"
+        android:layout_marginEnd="@dimen/_24sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:text="@string/welcome"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="@dimen/_32ssp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/description_app"/>
+
+    <TextView
+        android:id="@+id/description_app"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_24sdp"
+        android:layout_marginEnd="@dimen/_24sdp"
+        android:layout_marginBottom="@dimen/_150sdp"
+        android:padding="@dimen/_8sdp"
+        android:background="@drawable/rounded_bg"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp"
+        android:textAlignment="center"
+        android:textStyle="normal"
+        android:text="@string/description_main"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/to_register"/>
+
     <Button
         android:id="@+id/to_register"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="TO Register"
+        android:layout_marginStart="@dimen/_48sdp"
+        android:layout_marginEnd="@dimen/_48sdp"
+        android:text="@string/sign_in"
         android:textStyle="bold"
-        android:textSize="25sp"
-        android:layout_marginBottom="12dp"
+        android:textSize="@dimen/_16ssp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/green500"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/to_login"/>
 
     <Button
         android:id="@+id/to_login"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="TO Login"
+        android:layout_marginStart="@dimen/_48sdp"
+        android:layout_marginEnd="@dimen/_48sdp"
+        android:layout_marginBottom="@dimen/_100sdp"
+        android:text="@string/sign_up"
         android:textStyle="bold"
-        android:textSize="25sp"
+        android:textSize="@dimen/_16ssp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/green500"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/label_on"/>
@@ -33,10 +82,11 @@
         android:id="@+id/label_on"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Onboarding Fragment"
+        android:text="@string/main_ver"
         android:textStyle="bold"
         android:textAlignment="center"
-        android:textSize="26sp"
+        android:textSize="@dimen/_8ssp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
