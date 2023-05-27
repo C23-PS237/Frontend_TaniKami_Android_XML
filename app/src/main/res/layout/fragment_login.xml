@@ -11,43 +11,47 @@
         android:id="@+id/tv_sign_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
         android:text="@string/sign_in"
         android:textSize="@dimen/_32ssp"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:layout_marginTop="@dimen/_48sdp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/tv_sign_in_words"
-        tools:layout_editor_absoluteY="@dimen/_48sdp"/>
+        app:layout_constraintBottom_toTopOf="@+id/tv_sign_in_words" />
 
     <TextView
         android:id="@+id/tv_sign_in_words"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:textAlignment="center"
         android:text="@string/sign_in_words"
         android:textSize="@dimen/_16ssp"
         android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_marginTop="@dimen/_24sdp"
-        android:layout_marginStart="@dimen/_25sdp"
-        android:layout_marginEnd="@dimen/_25sdp"
-        android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@+id/tv_sign_in"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailEditTextLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_16sdp"
-        android:layout_marginTop="@dimen/_40sdp"
         android:layout_marginEnd="@dimen/_16sdp"
-        app:errorTextColor="@color/green700"
+        android:layout_marginTop="@dimen/_40sdp"
+        app:boxStrokeColor="@color/green700"
+        app:startIconDrawable="@drawable/baseline_email_24"
+        app:startIconTint="@color/green700"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_sign_in_words">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -57,20 +61,24 @@
             android:hint="@string/hint_email"
             android:textColorHint="@color/green700"
             android:inputType="textEmailAddress"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:ems="10"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordEditTextLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_16sdp"
-        android:layout_marginTop="@dimen/_40sdp"
         android:layout_marginEnd="@dimen/_16sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginTop="@dimen/_40sdp"
+        app:boxStrokeColor="@color/green700"
+        app:startIconDrawable="@drawable/baseline_lock_24"
+        app:startIconTint="@color/green700"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/green700"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailEditTextLayout">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -81,51 +89,59 @@
             android:textColorHint="@color/green700"
             android:inputType="textPassword"
             app:passwordToggleEnabled="true"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:ems="10" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btn_sign_in"
         android:layout_width="@dimen/_260sdp"
-        android:layout_height="@dimen/_35sdp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
         android:text="@string/sign_in"
         android:textSize="@dimen/_16ssp"
         android:textStyle="bold"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:backgroundTint="@color/green700"
-        app:layout_constraintBottom_toTopOf="@+id/for_sign_up"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEditTextLayout"
-        />
-
-    <TextView
-        android:id="@+id/for_sign_up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingStart="@dimen/_65sdp"
-        android:text="@string/for_sign_up"
-        android:textSize="@dimen/_12ssp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_sign_in" />
-
-    <TextView
-        android:id="@+id/to_sign_up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_2sdp"
-        android:paddingEnd="@dimen/_65sdp"
-        android:text="@string/to_sign_up"
-        android:textAlignment="center"
-        android:textColor="@color/green700"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/for_sign_up"
-        app:layout_constraintTop_toBottomOf="@id/btn_sign_in"/>
+        app:layout_constraintTop_toBottomOf="@+id/passwordEditTextLayout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sign_in">
+
+        <TextView
+            android:id="@+id/for_sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/for_sign_up"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            android:textAlignment="textEnd"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/to_sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/to_sign_up"
+            android:textAlignment="textStart"
+            android:textColor="@color/green700"
+            android:textStyle="bold"
+            android:layout_weight="1"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
