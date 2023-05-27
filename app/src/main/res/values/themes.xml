@@ -3,6 +3,15 @@
     <style name="Base.Theme.TaniKami_XML" parent="Theme.Material3.DayNight">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/green700</item>
+        <item name="colorPrimaryVariant">@color/green700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/green200</item>
+        <item name="colorSecondaryVariant">@color/green700</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
 
     <style name="Theme.TaniKami_XML" parent="Base.Theme.TaniKami_XML" />

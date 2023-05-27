@@ -5,4 +5,12 @@
     <string name="profile">Profile</string>
     <string name="article">Article</string>
     <string name="detection">Detection</string>
+
+    <string name="sign_in_title">Sign In</string>
+    <string name="sign_in_words">Login now and sell your harvest quickly \nbefore product price go down.</string>
+    <string name="for_sign_in">Don’t have an Account ?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
 </resources>
