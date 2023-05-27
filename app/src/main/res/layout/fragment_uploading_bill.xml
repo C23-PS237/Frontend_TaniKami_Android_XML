@@ -1,14 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.payment.uploading_bill.UploadingBillFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/tv_bill_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_16sdp"
+        android:text="@string/upload_transfer_bill"
+        android:textAlignment="center"
+        android:textSize="@dimen/_18ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/iv_bill"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/iv_bill"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_273sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:outlineProvider="background"
+        app:layout_constraintTop_toBottomOf="@+id/tv_bill_title"
+        tools:layout_editor_absoluteX="21dp"
+        android:contentDescription="@string/bill_image"
+        app:srcCompat="@drawable/image" />
+
+    <Button
+        android:id="@+id/btn_gallery"
+        android:layout_width="@dimen/_130sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:backgroundTint="@color/green700"
+        android:layout_marginTop="@dimen/_48sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_54sdp"
+        android:text="@string/gallery"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/btn_submit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_bill"/>
+
+    <Button
+        android:id="@+id/btn_camera"
+        android:layout_width="@dimen/_130sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_marginTop="@dimen/_48sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_54sdp"
+        android:backgroundTint="@color/green700"
+        android:text="@string/camera"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/btn_submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@id/btn_gallery"
+        app:layout_constraintTop_toBottomOf="@+id/iv_bill"
+        app:layout_constraintVertical_bias="0.484" />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_marginTop="@dimen/_54sdp"
+        android:backgroundTint="@color/green700"
+        android:text="@string/submit"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_bill" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -27,5 +27,21 @@
     <string name="description_main">TaniKami is created to help farmer to sell their harvest directly to customer in another area even in bountiful harvest season.</string>
     <string name="welcome">Welcome to TaniKami</string>
 
+    <string name="detection_title">Plant Disease \nDetection</string>
 
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="submit">Submit</string>
+
+    <string name="products_image">Products Image</string>
+    <string name="products_name">Products Name</string>
+    <string name="products_description">Products Description</string>
+    <string name="products_price">Products Price</string>
+    <string name="sold_out">Stock Empty</string>
+
+    <string name="plant_image">Plant Image</string>
+
+    <string name="bill_image">Bill Image</string>
+
+    <string name="upload_transfer_bill">Upload Transfer Bill</string>
 </resources>
