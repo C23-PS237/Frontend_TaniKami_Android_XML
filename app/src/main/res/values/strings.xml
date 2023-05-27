@@ -6,11 +6,22 @@
     <string name="article">Article</string>
     <string name="detection">Detection</string>
 
-    <string name="sign_in_title">Sign In</string>
-    <string name="sign_in_words">Login now and sell your harvest quickly \nbefore product price go down.</string>
-    <string name="for_sign_in">Don’t have an Account ?</string>
     <string name="sign_in">Sign In</string>
+    <string name="sign_in_words">Login now and sell your harvest quickly \nbefore product price go down.</string>
+    <string name="for_sign_up">Don’t have an Account ?</string>
+    <string name="to_sign_up">Sign Up</string>
+
+
     <string name="sign_up">Sign Up</string>
+    <string name="sign_up_words">Sign Up now, and start buy and sell as you like.</string>
+    <string name="for_sign_in">Already have an Account ?</string>
+    <string name="to_sign_in">Sign In</string>
+
+<!--    Hint-->
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
+    <string name="hint_address">Address</string>
+    <string name="hint_phone_number">Phone Number</string>
+    <string name="hint_age">Age</string>
+
 </resources>

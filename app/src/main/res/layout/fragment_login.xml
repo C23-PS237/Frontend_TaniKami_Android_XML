@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.login.LoginFragment">
 
@@ -11,11 +11,11 @@
         android:id="@+id/tv_sign_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/sign_in_title"
+        android:text="@string/sign_in"
         android:textSize="@dimen/_32ssp"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:paddingTop="@dimen/_48sdp"
+        android:layout_marginTop="@dimen/_48sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -30,14 +30,13 @@
         android:textSize="@dimen/_16ssp"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:paddingTop="@dimen/_24sdp"
+        android:layout_marginTop="@dimen/_24sdp"
         android:layout_marginStart="@dimen/_25sdp"
         android:layout_marginEnd="@dimen/_25sdp"
         android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@+id/tv_sign_in"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="@dimen/_87sdp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailEditTextLayout"
@@ -107,7 +106,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingStart="@dimen/_73sdp"
-        android:text="@string/for_sign_in"
+        android:text="@string/for_sign_up"
         android:textSize="@dimen/_12ssp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -120,13 +119,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_2sdp"
         android:paddingEnd="@dimen/_73sdp"
-        android:text="@string/sign_up"
+        android:text="@string/to_sign_up"
         android:textAlignment="center"
         android:textColor="@color/green700"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/for_sign_up"
         app:layout_constraintTop_toBottomOf="@id/btn_sign_in"/>
 

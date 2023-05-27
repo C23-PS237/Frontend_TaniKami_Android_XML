@@ -26,11 +26,11 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.toLoginReg.setOnClickListener {
+        binding.toSignIn.setOnClickListener {
             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
 
-        binding.toHomeReg.setOnClickListener {
+        binding.btnSignUp.setOnClickListener {
             findNavController().navigate(R.id.action_registerFragment_to_nav_home)
         }
     }
