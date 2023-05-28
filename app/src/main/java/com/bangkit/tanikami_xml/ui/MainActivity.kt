@@ -20,13 +20,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        var stat = true
 
         installSplashScreen().apply {
-            setKeepOnScreenCondition{
+            setKeepOnScreenCondition {
                 lifecycleScope.launch {
                     delay(3000)
+                    stat = false
                 }
-                false
+                stat
             }
         }
 
