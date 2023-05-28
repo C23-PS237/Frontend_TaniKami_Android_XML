@@ -148,6 +148,26 @@
                 android:inputType="phone" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ageEditTextLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            app:startIconDrawable="@drawable/age"
+            app:startIconTint="@color/green700"
+            app:boxStrokeColor="@color/green700">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ageEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_age"
+                android:textColorHint="@color/green700"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
         <Button
             android:id="@+id/btn_sign_up"
             android:layout_width="@dimen/_260sdp"
