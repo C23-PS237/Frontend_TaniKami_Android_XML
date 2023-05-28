@@ -51,4 +51,6 @@
 
     <string name="settings">Settings</string>
     <string name="logout">Log Out</string>
+
+    <string name="fab">Adding new product to sell</string>
 </resources>

@@ -10,28 +10,27 @@
         android:id="@+id/tv_detection_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
         android:text="@string/detection_title"
         android:textAlignment="center"
         android:textSize="@dimen/_18ssp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/iv_detection"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
         android:id="@+id/iv_detection"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_273sdp"
-        android:layout_marginStart="@dimen/_16sdp"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_margin="@dimen/_16sdp"
         android:outlineProvider="background"
-        app:layout_constraintTop_toBottomOf="@+id/tv_detection_title"
         android:contentDescription="@string/plant_image"
-        app:srcCompat="@drawable/image" />
+        app:srcCompat="@drawable/image"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detection_title"/>
 
     <Button
         android:id="@+id/btn_gallery"

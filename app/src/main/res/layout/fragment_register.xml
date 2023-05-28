@@ -168,6 +168,7 @@
                 android:textColorHint="@color/green700"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <Button
             android:id="@+id/btn_sign_up"
             android:layout_width="@dimen/_260sdp"
