@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.bangkit.tanikami_xml.R
 import com.bangkit.tanikami_xml.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -24,9 +26,10 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        binding.toDetail.setOnClickListener {
+        binding.fabSell.setOnClickListener {
+            findNavController().navigate(R.id.action_nav_home_to_detailFragment)
 //            findNavController().navigate(R.id.action_nav_home_to_detailFragment)
-//        }
+        }
     }
 
     override fun onDestroy() {

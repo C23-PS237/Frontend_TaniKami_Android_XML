@@ -37,7 +37,12 @@
     <string name="products_image">Products Image</string>
     <string name="products_name">Products Name</string>
     <string name="products_description">Products Description</string>
+    <string name="products_stock">Products Stock</string>
     <string name="products_price">Products Price</string>
+    <string name="products_rating">Rating Product</string>
+    <string name="products_amount">Amount To Buy</string>
+    <string name="buy">Buy</string>
+    <string name="hint_amount">Fill the anount of product you wanna buy</string>
     <string name="sold_out">Stock Empty</string>
 
     <string name="plant_image">Plant Image</string>
@@ -53,4 +58,6 @@
     <string name="logout">Log Out</string>
 
     <string name="fab">Adding new product to sell</string>
+    <string name="fab_edit">Edit Product</string>
+    <string name="fab_rating_products">Edit Product</string>
 </resources>

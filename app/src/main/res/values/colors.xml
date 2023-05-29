@@ -7,4 +7,6 @@
     <color name="green200">#6B438B4A</color>
     <color name="green500">#B3438B4A</color>
     <color name="greenCard">#ABF9B3</color>
+    <color name="greySpace">#ECEBEB</color>
+    <color name="placeholder">#858181</color>
 </resources>
