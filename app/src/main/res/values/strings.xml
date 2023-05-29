@@ -60,4 +60,6 @@
     <string name="fab">Adding new product to sell</string>
     <string name="fab_edit">Edit Product</string>
     <string name="fab_rating_products">Edit Product</string>
+
+    <string name="price_out">Rp. %s</string>
 </resources>
