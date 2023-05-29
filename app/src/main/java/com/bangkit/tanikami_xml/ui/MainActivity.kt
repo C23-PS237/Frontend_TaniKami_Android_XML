@@ -12,9 +12,11 @@ import androidx.navigation.ui.setupWithNavController
 import com.bangkit.tanikami_xml.R
 import com.bangkit.tanikami_xml.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
