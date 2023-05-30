@@ -3,6 +3,7 @@ package com.bangkit.tanikami_xml.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
@@ -10,7 +11,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bangkit.tanikami_xml.R
+import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.databinding.ActivityMainBinding
+import com.bangkit.tanikami_xml.ui.home.HomeViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
@@ -19,17 +22,22 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private val viewModel by viewModels<HomeViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         var stat = true
 
+        viewModel.getAllProducts().observe(this@MainActivity) {
+            when (it) {
+                is Response.Loading -> { stat = true }
+                is Response.Success -> { stat = false }
+                is Response.Error -> { stat = false }
+            }
+        }
+
         installSplashScreen().apply {
             setKeepOnScreenCondition {
-                lifecycleScope.launch {
-                    delay(3000)
-                    stat = false
-                }
                 stat
             }
         }

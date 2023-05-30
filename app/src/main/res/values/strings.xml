@@ -44,7 +44,6 @@
     <string name="gallery">Gallery</string>
     <string name="camera">Camera</string>
     <string name="submit">Submit</string>
-    <string name="plant_image">Plant Image</string>
 
 <!--For Products(HomeFragment&DetailFragment)-->
     <string name="products_image">Products Image</string>
@@ -67,4 +66,6 @@
     <string name="article_image">Article Image</string>
     <string name="article_title">Article Title</string>
     <string name="article_body">Article Body</string>
+
+    <string name="price_out">Rp. %s</string>
 </resources>
