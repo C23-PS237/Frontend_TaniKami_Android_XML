@@ -40,6 +40,7 @@
 <!--Fragment Uploading Bill&Fragment Detection-->
     <string name="detection_title">Plant Disease \nDetection</string>
     <string name="bill_image">Bill Image</string>
+    <string name="plant_image">Plant Image</string>
     <string name="upload_transfer_bill">Upload Transfer Bill</string>
     <string name="gallery">Gallery</string>
     <string name="camera">Camera</string>
@@ -56,6 +57,7 @@
     <string name="buy">Buy</string>
     <string name="hint_amount">Fill the anount of product you wanna buy</string>
     <string name="sold_out">Stock Empty</string>
+
 
 <!--Floating Action Button-->
     <string name="fab">Adding new product to sell</string>
