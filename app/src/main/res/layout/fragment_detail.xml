@@ -20,7 +20,8 @@
                 android:id="@+id/iv_products_detail"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_230sdp"
-                android:contentDescription="@string/products_image"/>
+                android:contentDescription="@string/products_image"
+                app:srcCompat="@drawable/image"/>
 
             <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="411dp"
@@ -129,6 +130,7 @@
                     android:contentDescription="@string/fab_rating_products"
                     android:background="@android:color/transparent"
                     android:src="@drawable/arrow_right"
+                    android:layout_gravity="end"
                     android:layout_marginTop="@dimen/_8sdp"
                     android:layout_marginStart="@dimen/_7sdp"
                     android:layout_marginEnd="@dimen/_16sdp"
@@ -176,6 +178,7 @@
     </ScrollView>
 
         <Button
+            android:id="@+id/btn_buy"
             android:layout_width="@dimen/_260sdp"
             android:layout_height="@dimen/_47sdp"
             android:layout_marginStart="@dimen/_50sdp"
