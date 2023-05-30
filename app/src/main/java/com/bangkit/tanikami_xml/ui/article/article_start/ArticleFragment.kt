@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.tanikami_xml.R
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.data.model.Article
@@ -34,7 +33,6 @@ class ArticleFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         showListArticles()
     }
 
@@ -44,7 +42,7 @@ class ArticleFragment : Fragment() {
 
     private fun showListArticles() {
         binding.apply {
-            rvArticle.layoutManager = LinearLayoutManager(requireContext())
+            rvArticle.layoutManager = LinearLayoutManager(requireActivity())
             articleViewModel.getArticle().observe(requireActivity()) {
                 when (it) {
                     is Response.Loading -> setLoading(true)
@@ -63,7 +61,7 @@ class ArticleFragment : Fragment() {
                         listData.setOnItemClickCallback(object :
                             ArticleAdapter.OnItemClickCallback {
                             override fun onArticleClicked(data: Article) {
-                                findNavController().navigate(R.id.action_nav_home_to_detailFragment)
+                                findNavController().navigate(R.id.action_nav_article_to_detailArticleFragment)
                             }
                         })
                     }
