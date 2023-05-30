@@ -53,6 +53,7 @@ class HomeFragment : Fragment() {
                     }
                     is Response.Success -> {
                         val listData = HomeProductAdapter(it.data)
+                        rvProductSell.setHasFixedSize(true)
                         rvProductSell.adapter = listData
 
                         listData.setOnItemClickCallback(object: HomeProductAdapter.OnItemClickCallback {
