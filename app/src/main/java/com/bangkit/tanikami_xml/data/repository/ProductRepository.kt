@@ -6,6 +6,7 @@ import androidx.lifecycle.liveData
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.data.model.FakeDataSource
 import com.bangkit.tanikami_xml.data.model.Product
+import com.bangkit.tanikami_xml.data.model.Article
 import retrofit2.HttpException
 
 class ProductRepository {
@@ -15,9 +16,18 @@ class ProductRepository {
         try {
             emit(Response.Success(FakeDataSource.fakeDataProduct))
         } catch (e: HttpException) {
-            Log.d("Repository", "getAllProduct: ${e.message}")
+            Log.d("Repository", "getAllProducts: ${e.message}")
             emit(Response.Error(e.message.toString()))
         }
     }
 
+    fun getArticle(): LiveData<Response<List<Article>>> = liveData {
+        emit(Response.Loading)
+        try {
+            emit(Response.Success(FakeDataSource.articleBasis))
+        } catch (e: HttpException) {
+            Log.d("Repository", "getArticle: ${e.message}")
+            emit(Response.Error(e.message.toString()))
+        }
+    }
 }

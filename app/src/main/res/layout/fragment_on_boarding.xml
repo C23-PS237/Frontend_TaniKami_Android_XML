@@ -85,7 +85,7 @@
         android:text="@string/main_ver"
         android:textStyle="bold"
         android:textAlignment="center"
-        android:textSize="@dimen/_8ssp"
+        android:textSize="@dimen/_10ssp"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -38,12 +38,15 @@ class HomeFragment : Fragment() {
         showListProducts()
     }
 
+    private fun setLoading(bool: Boolean) {
+        binding.progressBar.visibility = if (bool) View.VISIBLE else View.GONE
+    }
     private fun showListProducts() {
         binding.apply {
             rvProductSell.layoutManager = GridLayoutManager(requireActivity(), 2)
             homeViewModel.getAllProducts().observe(requireActivity()) {
                 when (it) {
-                    is Response.Loading -> ""
+                    is Response.Loading -> setLoading(true)
                     is Response.Error -> {
                         Snackbar.make(
                             binding.root,
