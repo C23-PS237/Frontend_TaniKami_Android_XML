@@ -1,6 +1,6 @@
 package com.bangkit.tanikami_xml.data.model
 
-data class artikel (
+data class Article (
     val id_artikel: Int,
     val body: String,
     val gambar_artikel: String,
