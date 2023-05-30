@@ -36,7 +36,7 @@ class HomeProductAdapter @Inject constructor(private val listProduct: List<Produ
 
             tvProductsName.text = item.nama_product
             tvProductsDescription.text = item.deskripsi_product
-            tvPrice.text = holder.itemView.context.getString(R.string.price_out, formatIDRCurrency(item.harga))
+            tvPrice.text = formatIDRCurrency(item.harga)
 
             holder.itemView.setOnClickListener {
                 onItemClickCallback.onProductClicked(listProduct[holder.bindingAdapterPosition])

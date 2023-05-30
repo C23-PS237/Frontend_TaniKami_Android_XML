@@ -69,6 +69,4 @@
     <string name="article_title">Article Title</string>
     <string name="article_body">Article Body</string>
     <string name="article_author">Article Author</string>
-
-    <string name="price_out">Rp. %s</string>
 </resources>

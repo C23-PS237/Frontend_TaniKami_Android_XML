@@ -33,6 +33,7 @@ class ArticleAdapter @Inject constructor(private val listArticle: List<Article>)
                 .into(ivArticle)
 
             tvArticleAuthor.text = item.author
+            tvArticleTitle.text = item.title
             tvArticleBody.text = item.body
 
             holder.itemView.setOnClickListener {

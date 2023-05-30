@@ -21,14 +21,16 @@ class ArticleFragment : Fragment() {
 
     private var _binding: FragmentArticleBinding? = null
     private val binding get() = _binding!!
+
     private val articleViewModel by viewModels<ArticleViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_article, container, false)
+        _binding = FragmentArticleBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,8 +38,8 @@ class ArticleFragment : Fragment() {
         showListArticles()
     }
 
-    private fun setLoading(bool: Boolean) {
-        binding.progressBar.visibility = if (bool) View.VISIBLE else View.GONE
+    private fun setLoading(state: Boolean) {
+        binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
     }
 
     private fun showListArticles() {
@@ -45,7 +47,7 @@ class ArticleFragment : Fragment() {
             rvArticle.layoutManager = LinearLayoutManager(requireActivity())
             articleViewModel.getArticle().observe(requireActivity()) {
                 when (it) {
-                    is Response.Loading -> setLoading(true)
+                    is Response.Loading -> "" // set kosong dulu masih ada masalah lifecycle
                     is Response.Error -> {
                         Snackbar.make(
                             binding.root,

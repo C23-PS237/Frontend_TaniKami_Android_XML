@@ -63,10 +63,10 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
 
         navController.addOnDestinationChangedListener { _, destinationRoute, _ ->
-            if (destinationRoute.id == R.id.detailFragment || destinationRoute.id == R.id.onBoardingFragment || destinationRoute.id == R.id.loginFragment || destinationRoute.id == R.id.registerFragment) {
-                binding.navBotView.visibility = View.GONE
-            } else {
+            if (destinationRoute.id == R.id.nav_home || destinationRoute.id == R.id.nav_profile || destinationRoute.id == R.id.nav_detection || destinationRoute.id == R.id.nav_article) {
                 binding.navBotView.visibility = View.VISIBLE
+            } else {
+                binding.navBotView.visibility = View.GONE
             }
         }
 

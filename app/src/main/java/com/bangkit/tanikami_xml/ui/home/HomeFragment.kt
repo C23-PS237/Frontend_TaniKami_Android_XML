@@ -1,6 +1,7 @@
 package com.bangkit.tanikami_xml.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -38,15 +39,16 @@ class HomeFragment : Fragment() {
         showListProducts()
     }
 
-    private fun setLoading(bool: Boolean) {
-        binding.progressBar.visibility = if (bool) View.VISIBLE else View.GONE
+    private fun setLoading(state: Boolean) {
+        binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
     }
+
     private fun showListProducts() {
         binding.apply {
             rvProductSell.layoutManager = GridLayoutManager(requireActivity(), 2)
             homeViewModel.getAllProducts().observe(requireActivity()) {
                 when (it) {
-                    is Response.Loading -> setLoading(true)
+                    is Response.Loading -> "" // loading jangan di set true dulu disini soalnya ada loading di awal splash jadi biarin kosong dulu
                     is Response.Error -> {
                         Snackbar.make(
                             binding.root,
@@ -73,6 +75,12 @@ class HomeFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+        Log.e("HOMEO", "onDestroy: ooooohhhh Destroyed MAMA") // testing lifecycle fragment
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.e("HOMEO", "onStart: OHHH MAMA I'AM BACK")  // testing lifecycle fragment
     }
 
     companion object {
