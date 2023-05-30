@@ -54,8 +54,6 @@
             android:textSize="@dimen/_16ssp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             tools:text="@string/article_title" />
 
             <TextView
@@ -70,11 +68,6 @@
                 android:maxLines="4"
                 android:ellipsize="end"
                 android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_article_author"
                 tools:text="@string/article_body" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
