@@ -18,11 +18,11 @@
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginStart="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_16sdp"
+            style="@style/Widget.Material3.CircularProgressIndicator.Medium"
             android:backgroundTint="@android:color/transparent"
             android:drawableTop="@drawable/settings"
             android:text="@string/settings"
             android:textColor="@color/green700"
-
             android:textAllCaps="false"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

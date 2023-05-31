@@ -11,7 +11,7 @@
         android:title="@string/article"/>
     <item
         android:id="@+id/nav_detection"
-        android:icon="@drawable/camera"
+        android:icon="@drawable/baseline_camera"
         android:title="@string/detection"/>
     <item
         android:id="@+id/nav_profile"

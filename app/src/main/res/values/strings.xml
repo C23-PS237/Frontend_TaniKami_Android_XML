@@ -16,6 +16,8 @@
     <string name="sign_up_words">Sign Up now, and start buy and sell as you like.</string>
     <string name="for_sign_in">Already have an Account ?</string>
     <string name="to_sign_in">Sign In</string>
+    <string name="for_profile_image">Insert your photo for photo profile</string>
+    <string name="profile_image">Image for profile</string>
 
 <!--Sign In-->
     <string name="sign_in">Sign In</string>
@@ -69,4 +71,14 @@
     <string name="article_title">Article Title</string>
     <string name="article_body">Article Body</string>
     <string name="article_author">Article Author</string>
+    
+<!--Add Product-->
+    <string name="product_name">Product Name</string>
+    <string name="bank_name">Bank Name</string>
+    <string name="bank_account_number">Bank Account Number</string>
+    <string name="stock">Stock</string>
+    <string name="stock_size">Stock Size(kg atau ikat)</string>
+    <string name="product_price">Product Price</string>
+    <string name="product_description">Product Description</string>
+    <string name="done">Done</string>
 </resources>
