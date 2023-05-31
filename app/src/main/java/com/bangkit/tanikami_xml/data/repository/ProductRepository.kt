@@ -34,7 +34,6 @@ class ProductRepository {
 
     fun getDetailArticle(id_artikel: Int): LiveData<Response<Article>> = liveData {
         emit(Response.Loading)
-        var data: Article? = null
         try {
             FakeDataSource.articleBasis.forEach {
                 if (it.id_artikel == id_artikel) {
