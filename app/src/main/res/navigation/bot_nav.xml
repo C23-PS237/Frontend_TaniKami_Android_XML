@@ -141,6 +141,9 @@
         <action
             android:id="@+id/action_confirmPaymentFragment_to_paymentsStepFragment"
             app:destination="@id/paymentsStepFragment" />
+        <action
+            android:id="@+id/action_confirmPaymentFragment_to_detailFragment"
+            app:popUpTo="@id/detailFragment" />
     </fragment>
 
     <fragment
