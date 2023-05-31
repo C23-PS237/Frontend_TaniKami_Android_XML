@@ -72,7 +72,9 @@
     <string name="article_body">Article Body</string>
     <string name="article_author">Article Author</string>
 
-    <!--Add Product-->
+    <!--Add & Edit Product-->
+    <string name="add_product">Add Product</string>
+    <string name="edit_product">Edit Product</string>
     <string name="product_name">Product Name</string>
     <string name="bank_name">Bank Name</string>
     <string name="bank_account_number">Bank Account Number</string>
