@@ -30,7 +30,7 @@
             android:layout_marginStart="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_22sdp"
-            android:background="@drawable/stroke_bg">
+            android:foreground="@drawable/stroke_bg">
 
             <ImageView
                 android:id="@+id/iv_products"
