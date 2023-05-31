@@ -1,4 +1,4 @@
-package com.bangkit.tanikami_xml.ui.article.article_start
+package com.bangkit.tanikami_xml.ui.article
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -15,5 +15,9 @@ class ArticleViewModel @Inject constructor(
 
     fun getArticle() : LiveData<Response<List<Article>>> {
         return articleRepo.getArticle()
+    }
+
+    fun getDetailArtikel(id_artikel: Int): LiveData<Response<Article>> {
+        return articleRepo.getDetailArticle(id_artikel)
     }
 }

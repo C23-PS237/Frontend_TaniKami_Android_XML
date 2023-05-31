@@ -141,7 +141,12 @@
         android:id="@+id/detailArticleFragment"
         android:name="com.bangkit.tanikami_xml.ui.article.detail_article.DetailArticleFragment"
         android:label="fragment_detail_article"
-        tools:layout="@layout/fragment_detail_article" />
+        tools:layout="@layout/fragment_detail_article" >
+        <argument
+            android:name="id_artikel"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
     <fragment
         android:id="@+id/historyBuyFragment"
         android:name="com.bangkit.tanikami_xml.ui.history.buying_history.HistoryBuyFragment"

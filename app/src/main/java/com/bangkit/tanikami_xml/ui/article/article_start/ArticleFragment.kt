@@ -12,6 +12,7 @@ import com.bangkit.tanikami_xml.R
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.data.model.Article
 import com.bangkit.tanikami_xml.databinding.FragmentArticleBinding
+import com.bangkit.tanikami_xml.ui.article.ArticleViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -63,7 +64,9 @@ class ArticleFragment : Fragment() {
                         listData.setOnItemClickCallback(object :
                             ArticleAdapter.OnItemClickCallback {
                             override fun onArticleClicked(data: Article) {
-                                findNavController().navigate(R.id.action_nav_article_to_detailArticleFragment)
+                                val toDetailArticleFragment = ArticleFragmentDirections.actionNavArticleToDetailArticleFragment()
+                                toDetailArticleFragment.idArtikel = data.id_artikel
+                                findNavController().navigate(toDetailArticleFragment)
                             }
                         })
                     }

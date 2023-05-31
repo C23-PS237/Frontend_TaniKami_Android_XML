@@ -8,6 +8,7 @@ import com.bangkit.tanikami_xml.data.model.FakeDataSource
 import com.bangkit.tanikami_xml.data.model.Product
 import com.bangkit.tanikami_xml.data.model.Article
 import retrofit2.HttpException
+import java.lang.Exception
 
 class ProductRepository {
 
@@ -27,6 +28,21 @@ class ProductRepository {
             emit(Response.Success(FakeDataSource.articleBasis))
         } catch (e: HttpException) {
             Log.d("Repository", "getArticle: ${e.message}")
+            emit(Response.Error(e.message.toString()))
+        }
+    }
+
+    fun getDetailArticle(id_artikel: Int): LiveData<Response<Article>> = liveData {
+        emit(Response.Loading)
+        var data: Article? = null
+        try {
+            FakeDataSource.articleBasis.forEach {
+                if (it.id_artikel == id_artikel) {
+                    emit(Response.Success(it))
+                }
+            }
+        } catch (e: Exception) {
+            Log.d("RepoDetail", "getDetailArticle: ${e.message}")
             emit(Response.Error(e.message.toString()))
         }
     }
