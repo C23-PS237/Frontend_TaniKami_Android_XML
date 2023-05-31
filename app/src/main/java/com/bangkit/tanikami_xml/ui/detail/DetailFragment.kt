@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.bangkit.tanikami_xml.R
-import com.bangkit.tanikami_xml.databinding.FragmentAddProductBinding
 import com.bangkit.tanikami_xml.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,6 +28,9 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.fabEditDetail.setOnClickListener{
             findNavController().navigate(R.id.action_detailFragment_to_editProductFragment)
+        }
+        binding.btnBuy.setOnClickListener{
+            findNavController().navigate(R.id.action_detailFragment_to_confirmPaymentFragment)
         }
     }
 

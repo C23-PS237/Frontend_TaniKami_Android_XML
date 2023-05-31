@@ -83,4 +83,15 @@
     <string name="product_price">Product Price</string>
     <string name="product_description">Product Description</string>
     <string name="done">Done</string>
+
+<!--Payment-->
+    <string name="payment_confirmation">Payment Confirmation</string>
+    <string name="cost_details_title">Cost Details</string>
+    <string name="tax">Tax(2%)</string>
+    <string name="admin">Admin</string>
+    <string name="admin_cost">Rp 2000</string>
+    <string name="total">Total</string>
+    <string name="total_payment">Rp Total</string>
+    <string name="cancel">Cancel</string>
+    <string name="pay">Pay</string>
 </resources>
