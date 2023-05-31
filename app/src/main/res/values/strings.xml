@@ -6,12 +6,12 @@
     <string name="article">Article</string>
     <string name="detection">Detection</string>
 
-<!--OnBoarding-->
+    <!--OnBoarding-->
     <string name="main_ver">Tani Kami ver 1.0.0</string>
     <string name="description_main">TaniKami is created to help farmer to sell their harvest directly to customer in another area even in bountiful harvest season.</string>
     <string name="welcome">Welcome to TaniKami</string>
 
-<!--Sign Up-->
+    <!--Sign Up-->
     <string name="sign_up">Sign Up</string>
     <string name="sign_up_words">Sign Up now, and start buy and sell as you like.</string>
     <string name="for_sign_in">Already have an Account ?</string>
@@ -19,13 +19,13 @@
     <string name="for_profile_image">Insert your photo for photo profile</string>
     <string name="profile_image">Image for profile</string>
 
-<!--Sign In-->
+    <!--Sign In-->
     <string name="sign_in">Sign In</string>
     <string name="sign_in_words">Login now and sell your harvest quickly \nbefore product price go down.</string>
     <string name="for_sign_up">Don’t have an Account ?</string>
     <string name="to_sign_up">Sign Up</string>
 
-<!--Hint-->
+    <!--Hint-->
     <string name="hint_name">Name</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
@@ -33,13 +33,13 @@
     <string name="hint_phone_number">Phone Number</string>
     <string name="hint_age">Age</string>
 
-<!--Profile-->
+    <!--Profile-->
     <string name="settings">Settings</string>
     <string name="logout">Log Out</string>
     <string name="purchase_history">Purchase History</string>
     <string name="sales_history">Sales History</string>
 
-<!--Fragment Uploading Bill&Fragment Detection-->
+    <!--Fragment Uploading Bill&Fragment Detection-->
     <string name="detection_title">Plant Disease \nDetection</string>
     <string name="bill_image">Bill Image</string>
     <string name="plant_image">Plant Image</string>
@@ -48,7 +48,7 @@
     <string name="camera">Camera</string>
     <string name="submit">Submit</string>
 
-<!--For Products(HomeFragment&DetailFragment)-->
+    <!--For Products(HomeFragment&DetailFragment)-->
     <string name="products_image">Products Image</string>
     <string name="products_name">Products Name</string>
     <string name="products_description">Products Description</string>
@@ -61,18 +61,18 @@
     <string name="sold_out">Stock Empty</string>
 
 
-<!--Floating Action Button-->
+    <!--Floating Action Button-->
     <string name="fab">Adding new product to sell</string>
     <string name="fab_edit">Edit Product</string>
     <string name="fab_rating_products">Edit Product</string>
 
-<!--Article-->
+    <!--Article-->
     <string name="article_image">Article Image</string>
     <string name="article_title">Article Title</string>
     <string name="article_body">Article Body</string>
     <string name="article_author">Article Author</string>
-    
-<!--Add Product-->
+
+    <!--Add Product-->
     <string name="product_name">Product Name</string>
     <string name="bank_name">Bank Name</string>
     <string name="bank_account_number">Bank Account Number</string>

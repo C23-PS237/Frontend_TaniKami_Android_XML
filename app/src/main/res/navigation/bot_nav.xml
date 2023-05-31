@@ -60,6 +60,12 @@
         <action
             android:id="@+id/action_detailFragment_to_confirmPaymentFragment"
             app:destination="@id/confirmPaymentFragment" />
+        <action
+            android:id="@+id/action_detailFragment_to_editProductFragment"
+            app:destination="@id/editProductFragment"
+            app:popUpTo="@id/editProductFragment"
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true" />
     </fragment>
 
     <fragment
@@ -172,4 +178,9 @@
         android:name="com.bangkit.tanikami_xml.ui.payment.uploading_bill.UploadingBillFragment"
         android:label="fragment_uploading_bill"
         tools:layout="@layout/fragment_uploading_bill" />
+    <fragment
+        android:id="@+id/editProductFragment"
+        android:name="com.bangkit.tanikami_xml.ui.product.adding_editing.EditProductFragment"
+        android:label="fragment_edit_product"
+        tools:layout="@layout/fragment_edit_product" />
 </navigation>
