@@ -88,6 +88,13 @@
     <string name="product_description">Product Description</string>
     <string name="done">Done</string>
 
+    <string name="product_name_confirm">Product Name:</string>
+    <string name="product_stock_confirm">Product Stock:</string>
+    <string name="product_price_confirm">Price:</string>
+    <string name="bank_name_confirm">Bank Name:</string>
+    <string name="account_number_confirm">Acc. Number:</string>
+    <string name="sell">Sell</string>
+
     <!--Payment-->
     <string name="payment_confirmation">Payment Confirmation</string>
     <string name="cost_details_title">Cost Details</string>
@@ -122,6 +129,7 @@
     <string name="arrived_status">Arrived Status</string>
     <string name="payment_status">Payment Status</string>
     <string name="gender">Select Gender</string>
+
 
     <string-array name="label">
         <item>Apple Scab</item>
