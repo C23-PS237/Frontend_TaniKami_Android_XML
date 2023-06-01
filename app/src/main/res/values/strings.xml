@@ -16,7 +16,7 @@
     <string name="sign_up_words">Sign Up now, and start buy and sell as you like.</string>
     <string name="for_sign_in">Already have an Account ?</string>
     <string name="to_sign_in">Sign In</string>
-    <string name="for_profile_image">Insert your photo for photo profile</string>
+    <string name="for_profile_image">Insert photo profile</string>
     <string name="profile_image">Image for profile</string>
 
     <!--Sign In-->
@@ -111,6 +111,7 @@
     <string name="button_upload_bill">Upload Transfer Bill</string>
     <string name="classified_as">Classified as : %s</string>
     <string name="pick_one_picture">Pick One Picture</string>
+    <string name="permission">No Permission Granted, App Closed!!</string>
 
 <!--Purchase History-->
     <string name="received">Has Been Received</string>

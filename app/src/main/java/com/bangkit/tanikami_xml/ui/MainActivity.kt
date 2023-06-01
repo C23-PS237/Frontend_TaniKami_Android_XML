@@ -1,12 +1,15 @@
 package com.bangkit.tanikami_xml.ui
 
 import android.Manifest
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
@@ -60,9 +63,6 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        requestGalleryPermission()
-        requestGalleryPermission()
-
         val navView: BottomNavigationView = binding.navBotView
         //navView.itemActiveIndicatorColor = getColorStateList(androidx.appcompat.R.color.primary_dark_material_dark)
         //navView.itemIconTintList = null
@@ -96,13 +96,37 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
-    private fun requestGalleryPermission() {
-        val permission = Manifest.permission.READ_EXTERNAL_STORAGE
-        requestPermissionLauncher.launch(permission)
+    override fun onStart() {
+        super.onStart()
+        if (!isAllPermissionGranted()) {
+            ActivityCompat.requestPermissions(
+                this@MainActivity,
+                REQUIRED_PERMISSION,
+                REQUEST_CODE_PERMISSION
+            )
+        }
     }
 
-    private fun requestCameraPermission() {
-        val permission = Manifest.permission.CAMERA
-        requestPermissionLauncher.launch(permission)
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUEST_CODE_PERMISSION) {
+            if (!isAllPermissionGranted()) {
+                Toast.makeText(this@MainActivity, getString(R.string.permission), Toast.LENGTH_SHORT).show()
+                finish()
+            }
+        }
+    }
+
+    private fun isAllPermissionGranted() = REQUIRED_PERMISSION.all {
+        ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
+    }
+
+    companion object {
+        private val REQUIRED_PERMISSION = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE)
+        private const val REQUEST_CODE_PERMISSION = 10
     }
 }
