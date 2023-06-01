@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import androidx.navigation.fragment.findNavController
 import com.bangkit.tanikami_xml.R
 import com.bangkit.tanikami_xml.databinding.FragmentRegisterBinding
@@ -28,6 +30,8 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setGender()
+
         binding.toSignIn.setOnClickListener {
             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
@@ -35,6 +39,13 @@ class RegisterFragment : Fragment() {
         binding.btnSignUp.setOnClickListener {
             findNavController().navigate(R.id.action_registerFragment_to_nav_home)
         }
+    }
+
+    private fun setGender() {
+        // set up dropdown for gender
+        val genders = resources.getStringArray(R.array.gender)
+        val adapter = ArrayAdapter(requireContext(), R.layout.dropdown_register, genders)
+        binding.genderAutoComplete.setAdapter(adapter)
     }
 
     override fun onDestroy() {

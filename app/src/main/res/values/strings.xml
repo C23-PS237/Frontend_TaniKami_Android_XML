@@ -18,6 +18,10 @@
     <string name="to_sign_in">Sign In</string>
     <string name="for_profile_image">Insert photo profile</string>
     <string name="profile_image">Image for profile</string>
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
 
     <!--Sign In-->
     <string name="sign_in">Sign In</string>
@@ -117,6 +121,7 @@
     <string name="received">Has Been Received</string>
     <string name="arrived_status">Arrived Status</string>
     <string name="payment_status">Payment Status</string>
+    <string name="gender">Select Gender</string>
 
     <string-array name="label">
         <item>Apple Scab</item>
