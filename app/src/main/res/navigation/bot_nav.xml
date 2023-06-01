@@ -131,6 +131,15 @@
         <action
             android:id="@+id/action_confirmAddProductFragment_to_nav_home"
             app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_confirmAddProductFragment_to_addProductFragment"
+            app:popUpTo="@id/addProductFragment" />
+        <action
+            android:id="@+id/action_confirmAddProductFragment_to_editProductFragment"
+            app:popUpTo="@id/editProductFragment" />
+        <action
+            android:id="@+id/action_confirmAddProductFragment_to_historySellFragment"
+            app:popUpTo="@id/historySellFragment" />
     </fragment>
 
     <fragment
@@ -160,12 +169,20 @@
         android:id="@+id/historyBuyFragment"
         android:name="com.bangkit.tanikami_xml.ui.history.buying_history.HistoryBuyFragment"
         android:label="fragment_history_buy"
-        tools:layout="@layout/fragment_history_buy" />
+        tools:layout="@layout/fragment_history_buy" >
+        <action
+            android:id="@+id/action_historyBuyFragment_to_detailFragment"
+            app:popUpTo="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/historySellFragment"
         android:name="com.bangkit.tanikami_xml.ui.history.selling_history.HistorySellFragment"
         android:label="fragment_history_sell"
-        tools:layout="@layout/fragment_history_sell" />
+        tools:layout="@layout/fragment_history_sell" >
+        <action
+            android:id="@+id/action_historySellFragment_to_detailFragment"
+            app:popUpTo="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/paymentsStepFragment"
         android:name="com.bangkit.tanikami_xml.ui.payment.payment_steps.PaymentsStepFragment"
@@ -195,7 +212,11 @@
         android:id="@+id/editProductFragment"
         android:name="com.bangkit.tanikami_xml.ui.product.adding_editing.EditProductFragment"
         android:label="fragment_edit_product"
-        tools:layout="@layout/fragment_edit_product" />
+        tools:layout="@layout/fragment_edit_product" >
+        <action
+            android:id="@+id/action_editProductFragment_to_confirmAddProductFragment"
+            app:popUpTo="@id/confirmAddProductFragment" />
+    </fragment>
     <fragment
         android:id="@+id/cameraFragment"
         android:name="com.bangkit.tanikami_xml.CameraFragment"

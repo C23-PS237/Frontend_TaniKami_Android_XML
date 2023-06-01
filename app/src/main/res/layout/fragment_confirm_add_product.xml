@@ -195,6 +195,7 @@
         android:layout_marginEnd="@dimen/_16sdp"
         android:orientation="horizontal">
         <Button
+            android:id="@+id/btnCancel"
             android:layout_width="@dimen/_135sdp"
             android:layout_height="@dimen/_46sdp"
             android:layout_marginTop="@dimen/_48sdp"
@@ -205,6 +206,7 @@
             android:textStyle="bold"/>
 
         <Button
+            android:id="@+id/btnSell"
             android:layout_width="@dimen/_135sdp"
             android:layout_height="@dimen/_46sdp"
             android:layout_marginTop="@dimen/_48sdp"
