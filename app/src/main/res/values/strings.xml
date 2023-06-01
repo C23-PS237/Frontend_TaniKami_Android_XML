@@ -84,7 +84,7 @@
     <string name="product_description">Product Description</string>
     <string name="done">Done</string>
 
-<!--Payment-->
+    <!--Payment-->
     <string name="payment_confirmation">Payment Confirmation</string>
     <string name="cost_details_title">Cost Details</string>
     <string name="tax">Tax(2%)</string>

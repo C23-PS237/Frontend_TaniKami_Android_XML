@@ -187,10 +187,22 @@
         <action
             android:id="@+id/action_uploadingBillFragment_to_paymentsStepFragment"
             app:popUpTo="@id/paymentsStepFragment" />
+        <action
+            android:id="@+id/action_uploadingBillFragment_to_cameraFragment"
+            app:popUpTo="@id/cameraFragment" />
     </fragment>
     <fragment
         android:id="@+id/editProductFragment"
         android:name="com.bangkit.tanikami_xml.ui.product.adding_editing.EditProductFragment"
         android:label="fragment_edit_product"
         tools:layout="@layout/fragment_edit_product" />
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.bangkit.tanikami_xml.CameraFragment"
+        android:label="fragment_camera"
+        tools:layout="@layout/fragment_camera" >
+        <action
+            android:id="@+id/action_cameraFragment_to_uploadingBillFragment"
+            app:popUpTo="@id/uploadingBillFragment" />
+    </fragment>
 </navigation>
