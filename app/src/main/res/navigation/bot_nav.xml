@@ -174,13 +174,20 @@
         <action
             android:id="@+id/action_paymentsStepFragment_to_uploadingBillFragment"
             app:destination="@id/uploadingBillFragment" />
+        <action
+            android:id="@+id/action_paymentsStepFragment_to_historyBuyFragment"
+            app:popUpTo="@id/historyBuyFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/uploadingBillFragment"
         android:name="com.bangkit.tanikami_xml.ui.payment.uploading_bill.UploadingBillFragment"
         android:label="fragment_uploading_bill"
-        tools:layout="@layout/fragment_uploading_bill" />
+        tools:layout="@layout/fragment_uploading_bill" >
+        <action
+            android:id="@+id/action_uploadingBillFragment_to_paymentsStepFragment"
+            app:popUpTo="@id/paymentsStepFragment" />
+    </fragment>
     <fragment
         android:id="@+id/editProductFragment"
         android:name="com.bangkit.tanikami_xml.ui.product.adding_editing.EditProductFragment"

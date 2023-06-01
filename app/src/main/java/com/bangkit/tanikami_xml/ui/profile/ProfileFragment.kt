@@ -31,6 +31,12 @@ class ProfileFragment : Fragment() {
         binding.btnLogout.setOnClickListener {
             findNavController().navigate(R.id.action_nav_profile_to_onBoardingFragment)
         }
+        binding.btnPurchaseHistory.setOnClickListener {
+            findNavController().navigate(R.id.action_nav_profile_to_historyBuyFragment)
+        }
+        binding.btnPurchaseHistory.setOnClickListener {
+            findNavController().navigate(R.id.action_nav_profile_to_historySellFragment)
+        }
     }
 
     override fun onDestroy() {

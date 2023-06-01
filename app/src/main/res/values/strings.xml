@@ -94,4 +94,17 @@
     <string name="total_payment">Rp Total</string>
     <string name="cancel">Cancel</string>
     <string name="pay">Pay</string>
+
+    <string name="transfer_info">Transfer Information</string>
+    <string name="must_be_paid">Total that must be paid:</string>
+    <string name="total_note">  Pay according to the nominal stated.</string>
+    <string name="payment_method_note">Use MBangking / ATM to pay</string>
+    <string name="bank_name_payment">Bank Name</string>
+    <string name="bank_account_number_payment">Account Number :</string>
+    <string name="the_bank_account_number_payment">The Account Number</string>
+    <string name="payment_note">  Payment must be made at least 24 hours from order</string>
+    <string name="copy">COPY</string>
+    <string name="payment_method_info">Payment method via MBangking</string>
+    <string name="payment_step">1. Maximum proof of payment can be uploaded within 24 hours.\n2. Upload proof of transfer before __/__/____</string>
+    <string name="button_upload_bill">Upload Transfer Bill</string>
 </resources>
