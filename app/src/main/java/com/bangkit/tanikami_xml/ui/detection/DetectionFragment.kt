@@ -16,13 +16,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.FileProvider
 import com.bangkit.tanikami_xml.R
 import com.bangkit.tanikami_xml.databinding.FragmentDetectionBinding
 import com.bangkit.tanikami_xml.ml.Model2
-import com.bangkit.tanikami_xml.utils.ImageProcessor.createTemporaryFile
-import com.bangkit.tanikami_xml.utils.ImageProcessor.imageFromUri
-import com.bangkit.tanikami_xml.utils.ImageProcessor.uriToFile
 import dagger.hilt.android.AndroidEntryPoint
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
