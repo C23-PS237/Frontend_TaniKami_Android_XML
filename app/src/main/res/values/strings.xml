@@ -107,4 +107,47 @@
     <string name="payment_method_info">Payment method via MBangking</string>
     <string name="payment_step">1. Maximum proof of payment can be uploaded within 24 hours.\n2. Upload proof of transfer before __/__/____</string>
     <string name="button_upload_bill">Upload Transfer Bill</string>
+    <string name="classified_as">Classified as : %s</string>
+    <string name="pick_one_picture">Pick One Picture</string>
+
+    <string-array name="label">
+        <item>Apple Scab</item>
+        <item>Apple Black Rot</item>
+        <item>Apple Cedar Rust</item>
+        <item>Apple Healthy</item>
+        <item>Blueberry Healthy</item>
+        <item>Cherry Powdery Mildew</item>
+        <item>Cherry Healthy</item>
+        <item>Corn Cercospora Leaf Gray Leaf Spot</item>
+        <item>Corn Common Rust</item>
+        <item>Corn Northern Leaf Blight</item>
+        <item>Corn Healthy</item>
+        <item>Grape Black Rot</item>
+        <item>Grape Black Measles</item>
+        <item>Grape Leaf Blight</item>
+        <item>Grape Healthy</item>
+        <item>Orange Haunglongbing</item>
+        <item>Peach Bacterial Spot</item>
+        <item>Peach Healthy</item>
+        <item>Pepper Bell Bacterial Spot</item>
+        <item>Pepper Bell Healthy</item>
+        <item>Potato Early Blight</item>
+        <item>Potato Late Blight</item>
+        <item>Potato Healthy</item>
+        <item>Raspberry Healthy</item>
+        <item>Soybean Healthy</item>
+        <item>Squash Powdery Mildew</item>
+        <item>Strawberry Leaf Scotch</item>
+        <item>Strawberry Healthy</item>
+        <item>Tomato Bacterial Spot</item>
+        <item>Tomato Early Blight</item>
+        <item>Tomato Late Blight</item>
+        <item>Tomato Leaf Mold</item>
+        <item>Tomato Septoria Leaf Spot</item>
+        <item>Tomato Spider Mites Two Spotted Spider Mite</item>
+        <item>Tomato Target Spot</item>
+        <item>Tomato Yellow Leaf Curl Virus</item>
+        <item>Tomato Mosaic Virus</item>
+        <item>Tomato Healthy</item>
+    </string-array>
 </resources>

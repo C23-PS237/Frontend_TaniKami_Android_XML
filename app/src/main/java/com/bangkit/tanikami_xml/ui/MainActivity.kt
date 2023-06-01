@@ -1,8 +1,11 @@
 package com.bangkit.tanikami_xml.ui
 
+import android.Manifest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
@@ -23,6 +26,16 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val viewModel by viewModels<HomeViewModel>()
+
+    private val requestPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted: Boolean ->
+        if (isGranted) {
+           Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show()
+        } else {
+            // Permission denied, handle accordingly (e.g., show a message or disable related functionality)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +59,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.hide()
+
+        requestGalleryPermission()
+        requestGalleryPermission()
 
         val navView: BottomNavigationView = binding.navBotView
         //navView.itemActiveIndicatorColor = getColorStateList(androidx.appcompat.R.color.primary_dark_material_dark)
@@ -78,5 +94,15 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appbarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    private fun requestGalleryPermission() {
+        val permission = Manifest.permission.READ_EXTERNAL_STORAGE
+        requestPermissionLauncher.launch(permission)
+    }
+
+    private fun requestCameraPermission() {
+        val permission = Manifest.permission.CAMERA
+        requestPermissionLauncher.launch(permission)
     }
 }

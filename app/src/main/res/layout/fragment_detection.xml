@@ -26,7 +26,7 @@
         android:id="@+id/iv_detection"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_273sdp"
-        android:layout_margin="@dimen/_16sdp"
+        android:layout_margin="@dimen/_4sdp"
         android:outlineProvider="background"
         android:contentDescription="@string/plant_image"
         app:srcCompat="@drawable/image"
@@ -62,7 +62,6 @@
         android:id="@+id/btn_submit"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_45sdp"
-        android:layout_marginTop="@dimen/_32sdp"
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginEnd="@dimen/_16sdp"
         android:backgroundTint="@color/green700"
@@ -71,5 +70,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_detection"
         tools:layout_editor_absoluteX="21dp" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/classified_as"
+        android:textStyle="bold"
+        android:textSize="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_submit"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
