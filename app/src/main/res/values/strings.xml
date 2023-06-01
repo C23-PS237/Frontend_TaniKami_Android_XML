@@ -112,6 +112,11 @@
     <string name="classified_as">Classified as : %s</string>
     <string name="pick_one_picture">Pick One Picture</string>
 
+<!--Purchase History-->
+    <string name="received">Has Been Received</string>
+    <string name="arrived_status">Arrived Status</string>
+    <string name="payment_status">Payment Status</string>
+
     <string-array name="label">
         <item>Apple Scab</item>
         <item>Apple Black Rot</item>
