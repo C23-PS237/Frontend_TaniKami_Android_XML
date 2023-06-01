@@ -11,8 +11,6 @@
         android:maxSdkVersion="32"
         tools:ignore="ScopedStorage" />
 
-    <uses-feature android:name="android.hardware.camera"/>
-
     <application
         android:name=".utils.TaniKamiApp"
         android:allowBackup="true"

@@ -104,6 +104,8 @@
     <string name="the_bank_account_number_payment">The Account Number</string>
     <string name="payment_note">  Payment must be made at least 24 hours from order</string>
     <string name="copy">COPY</string>
+    <string name="capture">Capture Icon</string>
+    <string name="switch_icon">Switch Icon</string>
     <string name="payment_method_info">Payment method via MBangking</string>
     <string name="payment_step">1. Maximum proof of payment can be uploaded within 24 hours.\n2. Upload proof of transfer before __/__/____</string>
     <string name="button_upload_bill">Upload Transfer Bill</string>
