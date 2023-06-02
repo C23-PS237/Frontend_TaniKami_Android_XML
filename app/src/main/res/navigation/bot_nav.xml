@@ -51,7 +51,11 @@
         android:id="@+id/nav_detection"
         android:name="com.bangkit.tanikami_xml.ui.detection.DetectionFragment"
         android:label="fragment_detection"
-        tools:layout="@layout/fragment_detection" />
+        tools:layout="@layout/fragment_detection" >
+        <action
+            android:id="@+id/action_nav_detection_to_detectionExtended"
+            app:destination="@id/detectionExtended" />
+    </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.bangkit.tanikami_xml.ui.detail.DetailFragment"
@@ -225,5 +229,14 @@
         <action
             android:id="@+id/action_cameraFragment_to_uploadingBillFragment"
             app:popUpTo="@id/uploadingBillFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detectionExtended"
+        android:name="com.bangkit.tanikami_xml.ui.detection.DetectionExtended"
+        android:label="fragment_detection_extended"
+        tools:layout="@layout/fragment_detection_extended" >
+        <action
+            android:id="@+id/action_detectionExtended_to_nav_detection"
+            app:destination="@id/nav_detection" />
     </fragment>
 </navigation>

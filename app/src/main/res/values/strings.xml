@@ -124,7 +124,7 @@
     <string name="pick_one_picture">Pick One Picture</string>
     <string name="permission">No Permission Granted, Request Again!!</string>
 
-<!--Purchase History-->
+    <!--Purchase History-->
     <string name="received">Has Been Received</string>
     <string name="arrived_status">Arrived Status</string>
     <string name="payment_status">Payment Status</string>
@@ -136,6 +136,7 @@
     <string name="placehold_size_stock">Size of your\'s product stock (ex: Kg)</string>
     <string name="placehold_price_add_product">Product price per-stock size</string>
     <string name="placehold_description_add_product">Description of your\'s product</string>
+    <string name="btn_to_extended">to Detection Extended</string>
 
 
     <!-- Array for ML model -->

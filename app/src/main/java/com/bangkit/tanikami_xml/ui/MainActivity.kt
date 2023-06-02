@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             @RequiresApi(Build.VERSION_CODES.TIRAMISU)
             if (!isAllPermissionGranted()) {
                 ActivityCompat.requestPermissions(
@@ -121,7 +121,7 @@ class MainActivity : AppCompatActivity() {
     }
     private fun isAllPermissionGranted(): Boolean {
         @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             return REQUIRED_PERMISSION_AD13.all {
                 ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
             }
