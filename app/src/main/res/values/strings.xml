@@ -61,7 +61,7 @@
     <string name="products_rating">Rating Product</string>
     <string name="products_amount">Amount To Buy</string>
     <string name="buy">Buy</string>
-    <string name="hint_amount">Fill the anount of product you wanna buy</string>
+    <string name="hint_amount">Fill the anount of product you want to buy</string>
     <string name="sold_out">Stock Empty</string>
 
 
@@ -82,17 +82,17 @@
     <string name="product_name">Product Name</string>
     <string name="bank_name">Your\'s Bank Name</string>
     <string name="bank_account_number">Your\'s bank account number</string>
-    <string name="stock">Stock</string>
+    <string name="stock">%d %s </string>
     <string name="stock_size">Stock Size</string>
-    <string name="product_price">Product Price</string>
+    <string name="product_price">%d \\ %s</string>
     <string name="product_description">Product Description</string>
     <string name="done">Done</string>
 
-    <string name="product_name_confirm">Product Name:</string>
-    <string name="product_stock_confirm">Product Stock:</string>
-    <string name="product_price_confirm">Price:</string>
-    <string name="bank_name_confirm">Bank Name:</string>
-    <string name="account_number_confirm">Acc. Number:</string>
+    <string name="product_name_confirm">Product Name :</string>
+    <string name="product_stock_confirm">Product Stock :</string>
+    <string name="product_price_confirm">Price :</string>
+    <string name="bank_name_confirm">Bank Name :</string>
+    <string name="account_number_confirm">Acc. Number :</string>
     <string name="sell">Sell</string>
 
     <!--Payment-->
@@ -138,6 +138,7 @@
     <string name="placehold_description_add_product">Description of your\'s product</string>
 
 
+    <!-- Array for ML model -->
     <string-array name="label">
         <item>Apple Scab</item>
         <item>Apple Black Rot</item>
