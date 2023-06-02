@@ -54,7 +54,7 @@
 
     <!--For Products(HomeFragment&DetailFragment)-->
     <string name="products_image">Products Image</string>
-    <string name="products_name">Products Name</string>
+    <string name="products_name">Name of product to sell</string>
     <string name="products_description">Products Description</string>
     <string name="products_stock">Products Stock</string>
     <string name="products_price">Products Price</string>
@@ -77,13 +77,13 @@
     <string name="article_author">Article Author</string>
 
     <!--Add & Edit Product-->
-    <string name="add_product">Add Product</string>
+    <string name="add_product">Add product you want to sell</string>
     <string name="edit_product">Edit Product</string>
     <string name="product_name">Product Name</string>
-    <string name="bank_name">Bank Name</string>
-    <string name="bank_account_number">Bank Account Number</string>
+    <string name="bank_name">Your\'s Bank Name</string>
+    <string name="bank_account_number">Your\'s bank account number</string>
     <string name="stock">Stock</string>
-    <string name="stock_size">Stock Size(kg atau ikat)</string>
+    <string name="stock_size">Stock Size</string>
     <string name="product_price">Product Price</string>
     <string name="product_description">Product Description</string>
     <string name="done">Done</string>
@@ -129,6 +129,13 @@
     <string name="arrived_status">Arrived Status</string>
     <string name="payment_status">Payment Status</string>
     <string name="gender">Select Gender</string>
+    <string name="tv_product_name">Product Name</string>
+    <string name="tv_bank_name">Bank\'s Name</string>
+    <string name="tv_bank_account_number">Bank Account Number</string>
+    <string name="placehold_stock">Total product you want to sell</string>
+    <string name="placehold_size_stock">Size of your\'s product stock (ex: Kg)</string>
+    <string name="placehold_price_add_product">Product price per-stock size</string>
+    <string name="placehold_description_add_product">Description of your\'s product</string>
 
 
     <string-array name="label">

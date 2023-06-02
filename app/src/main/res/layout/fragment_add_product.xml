@@ -75,10 +75,14 @@
             <TextView
                 android:id="@+id/tvProductsNameSell"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_15sdp"
-                android:text="@string/products_name"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_product_name"
+                android:textStyle="bold"
+                android:textSize="@dimen/_12ssp"
                 android:layout_marginTop="@dimen/_16sdp"
-                android:layout_marginStart="@dimen/_16sdp"/>
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"/>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/productNameSellEditTextLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -93,17 +97,21 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/products_name"
                     android:textColorHint="@color/green700"
-                    android:inputType="textPersonName"
+                    android:inputType="text"
                     android:ems="10"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/tvBankName"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_15sdp"
-                android:text="@string/bank_name"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_bank_name"
+                android:textStyle="bold"
+                android:textSize="@dimen/_12ssp"
                 android:layout_marginTop="@dimen/_16sdp"
-                android:layout_marginStart="@dimen/_16sdp"/>
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"/>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/bankNameEditTextLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -118,17 +126,21 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/bank_name"
                     android:textColorHint="@color/green700"
-                    android:inputType="textCapCharacters"
+                    android:inputType="text"
                     android:ems="10"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/tvBankNumberSell"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_15sdp"
-                android:text="@string/bank_account_number"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_bank_account_number"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
                 android:layout_marginTop="@dimen/_16sdp"
-                android:layout_marginStart="@dimen/_16sdp"/>
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"/>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/bankNumberEditTextLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -150,10 +162,13 @@
             <TextView
                 android:id="@+id/tvStocks"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_15sdp"
+                android:layout_height="wrap_content"
                 android:text="@string/stock"
+                android:textStyle="bold"
+                android:textSize="@dimen/_12ssp"
                 android:layout_marginTop="@dimen/_16sdp"
                 android:layout_marginStart="@dimen/_16sdp"/>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/stocksEditTextLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -166,7 +181,7 @@
                     android:id="@+id/stocksEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/stock"
+                    android:hint="@string/placehold_stock"
                     android:textColorHint="@color/green700"
                     android:inputType="number"
                     android:ems="10"
@@ -176,10 +191,14 @@
             <TextView
                 android:id="@+id/tvStocksSize"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_15sdp"
+                android:layout_height="wrap_content"
                 android:text="@string/stock_size"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
                 android:layout_marginTop="@dimen/_16sdp"
-                android:layout_marginStart="@dimen/_16sdp"/>
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"/>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/stockSizeEditTextLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -192,7 +211,7 @@
                     android:id="@+id/stockSizeEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/stock_size"
+                    android:hint="@string/placehold_size_stock"
                     android:textColorHint="@color/green700"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -200,10 +219,14 @@
             <TextView
                 android:id="@+id/tvPriceSell"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_15sdp"
+                android:layout_height="wrap_content"
                 android:text="@string/product_price"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
                 android:layout_marginTop="@dimen/_16sdp"
-                android:layout_marginStart="@dimen/_16sdp"/>
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"/>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/priceSellEditTextLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -216,7 +239,7 @@
                     android:id="@+id/priceSellEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/product_price"
+                    android:hint="@string/placehold_price_add_product"
                     android:textColorHint="@color/green700"
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -224,10 +247,14 @@
             <TextView
                 android:id="@+id/tvDescriptionSell"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_15sdp"
+                android:layout_height="wrap_content"
                 android:text="@string/product_description"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
                 android:layout_marginTop="@dimen/_16sdp"
-                android:layout_marginStart="@dimen/_16sdp"/>
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"/>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/descriptionSellEditTextLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -240,7 +267,7 @@
                     android:id="@+id/descriptionSellEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/product_description"
+                    android:hint="@string/placehold_description_add_product"
                     android:minLines="3"
                     android:textColorHint="@color/green700"
                     android:inputType="textMultiLine" />
@@ -248,15 +275,15 @@
 
             <Button
                 android:id="@+id/btn_done"
-                android:layout_width="@dimen/_260sdp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_24sdp"
-                android:layout_marginBottom="@dimen/_16sdp"
                 android:layout_marginStart="@dimen/_16sdp"
                 android:layout_marginEnd="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:layout_marginBottom="@dimen/_24sdp"
                 android:layout_gravity="center"
                 android:text="@string/done"
-                android:textSize="@dimen/_16ssp"
+                android:textSize="@dimen/_18ssp"
                 android:textStyle="bold"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
