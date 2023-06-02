@@ -2,12 +2,14 @@ package com.bangkit.tanikami_xml.ui
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -44,16 +46,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         var stat = true
 
-        viewModel.getAllProducts().observe(this@MainActivity) {
-            when (it) {
-                is Response.Loading -> { stat = true }
-                is Response.Success -> { stat = false }
-                is Response.Error -> { stat = false }
-            }
-        }
+        //
 
         installSplashScreen().apply {
             setKeepOnScreenCondition {
+                lifecycleScope.launch {
+                    delay(3000)
+                }
                 stat
             }
         }
@@ -98,12 +97,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        if (!isAllPermissionGranted()) {
-            ActivityCompat.requestPermissions(
-                this@MainActivity,
-                REQUIRED_PERMISSION,
-                REQUEST_CODE_PERMISSION
-            )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+            if (!isAllPermissionGranted()) {
+                ActivityCompat.requestPermissions(
+                    this@MainActivity,
+                    REQUIRED_PERMISSION_AD13,
+                    REQUEST_CODE_PERMISSION
+                )
+            } else {
+                ActivityCompat.requestPermissions(
+                    this@MainActivity,
+                    REQUIRED_PERMISSION,
+                    REQUEST_CODE_PERMISSION
+                )
+            }
         }
     }
 
@@ -127,6 +135,10 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private val REQUIRED_PERMISSION = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE)
+
+        @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+        private val REQUIRED_PERMISSION_AD13 = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_MEDIA_IMAGES)
+
         private const val REQUEST_CODE_PERMISSION = 10
     }
 }
