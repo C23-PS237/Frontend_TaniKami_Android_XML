@@ -13,7 +13,6 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -46,13 +45,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         var stat = true
 
-        //
+        viewModel.getAllProducts().observe(this@MainActivity) {
+            when (it) {
+                is Response.Loading -> { stat = true }
+                is Response.Success -> { stat = false }
+                is Response.Error -> { stat = false }
+            }
+        }
 
         installSplashScreen().apply {
             setKeepOnScreenCondition {
-                lifecycleScope.launch {
-                    delay(3000)
-                }
                 stat
             }
         }
