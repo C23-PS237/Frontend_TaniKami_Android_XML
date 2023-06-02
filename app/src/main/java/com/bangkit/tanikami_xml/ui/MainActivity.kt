@@ -107,7 +107,9 @@ class MainActivity : AppCompatActivity() {
                     REQUIRED_PERMISSION_AD13,
                     REQUEST_CODE_PERMISSION
                 )
-            } else {
+            }
+        } else {
+            if (!isAllPermissionGranted()){
                 ActivityCompat.requestPermissions(
                     this@MainActivity,
                     REQUIRED_PERMISSION,
@@ -130,9 +132,17 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    private fun isAllPermissionGranted(): Boolean {
+        @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            return REQUIRED_PERMISSION_AD13.all {
+                ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
+            }
+        }
 
-    private fun isAllPermissionGranted() = REQUIRED_PERMISSION.all {
-        ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
+        return REQUIRED_PERMISSION.all {
+            ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
+        }
     }
 
     companion object {
