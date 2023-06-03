@@ -1,38 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layoutDescription="@xml/fragment_detection_scene"
     tools:context=".ui.detection.DetectionFragment">
 
     <TextView
         android:id="@+id/tv_detection_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_16sdp"
         android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_16sdp"
         android:layout_marginEnd="@dimen/_16sdp"
         android:text="@string/detection_title"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="@dimen/_18ssp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_250sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:contentDescription="@string/des_detect_1"
+        android:src="@drawable/leaves_pic"
+        android:elevation="@dimen/_2sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32" />
+
+    <ImageView
+        android:id="@+id/image2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_250sdp"
+        android:contentDescription="@string/des_detect_1"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:src="@drawable/heal_plant"
+        android:elevation="@dimen/_2sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <ImageView
+        android:id="@+id/image3"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_250sdp"
+        android:contentDescription="@string/des_detect_1"
+        android:src="@drawable/take_care_plant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <TextView
+        android:id="@+id/title1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="@string/title_detect1"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/image1"
+        app:layout_constraintStart_toStartOf="@id/image1"
+        app:layout_constraintEnd_toEndOf="@id/image1"/>
+
+    <TextView
+        android:id="@+id/title2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="@string/title_detect2"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/image2"
+        app:layout_constraintStart_toStartOf="@id/image2"
+        app:layout_constraintEnd_toEndOf="@id/image2"/>
+
+    <TextView
+        android:id="@+id/title3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="@string/title_detect3"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/image3"
+        app:layout_constraintStart_toStartOf="@id/image3"
+        app:layout_constraintEnd_toEndOf="@id/image3"/>
+
+    <TextView
+        android:id="@+id/description1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="@string/description_detect1"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14ssp"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/title1"
+        app:layout_constraintStart_toStartOf="@id/title1"
+        app:layout_constraintEnd_toEndOf="@id/title1"/>
+
+    <TextView
+        android:id="@+id/description2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="@string/description_detect2"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14ssp"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/title2"
+        app:layout_constraintStart_toStartOf="@id/title2"
+        app:layout_constraintEnd_toEndOf="@id/title2"/>
+
+    <TextView
+        android:id="@+id/description3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="@string/description_detect3"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14ssp"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/title3"
+        app:layout_constraintStart_toStartOf="@id/title3"
+        app:layout_constraintEnd_toEndOf="@id/title3"/>
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/indicator1"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_marginStart="@dimen/_48sdp"
+        android:layout_marginBottom="@dimen/_32sdp"
+        android:tint="@color/green500"
+        app:altSrc="@drawable/ic_circle_full_24"
+        app:layout_constraintBottom_toTopOf="@id/btn_extended"
+        app:layout_constraintEnd_toStartOf="@+id/indicator2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_circle_24" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/indicator2"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_marginBottom="@dimen/_32sdp"
+        android:tint="@color/green500"
+        app:altSrc="@drawable/ic_circle_full_24"
+        app:layout_constraintBottom_toTopOf="@id/btn_extended"
+        app:layout_constraintEnd_toStartOf="@id/indicator3"
+        app:layout_constraintStart_toEndOf="@+id/indicator1"
+        app:srcCompat="@drawable/ic_circle_24" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/indicator3"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_marginEnd="@dimen/_48sdp"
+        android:layout_marginBottom="@dimen/_32sdp"
+        android:tint="@color/green500"
+        app:altSrc="@drawable/ic_circle_full_24"
+        app:layout_constraintBottom_toTopOf="@id/btn_extended"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/indicator2"
+        app:srcCompat="@drawable/ic_circle_24" />
+
 
     <Button
         android:id="@+id/btn_extended"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_45sdp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_24sdp"
         android:backgroundTint="@color/green700"
         android:text="@string/btn_to_extended"
+        android:textAllCaps="false"
         android:textColor="@color/white"
+        android:textSize="@dimen/_12ssp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_detection_title"
-        tools:layout_editor_absoluteX="21dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>

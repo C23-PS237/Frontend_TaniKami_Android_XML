@@ -137,6 +137,13 @@
     <string name="placehold_price_add_product">Product price per-stock size</string>
     <string name="placehold_description_add_product">Description of your\'s product</string>
     <string name="btn_to_extended">to Detection Extended</string>
+    <string name="des_detect_1">Ilustration of farmer who trimming plant</string>
+    <string name="title_detect1">Take Photo of the leaves</string>
+    <string name="title_detect2">Detect plant disease</string>
+    <string name="title_detect3">Search for cure</string>
+    <string name="description_detect1">Take a photo of that plant at the leaves section that indicate symtom of disease</string>
+    <string name="description_detect2">Upload your\'s photo to our ML model to detect disease of that plant</string>
+    <string name="description_detect3">Search for cure in internet and take care your plants more</string>
 
 
     <!-- Array for ML model -->
