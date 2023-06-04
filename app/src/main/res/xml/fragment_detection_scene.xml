@@ -18,7 +18,7 @@
             motion:layout_constraintEnd_toStartOf="@+id/indicator2"
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
-            android:layout_marginBottom="@dimen/_32sdp"
+            android:layout_marginBottom="@dimen/_24sdp"
             motion:layout_constraintBottom_toTopOf="@id/btn_extended"
             android:layout_marginStart="@dimen/_48sdp"
             motion:layout_constraintStart_toStartOf="parent" >
@@ -32,7 +32,7 @@
             motion:layout_constraintStart_toEndOf="@+id/indicator1"
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
-            android:layout_marginBottom="@dimen/_32sdp"
+            android:layout_marginBottom="@dimen/_24sdp"
             motion:layout_constraintBottom_toTopOf="@id/btn_extended">
             <CustomAttribute
                 motion:attributeName="crossfade"
@@ -44,7 +44,7 @@
             motion:layout_constraintStart_toEndOf="@+id/indicator2"
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
-            android:layout_marginBottom="@dimen/_32sdp"
+            android:layout_marginBottom="@dimen/_24sdp"
             motion:layout_constraintBottom_toTopOf="@id/btn_extended"
             android:layout_marginEnd="@dimen/_48sdp">
             <CustomAttribute
@@ -81,7 +81,7 @@
             motion:layout_constraintEnd_toStartOf="@+id/indicator2"
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
-            android:layout_marginBottom="@dimen/_32sdp"
+            android:layout_marginBottom="@dimen/_24sdp"
             motion:layout_constraintBottom_toTopOf="@id/btn_extended"
             android:layout_marginStart="@dimen/_48sdp"
             motion:layout_constraintStart_toStartOf="parent">
@@ -95,7 +95,7 @@
             motion:layout_constraintStart_toEndOf="@+id/indicator1"
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
-            android:layout_marginBottom="@dimen/_32sdp"
+            android:layout_marginBottom="@dimen/_24sdp"
             motion:layout_constraintBottom_toTopOf="@id/btn_extended">
             <CustomAttribute
                 motion:attributeName="crossfade"
@@ -107,7 +107,7 @@
             motion:layout_constraintStart_toEndOf="@+id/indicator2"
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
-            android:layout_marginBottom="@dimen/_32sdp"
+            android:layout_marginBottom="@dimen/_24sdp"
             motion:layout_constraintBottom_toTopOf="@id/btn_extended"
             android:layout_marginEnd="@dimen/_48sdp">
             <CustomAttribute
@@ -145,7 +145,7 @@
             motion:layout_constraintEnd_toStartOf="@+id/indicator2"
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
-            android:layout_marginBottom="@dimen/_32sdp"
+            android:layout_marginBottom="@dimen/_24sdp"
             motion:layout_constraintBottom_toTopOf="@id/btn_extended"
             android:layout_marginStart="@dimen/_48sdp"
             motion:layout_constraintStart_toStartOf="parent"
@@ -160,7 +160,7 @@
             motion:layout_constraintStart_toEndOf="@+id/indicator1"
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
-            android:layout_marginBottom="@dimen/_32sdp"
+            android:layout_marginBottom="@dimen/_24sdp"
             motion:layout_constraintBottom_toTopOf="@id/btn_extended"
             motion:crossfade="0" >
             <CustomAttribute
@@ -173,7 +173,7 @@
             motion:layout_constraintStart_toEndOf="@+id/indicator2"
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
-            android:layout_marginBottom="@dimen/_32sdp"
+            android:layout_marginBottom="@dimen/_24sdp"
             motion:layout_constraintBottom_toTopOf="@id/btn_extended"
             android:layout_marginEnd="@dimen/_48sdp"
             motion:crossfade="1" >
