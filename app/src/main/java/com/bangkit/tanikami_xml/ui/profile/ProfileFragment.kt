@@ -34,7 +34,7 @@ class ProfileFragment : Fragment() {
         binding.btnPurchaseHistory.setOnClickListener {
             findNavController().navigate(R.id.action_nav_profile_to_historyBuyFragment)
         }
-        binding.btnPurchaseHistory.setOnClickListener {
+        binding.btnSalesHistory.setOnClickListener {
             findNavController().navigate(R.id.action_nav_profile_to_historySellFragment)
         }
     }
