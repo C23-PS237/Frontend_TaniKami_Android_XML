@@ -3,12 +3,12 @@ package com.bangkit.tanikami_xml.ui.article.article_start
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bangkit.tanikami_xml.data.model.Article
+import com.bangkit.tanikami_xml.data.remote.response.PayloadItem
 import com.bangkit.tanikami_xml.databinding.ItemArticleBinding
 import com.bumptech.glide.Glide
 import javax.inject.Inject
 
-class ArticleAdapter @Inject constructor(private val listArticle: List<Article>): RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>(){
+class ArticleAdapter @Inject constructor(private val listArticle: List<PayloadItem>): RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>(){
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -29,11 +29,11 @@ class ArticleAdapter @Inject constructor(private val listArticle: List<Article>)
 
         holder.binding.apply {
             Glide.with(holder.itemView.context)
-                .load(item.gambar_artikel)
+                .load(item.gambarArtikel)
                 .into(ivArticle)
 
             tvArticleAuthor.text = item.author
-            tvArticleTitle.text = item.title
+            tvArticleTitle.text = item.judul
             tvArticleBody.text = item.body
 
             holder.itemView.setOnClickListener {
@@ -43,6 +43,6 @@ class ArticleAdapter @Inject constructor(private val listArticle: List<Article>)
     }
 
     interface OnItemClickCallback {
-        fun onArticleClicked(data: Article)
+        fun onArticleClicked(data: PayloadItem)
     }
 }

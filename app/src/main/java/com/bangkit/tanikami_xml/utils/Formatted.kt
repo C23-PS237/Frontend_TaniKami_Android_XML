@@ -10,8 +10,8 @@ object Formatted {
         val format = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
         format.currency = Currency.getInstance("IDR")
 
-        return addSpaceToIndonesianRupiah(format.format(price))
+        return addSpaceToIDR(format.format(price))
     }
 
-    private fun addSpaceToIndonesianRupiah(value: String): String = StringBuilder(value).insert(2, ". ").toString()
+    private fun addSpaceToIDR(value: String): String = StringBuilder(value).insert(2, ". ").toString()
 }

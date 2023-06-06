@@ -8,9 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bangkit.tanikami_xml.R
 import com.bangkit.tanikami_xml.data.helper.Response
-import com.bangkit.tanikami_xml.data.model.Article
+import com.bangkit.tanikami_xml.data.remote.response.PayloadItem
 import com.bangkit.tanikami_xml.databinding.FragmentArticleBinding
 import com.bangkit.tanikami_xml.ui.article.ArticleViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -58,14 +57,15 @@ class ArticleFragment : Fragment() {
                     }
 
                     is Response.Success -> {
-                        val listData = ArticleAdapter(it.data)
+                        val list = it.data[0].payload
+                        val listData = ArticleAdapter(list)
                         rvArticle.adapter = listData
 
                         listData.setOnItemClickCallback(object :
                             ArticleAdapter.OnItemClickCallback {
-                            override fun onArticleClicked(data: Article) {
+                            override fun onArticleClicked(data: PayloadItem) {
                                 val toDetailArticleFragment = ArticleFragmentDirections.actionNavArticleToDetailArticleFragment()
-                                toDetailArticleFragment.idArtikel = data.id_artikel
+                                toDetailArticleFragment.idArtikel = data.idArtikel
                                 findNavController().navigate(toDetailArticleFragment)
                             }
                         })

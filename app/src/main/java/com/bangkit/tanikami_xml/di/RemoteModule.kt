@@ -1,5 +1,7 @@
 package com.bangkit.tanikami_xml.di
 
+import com.bangkit.tanikami_xml.data.remote.retrofit.ApiConfig
+import com.bangkit.tanikami_xml.data.remote.retrofit.ApiService
 import com.bangkit.tanikami_xml.data.repository.ProductRepository
 import dagger.Module
 import dagger.Provides
@@ -10,6 +12,10 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object RemoteModule {
+
+    @Provides
+    @Singleton
+    fun provideApiGCPConnection(): ApiService = ApiConfig().getApiService()
 
     @Provides
     @Singleton
