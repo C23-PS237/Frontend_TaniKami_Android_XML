@@ -153,7 +153,7 @@ class DetectionExtended : Fragment() {
             }
 
             val classes = resources.getStringArray(R.array.label)
-            binding.result.text = classes[maxPos]
+            binding.result.text = getString(R.string.classified_as, classes[maxPos], maxConfidence)
 
             // Releases model resources if no longer used.
             model.close()

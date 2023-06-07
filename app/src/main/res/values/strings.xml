@@ -120,7 +120,7 @@
     <string name="payment_method_info">Payment method via MBangking</string>
     <string name="payment_step">1. Maximum proof of payment can be uploaded within 24 hours.\n2. Upload proof of transfer before __/__/____</string>
     <string name="button_upload_bill">Upload Transfer Bill</string>
-    <string name="classified_as">Classified as : %s</string>
+    <string name="classified_as">Classified as : %s and Confidence Value of : %f</string>
     <string name="pick_one_picture">Pick One Picture</string>
     <string name="permission">No Permission Granted, Request Again!!</string>
 
@@ -172,6 +172,10 @@
         <item>Potato Late Blight</item>
         <item>Potato Healthy</item>
         <item>Raspberry Healthy</item>
+        <item>Rice BrownSpot</item>
+        <item>Rice Healthy</item>
+        <item>Rice Hispa</item>
+        <item>Rice LeafBlast</item>
         <item>Soybean Healthy</item>
         <item>Squash Powdery Mildew</item>
         <item>Strawberry Leaf Scotch</item>
