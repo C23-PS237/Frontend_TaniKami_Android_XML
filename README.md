@@ -11,9 +11,7 @@ To detect disease in plants, below is the guide step by step:
 * STEP 3 (add picture later)
 
 ## List of disease that can ve detected by this app :
-* Disease 1
-* Disease 2
-* Disease 3
+List of plants disease that can be detected in this [link](https://github.com/C23-PS237/TaniKami-Machine-Learning-MobileNet/blob/main/ThirthyEightPlusRice.txt) - Contributed by Machine Learning students
 
 ## Contributed by - Mobile Development student : 
 * [FREDY AKTOSA](https://www.linkedin.com/in/aktofredy/) - Mobile Development Student - `A139DSX1024`
