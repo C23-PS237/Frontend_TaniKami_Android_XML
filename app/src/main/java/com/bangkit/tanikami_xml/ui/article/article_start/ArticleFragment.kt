@@ -57,7 +57,7 @@ class ArticleFragment : Fragment() {
                     }
 
                     is Response.Success -> {
-                        val list = it.data[0].payload
+                        val list = it.data
                         val listData = ArticleAdapter(list)
                         rvArticle.adapter = listData
 

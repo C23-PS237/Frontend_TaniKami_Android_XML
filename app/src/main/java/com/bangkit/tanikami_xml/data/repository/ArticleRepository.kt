@@ -4,7 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.bangkit.tanikami_xml.data.helper.Response
-import com.bangkit.tanikami_xml.data.remote.response.ArticleResponseItem
+import com.bangkit.tanikami_xml.data.remote.response.ArticleResponse
+import com.bangkit.tanikami_xml.data.remote.response.PayloadItem
 import com.bangkit.tanikami_xml.data.remote.retrofit.ApiService
 import retrofit2.HttpException
 import javax.inject.Inject
@@ -13,11 +14,11 @@ class ArticleRepository @Inject constructor(
     private val apiServ: ApiService
 ) {
 
-    fun getAllArticle(): LiveData<Response<List<ArticleResponseItem>>> = liveData {
+    fun getAllArticle(): LiveData<Response<List<PayloadItem>>> = liveData {
         emit(Response.Loading)
         try {
-            val response = apiServ.getArticle()
-            emit(Response.Success(response.articleResponse))
+            val response = apiServ.getArticle().payload
+            emit(Response.Success(response))
         } catch (e: HttpException) {
             Log.d(TAG, "getAllArticle: ${e.message()}")
             emit(Response.Error(e.message.toString()))

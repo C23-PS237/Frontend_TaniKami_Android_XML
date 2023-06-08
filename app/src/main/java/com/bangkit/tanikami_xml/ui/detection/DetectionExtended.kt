@@ -144,6 +144,10 @@ class DetectionExtended : Fragment() {
             val confidence = outputFeature0.floatArray
             var maxPos = 0
             var maxConfidence = 0f
+            var maxPos2 = 0
+            var maxConfidence2 = 0f
+            var maxPos3 = 0
+            var maxConfidence3 = 0f
 
             for (i in confidence.indices) {
                 if (confidence[i] > maxConfidence) {
@@ -151,9 +155,21 @@ class DetectionExtended : Fragment() {
                     maxPos = i
                 }
             }
+            for (i in confidence.indices) {
+                if (confidence[i] > maxConfidence && confidence[i] < maxConfidence) {
+                    maxConfidence2 = confidence[i]
+                    maxPos2 = i
+                }
+            }
+            for (i in confidence.indices) {
+                if (confidence[i] > maxConfidence3 && confidence[i] < maxConfidence2) {
+                    maxConfidence3 = confidence[i]
+                    maxPos3 = i
+                }
+            }
 
             val classes = resources.getStringArray(R.array.label)
-            binding.result.text = getString(R.string.classified_as, classes[maxPos], maxConfidence)
+            binding.result.text = getString(R.string.classified_as, classes[maxPos], maxConfidence, classes[maxPos2], maxConfidence2, classes[maxPos3], maxConfidence3)
 
             // Releases model resources if no longer used.
             model.close()
