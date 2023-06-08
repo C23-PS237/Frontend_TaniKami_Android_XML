@@ -17,7 +17,7 @@ class ArticleViewModel @Inject constructor(
         return articleRepo.getAllArticle()
     }
 
-//    fun getDetailArtikel(id_artikel: Int): LiveData<Response<Article>> {
-//        return articleRepo.getDetailArticle(id_artikel)
-//    }
+    fun getDetailArticle(id_artikel: Int): LiveData<Response<List<PayloadItem>>> {
+        return articleRepo.getDetailArticle(id_artikel)
+    }
 }

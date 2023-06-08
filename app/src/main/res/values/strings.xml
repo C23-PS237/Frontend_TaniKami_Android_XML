@@ -144,6 +144,8 @@
     <string name="description_detect1">Take a photo of that plant at the leaves section that indicate symtom of disease</string>
     <string name="description_detect2">Upload your\'s photo to our ML model to detect disease of that plant</string>
     <string name="description_detect3">Search for cure in internet and take care your plants more</string>
+    <string name="product_price_per_stock_size">Product Price per Stock Size</string>
+    <string name="total_product_sold">Total Product Sold</string>
 
 
     <!-- Array for ML model -->

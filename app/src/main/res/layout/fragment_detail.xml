@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.detail.DetailFragment">
-<ScrollView
+
+<androidx.core.widget.NestedScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -71,6 +72,7 @@
                     app:fabCustomSize="@dimen/_40sdp"
                     app:shapeAppearance="@style/Widget.Material3.CircularProgressIndicator.Medium"/>
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_5sdp"
@@ -106,6 +108,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvPhoneNumber"/>
+
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_5sdp"
@@ -175,7 +178,7 @@
                     android:ems="10"/>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
         <Button
             android:id="@+id/btn_buy"

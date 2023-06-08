@@ -36,6 +36,7 @@
 
     <Button
         android:id="@+id/btn_gallery"
+        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="@dimen/_130sdp"
         android:layout_height="@dimen/_45sdp"
         android:backgroundTint="@color/green700"
@@ -51,6 +52,7 @@
 
     <Button
         android:id="@+id/btn_camera"
+        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="@dimen/_130sdp"
         android:layout_height="@dimen/_45sdp"
         android:layout_marginTop="@dimen/_48sdp"
@@ -69,6 +71,7 @@
 
     <Button
         android:id="@+id/btn_submit"
+        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_45sdp"
         android:layout_marginTop="@dimen/_54sdp"

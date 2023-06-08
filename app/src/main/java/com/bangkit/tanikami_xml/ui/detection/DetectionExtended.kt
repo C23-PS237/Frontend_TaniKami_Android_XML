@@ -178,7 +178,7 @@ class DetectionExtended : Fragment() {
 
     private fun startPicPicture() {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        intent.type = "image/*"
+        //intent.type = "image/*"
         val chooser = Intent.createChooser(intent, getString(R.string.pick_one_picture))
         launcherIntentGallery.launch(chooser)
     }
