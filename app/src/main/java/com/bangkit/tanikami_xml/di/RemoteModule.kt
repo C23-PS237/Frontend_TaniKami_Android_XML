@@ -19,7 +19,7 @@ object RemoteModule {
 
     @Provides
     @Singleton
-    fun provideRepository() : ProductRepository {
-        return ProductRepository()
+    fun provideRepository(apiServ: ApiService) : ProductRepository {
+        return ProductRepository(apiServ)
     }
 }

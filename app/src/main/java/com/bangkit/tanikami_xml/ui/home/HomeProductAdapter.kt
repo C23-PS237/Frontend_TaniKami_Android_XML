@@ -3,14 +3,13 @@ package com.bangkit.tanikami_xml.ui.home
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bangkit.tanikami_xml.R
-import com.bangkit.tanikami_xml.data.model.Product
+import com.bangkit.tanikami_xml.data.remote.response.ProductItem
 import com.bangkit.tanikami_xml.databinding.ItemProductsBinding
 import com.bangkit.tanikami_xml.utils.Formatted.formatIDRCurrency
 import com.bumptech.glide.Glide
 import javax.inject.Inject
 
-class HomeProductAdapter @Inject constructor(private val listProduct: List<Product>): RecyclerView.Adapter<HomeProductAdapter.ProductViewHolder>(){
+class HomeProductAdapter @Inject constructor(private val listProduct: List<ProductItem>): RecyclerView.Adapter<HomeProductAdapter.ProductViewHolder>(){
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -31,11 +30,11 @@ class HomeProductAdapter @Inject constructor(private val listProduct: List<Produ
 
         holder.binding.apply {
             Glide.with(holder.itemView.context)
-                .load(item.url_gambar)
+                .load(item.urlGambar)
                 .into(ivProducts)
 
-            tvProductsName.text = item.nama_product
-            tvProductsDescription.text = item.deskripsi_product
+            tvProductsName.text = item.namaProduk
+            tvProductsDescription.text = item.deskripsiProduk
             tvPrice.text = formatIDRCurrency(item.harga)
 
             holder.itemView.setOnClickListener {
@@ -45,6 +44,6 @@ class HomeProductAdapter @Inject constructor(private val listProduct: List<Produ
     }
 
     interface OnItemClickCallback {
-        fun onProductClicked(data: Product)
+        fun onProductClicked(data: ProductItem)
     }
 }

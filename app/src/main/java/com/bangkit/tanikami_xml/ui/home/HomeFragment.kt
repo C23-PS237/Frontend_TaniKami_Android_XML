@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bangkit.tanikami_xml.R
 import com.bangkit.tanikami_xml.data.helper.Response
-import com.bangkit.tanikami_xml.data.model.Product
+import com.bangkit.tanikami_xml.data.remote.response.ProductItem
 import com.bangkit.tanikami_xml.databinding.FragmentHomeBinding
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,6 +37,7 @@ class HomeFragment : Fragment() {
         binding.fabSell.setOnClickListener {
             findNavController().navigate(R.id.action_nav_home_to_addProductFragment)
         }
+
         showListProducts()
     }
 
@@ -49,8 +50,9 @@ class HomeFragment : Fragment() {
             rvProductSell.layoutManager = GridLayoutManager(requireActivity(), 2)
             homeViewModel.getAllProducts().observe(requireActivity()) {
                 when (it) {
-                    is Response.Loading -> "" // loading jangan di set true dulu disini soalnya ada loading di awal splash jadi biarin kosong dulu
+                    is Response.Loading -> setLoading(true)
                     is Response.Error -> {
+                        setLoading(false)
                         Snackbar.make(
                             binding.root,
                             it.error,
@@ -58,12 +60,13 @@ class HomeFragment : Fragment() {
                         ).show()
                     }
                     is Response.Success -> {
-                        val listData = HomeProductAdapter(it.data)
+                        setLoading(false)
+                        val listData = HomeProductAdapter(it.data.payload)
                         rvProductSell.setHasFixedSize(true)
                         rvProductSell.adapter = listData
 
                         listData.setOnItemClickCallback(object: HomeProductAdapter.OnItemClickCallback {
-                            override fun onProductClicked(data: Product) {
+                            override fun onProductClicked(data: ProductItem) {
                                 findNavController().navigate(R.id.action_nav_home_to_detailFragment)
                             }
                         })
