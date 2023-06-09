@@ -30,7 +30,7 @@
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.bangkit.tanikami_xml.ui.profile.ProfileFragment"
+        android:name="com.bangkit.tanikami_xml.ui.user.profile.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -87,7 +87,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.bangkit.tanikami_xml.ui.login.LoginFragment"
+        android:name="com.bangkit.tanikami_xml.ui.user.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -103,7 +103,7 @@
 
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.bangkit.tanikami_xml.ui.register.RegisterFragment"
+        android:name="com.bangkit.tanikami_xml.ui.user.register.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action

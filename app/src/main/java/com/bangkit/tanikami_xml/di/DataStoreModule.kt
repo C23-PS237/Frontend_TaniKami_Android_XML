@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStoreFile
 import com.bangkit.tanikami_xml.data.data_store.UserPreference
+import com.bangkit.tanikami_xml.data.remote.retrofit.ApiService
 import com.bangkit.tanikami_xml.data.repository.UserRepository
 import dagger.Module
 import dagger.Provides
@@ -34,7 +35,7 @@ object DataStoreModule {
 
     @Provides
     @Singleton
-    fun provideUserRepository(userPreference: UserPreference): UserRepository {
-        return UserRepository(userPreference)
+    fun provideUserRepository(userPreference: UserPreference, apiServ: ApiService): UserRepository {
+        return UserRepository(userPreference, apiServ)
     }
 }

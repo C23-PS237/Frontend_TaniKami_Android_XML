@@ -146,6 +146,10 @@
     <string name="description_detect3">Search for cure in internet and take care your plants more</string>
     <string name="product_price_per_stock_size">Product Price per Stock Size</string>
     <string name="total_product_sold">Total Product Sold</string>
+    <string name="warning_register">Please choose an image first!!</string>
+    <string name="hint_idKtp">NIK</string>
+    <string name="register_user_success">Register User Success</string>
+    <string name="msg_register_success">msg: You have Successfully created new account, next please login!</string>
 
 
     <!-- Array for ML model -->

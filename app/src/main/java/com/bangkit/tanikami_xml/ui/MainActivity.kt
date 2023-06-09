@@ -121,22 +121,22 @@ class MainActivity : AppCompatActivity() {
     }
     private fun isAllPermissionGranted(): Boolean {
         @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            return REQUIRED_PERMISSION.all {
+                ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
+            }
+        } else {
             return REQUIRED_PERMISSION_AD13.all {
                 ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
             }
         }
-
-        return REQUIRED_PERMISSION.all {
-            ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
-        }
     }
 
     companion object {
-        private val REQUIRED_PERMISSION = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE)
+        private val REQUIRED_PERMISSION = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
 
         @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-        private val REQUIRED_PERMISSION_AD13 = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_MEDIA_IMAGES)
+        private val REQUIRED_PERMISSION_AD13 = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.WRITE_EXTERNAL_STORAGE)
 
         private const val REQUEST_CODE_PERMISSION = 10
     }

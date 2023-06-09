@@ -1,4 +1,4 @@
-package com.bangkit.tanikami_xml.ui.profile
+package com.bangkit.tanikami_xml.ui.user.profile
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

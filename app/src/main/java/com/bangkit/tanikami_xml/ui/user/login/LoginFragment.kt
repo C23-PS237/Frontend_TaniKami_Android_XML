@@ -1,4 +1,4 @@
-package com.bangkit.tanikami_xml.ui.login
+package com.bangkit.tanikami_xml.ui.user.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

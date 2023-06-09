@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    tools:context=".ui.register.RegisterFragment">
+    tools:context=".ui.user.register.RegisterFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -94,6 +94,28 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ib_camera"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/id_ktp_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            app:startIconDrawable="@drawable/baseline_person_24"
+            app:startIconTint="@color/green700"
+            app:boxStrokeColor="@color/green700">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/id_ktpEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_idKtp"
+                android:textColorHint="@color/green700"
+                android:inputType="number"
+                android:ems="10"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/nameEditTextLayout"

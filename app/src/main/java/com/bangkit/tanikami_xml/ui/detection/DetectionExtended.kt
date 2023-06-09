@@ -49,7 +49,6 @@ class DetectionExtended : Fragment() {
 //                reSizedImage = Bitmap.createScaledBitmap(imageOut, imageSize, imageSize, false)
 //            }
 
-            //getFile = myFile
             val image: Bitmap = myFile
             val dimension: Int = image.width.coerceAtMost(image.height)
             val imageOut = ThumbnailUtils.extractThumbnail(image, dimension, dimension)
