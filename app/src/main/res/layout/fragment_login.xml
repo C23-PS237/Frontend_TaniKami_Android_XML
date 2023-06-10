@@ -55,10 +55,10 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_sign_in_words">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/idKtp_layout_login"
+            android:id="@+id/idKtpeditText_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_email"
+            android:hint="@string/hint_idKtp"
             android:textColorHint="@color/green700"
             android:inputType="textEmailAddress"
             android:ems="10"/>
@@ -73,7 +73,7 @@
         android:layout_marginEnd="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_40sdp"
         app:boxStrokeColor="@color/green700"
-        app:startIconDrawable="@drawable/baseline_email_24"
+        app:startIconDrawable="@drawable/baseline_person_24"
         app:startIconTint="@color/green700"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

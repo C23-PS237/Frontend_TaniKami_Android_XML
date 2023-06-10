@@ -28,8 +28,32 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnSignIn.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_nav_home)
+        binding.apply {
+            val id_ktp = idKtpeditTextLogin.text.toString()
+            val email = emailEditTextLogin.text.toString()
+            val password = passwordEditTextLogin.toString()
+
+            btnSignIn.setOnClickListener {
+                if (id_ktp == "") {
+                    idktpLayoutLogin.error = "NIK tidak boleh kosong"
+                } else {
+                    idktpLayoutLogin.error = ""
+                }
+
+                if (email == "") {
+                    emailEditTextLayout.error = "Email tidak boleh kosong"
+                } else {
+                    emailEditTextLayout.error = ""
+                }
+
+                if (password == "") {
+                    passwordEditTextLayout.error = "Password tidak boleh kosong"
+                } else {
+                    passwordEditTextLayout.error = ""
+                }
+
+                findNavController().navigate(R.id.action_loginFragment_to_nav_home)
+            }
         }
 
         binding.toSignUp.setOnClickListener {

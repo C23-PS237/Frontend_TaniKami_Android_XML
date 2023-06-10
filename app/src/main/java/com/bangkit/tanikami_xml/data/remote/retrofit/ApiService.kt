@@ -2,6 +2,7 @@ package com.bangkit.tanikami_xml.data.remote.retrofit
 
 import com.bangkit.tanikami_xml.data.remote.response.ArticleResponse
 import com.bangkit.tanikami_xml.data.remote.response.ArtikelDetaiilResponse
+import com.bangkit.tanikami_xml.data.remote.response.LoginResponse
 import com.bangkit.tanikami_xml.data.remote.response.ProductResponse
 import retrofit2.http.Field
 import com.bangkit.tanikami_xml.data.remote.response.RegisterResponse
@@ -31,6 +32,11 @@ interface ApiService {
         @Part("usia") usia: Int,
         @Part("status") status: Boolean,
     ): RegisterResponse
+
+    @GET("user/{id_ktp}")
+    suspend fun loginUser(
+        @Path("id_ktp") id_ktp: String
+    ): LoginResponse
 
     @Multipart
     @POST("produk")
