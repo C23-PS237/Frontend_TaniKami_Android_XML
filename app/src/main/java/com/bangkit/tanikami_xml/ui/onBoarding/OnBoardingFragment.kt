@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bangkit.tanikami_xml.R
 import com.bangkit.tanikami_xml.databinding.FragmentOnBoardingBinding
@@ -15,6 +16,7 @@ class OnBoardingFragment : Fragment() {
 
     private var _binding: FragmentOnBoardingBinding? = null
     private val binding get() = _binding!!
+    private val userStateViewModel by viewModels<UserStateViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +29,7 @@ class OnBoardingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.toLogin.setOnClickListener {
             findNavController().navigate(R.id.action_onBoardingFragment_to_loginFragment)
         }
@@ -34,6 +37,22 @@ class OnBoardingFragment : Fragment() {
         binding.toRegister.setOnClickListener {
             findNavController().navigate(R.id.action_onBoardingFragment_to_registerFragment)
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+//        var dataLogin: Boolean? = null
+//
+//        userStateViewModel.isLogin().observe(requireActivity()) {
+//            dataLogin = it
+//        }
+//
+//        if (dataLogin) {
+//            findNavController().navigate(R.id.action_onBoardingFragment_to_nav_home)
+//        } else {
+//
+//        }
     }
 
     override fun onDestroy() {

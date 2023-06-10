@@ -20,6 +20,7 @@ import com.bangkit.tanikami_xml.R
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.databinding.ActivityMainBinding
 import com.bangkit.tanikami_xml.ui.home.HomeViewModel
+import com.bangkit.tanikami_xml.ui.user.UserViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,6 +28,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val viewModel by viewModels<HomeViewModel>()
+    private val userViewModel by viewModels<UserViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,6 +84,7 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appbarConfiguration)
         navView.setupWithNavController(navController)
+
     }
 
     override fun onStart() {

@@ -6,7 +6,6 @@ import androidx.lifecycle.liveData
 import com.bangkit.tanikami_xml.data.data_store.UserModel
 import com.bangkit.tanikami_xml.data.data_store.UserPreference
 import com.bangkit.tanikami_xml.data.helper.Response
-import com.bangkit.tanikami_xml.data.remote.response.LoginResponse
 import com.bangkit.tanikami_xml.data.remote.response.PItem
 import com.bangkit.tanikami_xml.data.remote.response.RegisterResponse
 import com.bangkit.tanikami_xml.data.remote.retrofit.ApiService
@@ -68,6 +67,9 @@ class UserRepository @Inject constructor(
     // DataStore Repo Syntax
     fun getUserFromDataStore() = userPref.getUserInDataStore()
     suspend fun saveUserIntoDataStore(user: UserModel) = userPref.saveUserToDataStore(user)
+
+    fun isLogin() = userPref.isLogin()
+
     suspend fun loginDataStore() = userPref.login()
     suspend fun logoutDataStore() = userPref.logout()
 

@@ -5,13 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.datastore.dataStore
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bangkit.tanikami_xml.R
+import com.bangkit.tanikami_xml.data.data_store.UserModel
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.databinding.FragmentLoginBinding
 import com.bangkit.tanikami_xml.ui.user.UserViewModel
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -38,7 +39,7 @@ class LoginFragment : Fragment() {
             btnSignIn.setOnClickListener {
                 val id_ktp = idKtpeditTextLogin.text.toString()
                 val email = emailEditTextLogin.text.toString()
-                val password = passwordEditTextLogin.toString()
+                val password = passwordEditTextLogin.text.toString()
 
                 if (id_ktp == "") {
                     idktpLayoutLogin.error = "NIK tidak boleh kosong"
@@ -58,7 +59,9 @@ class LoginFragment : Fragment() {
                     passwordEditTextLayout.error = ""
                 }
 
-                loginNow(id_ktp)
+                if (password !== null && email != null && id_ktp != null) {
+                    loginNow(id_ktp, email, password)
+                }
 
                 findNavController().navigate(R.id.action_loginFragment_to_nav_home)
             }
@@ -69,15 +72,23 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun loginNow(idKtp: String) {
+    private fun loginNow(idKtp: String, email: String, password: String) {
         userViewModel.loginUser(idKtp).observe(requireActivity()) {
             when (it) {
                 is Response.Loading -> ""
-                is Response.Error -> {}
+                is Response.Error -> {
+                    Snackbar.make(requireActivity().findViewById(android.R.id.content), it.error, Snackbar.LENGTH_LONG).show()
+                }
                 is Response.Success -> {
                     val data = it.data
                     if (data != null) {
-
+                        if (data.email == email && data.password == password) {
+                            userViewModel.saveUserToDataStore(UserModel(data.idKtp, data.nama, data.telepon, data.alamatRegist, data.profil, true))
+                            findNavController().navigate(R.id.action_loginFragment_to_nav_home)
+                            Snackbar.make(requireActivity().findViewById(android.R.id.content), "Hello Login ${data.email}, $email, ${data.password}, $password", Snackbar.LENGTH_LONG).show()
+                        } else {
+                            Snackbar.make(requireActivity().findViewById(android.R.id.content), "Password or email wrong ${data.email}, $email, ${data.password}, $password", Snackbar.LENGTH_LONG).show()
+                        }
                     }
                 }
             }
