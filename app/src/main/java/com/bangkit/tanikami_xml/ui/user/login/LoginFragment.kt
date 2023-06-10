@@ -5,9 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.datastore.dataStore
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bangkit.tanikami_xml.R
+import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.databinding.FragmentLoginBinding
+import com.bangkit.tanikami_xml.ui.user.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,6 +19,7 @@ class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
+    private val userViewModel by viewModels<UserViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,11 +34,12 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-            val id_ktp = idKtpeditTextLogin.text.toString()
-            val email = emailEditTextLogin.text.toString()
-            val password = passwordEditTextLogin.toString()
 
             btnSignIn.setOnClickListener {
+                val id_ktp = idKtpeditTextLogin.text.toString()
+                val email = emailEditTextLogin.text.toString()
+                val password = passwordEditTextLogin.toString()
+
                 if (id_ktp == "") {
                     idktpLayoutLogin.error = "NIK tidak boleh kosong"
                 } else {
@@ -52,12 +58,29 @@ class LoginFragment : Fragment() {
                     passwordEditTextLayout.error = ""
                 }
 
+                loginNow(id_ktp)
+
                 findNavController().navigate(R.id.action_loginFragment_to_nav_home)
             }
         }
 
         binding.toSignUp.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
+    }
+
+    private fun loginNow(idKtp: String) {
+        userViewModel.loginUser(idKtp).observe(requireActivity()) {
+            when (it) {
+                is Response.Loading -> ""
+                is Response.Error -> {}
+                is Response.Success -> {
+                    val data = it.data
+                    if (data != null) {
+
+                    }
+                }
+            }
         }
     }
 

@@ -91,7 +91,7 @@ interface ApiService {
     suspend fun getArticle(): ArticleResponse
 
     @GET("artikel/{id_artikel}")
-    fun getArticleByID(
+    suspend fun getArticleByID(
         @Path("id_artikel") id: String
     ): ArtikelDetaiilResponse
 }

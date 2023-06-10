@@ -7,6 +7,7 @@ import com.bangkit.tanikami_xml.data.data_store.UserModel
 import com.bangkit.tanikami_xml.data.data_store.UserPreference
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.data.remote.response.LoginResponse
+import com.bangkit.tanikami_xml.data.remote.response.PItem
 import com.bangkit.tanikami_xml.data.remote.response.RegisterResponse
 import com.bangkit.tanikami_xml.data.remote.retrofit.ApiService
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -52,11 +53,12 @@ class UserRepository @Inject constructor(
         }
     }
 
-    fun loginUser(idKtp: String): LiveData<Response<LoginResponse>> = liveData {
+    fun loginUser(idKtp: String): LiveData<Response<PItem>> = liveData {
         emit(Response.Loading)
 
         try {
             val response = apiServ.loginUser(idKtp)
+            emit(Response.Success(response.payload))
         } catch (e: HttpException) {
             Log.d(TAG, "loginUser: ${e.message()}")
             emit(Response.Error(e.message.toString()))
