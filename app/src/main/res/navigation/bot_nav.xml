@@ -70,6 +70,10 @@
             app:popUpTo="@id/editProductFragment"
             app:popUpToInclusive="true"
             app:launchSingleTop="true" />
+        <argument
+            android:name="id_product"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 
     <fragment
