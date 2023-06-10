@@ -2,10 +2,12 @@ package com.bangkit.tanikami_xml.data.remote.retrofit
 
 import com.bangkit.tanikami_xml.data.remote.response.ArticleResponse
 import com.bangkit.tanikami_xml.data.remote.response.ArtikelDetaiilResponse
+import com.bangkit.tanikami_xml.data.remote.response.DetailProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.LoginResponse
 import com.bangkit.tanikami_xml.data.remote.response.ProductResponse
 import retrofit2.http.Field
 import com.bangkit.tanikami_xml.data.remote.response.RegisterResponse
+import com.bangkit.tanikami_xml.data.remote.response.SellProductResponse
 import okhttp3.MultipartBody
 import retrofit2.http.DELETE
 import retrofit2.http.GET
@@ -52,7 +54,7 @@ interface ApiService {
         @Field("deskripsi_produk") deskripsiProduk: String,
         @Field("nama_bank") namaBank: String,
         @Field("timestamp") timestamp: String
-    ): ProductResponse
+    ): SellProductResponse
     @Multipart
     @PUT("produk/{id_produk}")
     fun updateProduct(
@@ -73,12 +75,12 @@ interface ApiService {
     @GET("produk/{id_produk}")
     suspend fun getProductbyIdProduct(
         @Path("id_produk") id_produk: Int
-    ):ProductResponse
+    ): DetailProductResponse
 
     @GET("produk/{id_ktp}")
     suspend fun getProductbyIdKTP(
         @Path("id_ktp") id: String
-    ):ProductResponse
+    ):DetailProductResponse
 
     @DELETE("produk/{id_produk}")
     suspend fun deleteProductbyId(
@@ -89,7 +91,7 @@ interface ApiService {
     suspend fun getArticle(): ArticleResponse
 
     @GET("artikel/{id_artikel}")
-    suspend fun getArticleByID(
+    fun getArticleByID(
         @Path("id_artikel") id: String
     ): ArtikelDetaiilResponse
 }

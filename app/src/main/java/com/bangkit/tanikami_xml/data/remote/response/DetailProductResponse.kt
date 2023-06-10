@@ -2,18 +2,17 @@ package com.bangkit.tanikami_xml.data.remote.response
 
 import com.google.gson.annotations.SerializedName
 
-data class ProductResponse(
+data class DetailProductResponse(
 
 	@field:SerializedName("payload")
-	val payload: List<ProductItem>,
+	val payload: Product,
 
 	@field:SerializedName("message")
 	val message: String
 )
 
-data class ProductItem(
+data class Product(
 
-	//@PrimaryKey(autoGenerate = true)
 	@field:SerializedName("id_produk")
 	val idProduk: Int,
 

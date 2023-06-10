@@ -4,7 +4,9 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.bangkit.tanikami_xml.data.helper.Response
+import com.bangkit.tanikami_xml.data.remote.response.DetailProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.ProductResponse
+import com.bangkit.tanikami_xml.data.remote.response.SellProductResponse
 import com.bangkit.tanikami_xml.data.remote.retrofit.ApiService
 import okhttp3.MultipartBody
 import retrofit2.HttpException
@@ -26,7 +28,7 @@ class ProductRepository @Inject constructor(
         deskripsiProduk: String,
         namaBank: String,
         timestamp: String
-    ): LiveData<Response<ProductResponse>> = liveData{
+    ): LiveData<Response<SellProductResponse>> = liveData{
         emit(Response.Loading)
         try {
             val response = apiServ.sellProduct( idProduk,
@@ -57,7 +59,7 @@ class ProductRepository @Inject constructor(
         }
     }
 
-    fun getProductbyIdProduct(id_produk: Int): LiveData<Response<ProductResponse>> = liveData {
+    fun getProductbyIdProduct(id_produk: Int): LiveData<Response<DetailProductResponse>> = liveData {
         emit(Response.Loading)
         try {
             val response = apiServ.getProductbyIdProduct(id_produk)
@@ -68,7 +70,7 @@ class ProductRepository @Inject constructor(
         }
     }
 
-    fun getProductbyIdKTP(id_ktp: String): LiveData<Response<ProductResponse>> = liveData {
+    fun getProductbyIdKTP(id_ktp: String): LiveData<Response<DetailProductResponse>> = liveData {
         emit(Response.Loading)
         try {
             val response = apiServ.getProductbyIdKTP(id_ktp)

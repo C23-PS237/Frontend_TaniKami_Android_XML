@@ -56,6 +56,7 @@
     <string name="products_image">Products Image</string>
     <string name="products_name">Name of product to sell</string>
     <string name="products_description">Products Description</string>
+    <string name="products_description_value">Products Description Value</string>
     <string name="products_stock">Products Stock</string>
     <string name="products_price">Products Price</string>
     <string name="products_rating">Rating Product</string>
@@ -82,9 +83,10 @@
     <string name="product_name">Product Name</string>
     <string name="bank_name">Your\'s Bank Name</string>
     <string name="bank_account_number">Your\'s bank account number</string>
+    <string name="id_ktp">Your Card Identity Number(id KTP)</string>
     <string name="stock">%d / %s </string>
     <string name="stock_size">Stock Size</string>
-    <string name="product_price">%d \\ %s</string>
+    <string name="product_price">Rp %d \\ Rp %s</string>
     <string name="product_description">Product Description</string>
     <string name="done">Done</string>
 
@@ -132,6 +134,7 @@
     <string name="tv_product_name">Product Name</string>
     <string name="tv_bank_name">Bank\'s Name</string>
     <string name="tv_bank_account_number">Bank Account Number</string>
+    <string name="tv_id_ktp">Card Identity Number(id KTP)</string>
     <string name="placehold_stock">Total product you want to sell</string>
     <string name="placehold_size_stock">Size of your\'s product stock (ex: Kg)</string>
     <string name="placehold_price_add_product">Product price per-stock size</string>
