@@ -63,7 +63,7 @@ class LoginFragment : Fragment() {
                     loginNow(id_ktp, email, password)
                 }
 
-                findNavController().navigate(R.id.action_loginFragment_to_nav_home)
+                //findNavController().navigate(R.id.action_loginFragment_to_nav_home)
             }
         }
 
