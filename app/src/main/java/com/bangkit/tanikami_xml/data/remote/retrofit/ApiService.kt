@@ -1,6 +1,7 @@
 package com.bangkit.tanikami_xml.data.remote.retrofit
 
 import com.bangkit.tanikami_xml.data.remote.response.ArticleResponse
+import com.bangkit.tanikami_xml.data.remote.response.ArtikelDetaiilResponse
 import com.bangkit.tanikami_xml.data.remote.response.ProductResponse
 import retrofit2.http.Field
 import com.bangkit.tanikami_xml.data.remote.response.RegisterResponse
@@ -19,16 +20,16 @@ interface ApiService {
     @POST("user")
     suspend fun registerUser(
         @Part profil: MultipartBody.Part,
-        @Field("id_ktp") id_ktp:String,
-        @Field("nama") name: String,
-        @Field("email") email: String,
-        @Field("password") password: String,
-        @Field("telepon") telepon: String,
-        @Field("alamat_regist") alamat_regist: String,
-        @Field("alamat_penerima") alamat_penerima: String? = null,
-        @Field("gender") gender: Boolean,
-        @Field("usia") usia: Int,
-        @Field("status") status: Boolean,
+        @Part("id_ktp") id_ktp:String,
+        @Part("nama") name: String,
+        @Part("email") email: String,
+        @Part("password") password: String,
+        @Part("telepon") telepon: String,
+        @Part("alamat_regist") alamat_regist: String,
+        @Part("alamat_penerima") alamat_penerima: String? = null,
+        @Part("gender") gender: Boolean,
+        @Part("usia") usia: Int,
+        @Part("status") status: Boolean,
     ): RegisterResponse
 
     @Multipart
@@ -60,6 +61,7 @@ interface ApiService {
         @Field("nama_bank") namaBank: String,
         @Field("timestamp") timestamp: String
     ): ProductResponse
+
     @GET("produk")
     suspend fun getAllProducts():ProductResponse
     @GET("produk/{id_produk}")
@@ -71,6 +73,7 @@ interface ApiService {
     suspend fun getProductbyIdKTP(
         @Path("id_ktp") id: String
     ):ProductResponse
+
     @DELETE("produk/{id_produk}")
     suspend fun deleteProductbyId(
         @Path("id_produk") id: Int
@@ -80,7 +83,7 @@ interface ApiService {
     suspend fun getArticle(): ArticleResponse
 
     @GET("artikel/{id_artikel}")
-    fun getArticleByID(
-        @Path("id_artikel") id: Int
-    ): ArticleResponse
+    suspend fun getArticleByID(
+        @Path("id_artikel") id: String
+    ): ArtikelDetaiilResponse
 }

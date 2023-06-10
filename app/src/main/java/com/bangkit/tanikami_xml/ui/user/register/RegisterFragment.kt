@@ -14,10 +14,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bangkit.tanikami_xml.R
@@ -108,40 +106,38 @@ class RegisterFragment : Fragment() {
             ibCamera.setOnClickListener{ takePicture() }
             btnGallery.setOnClickListener { pickPictureFromGallery() }
 
-//            btnSignUp.setOnClickListener {
-//                if (getFile != null) {
-//
-//                    val imageProfil = getFile as File
-//                    val name = nameEditTextRegister.text.toString()
-//                    val id_ktp = idKtpEditText.text.toString()
-//                    val email = emailEditText.text.toString()
-//                    val password = passwordEditText.text.toString()
-//                    val alamat_regist = addressEditText.text.toString()
-//                    val telepon = phoneEditText.text.toString()
-//                    val gender = genderAutoComplete.text.toString() == "Male"
-//                    val usia = ageEditText.text.toString()
-//
-//                    registerNewUser(
-//                        imageProfil,
-//                        id_ktp,
-//                        name,
-//                        email,
-//                        password,
-//                        alamat_regist,
-//                        telepon,
-//                        gender,
-//                        usia.toInt()
-//                    )
-//                }  else {
-//                    Toast.makeText(
-//                        requireActivity(),
-//                        getString(R.string.warning_register),
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//                }
-//
-//            }
-            findNavController().navigate(R.id.action_registerFragment_to_nav_home)
+            btnSignUp.setOnClickListener {
+                if (getFile != null) {
+
+                    val imageProfil = getFile as File
+                    val name = nameEditTextRegister.text.toString()
+                    val id_ktp = idKtpEditText.text.toString()
+                    val email = emailEditText.text.toString()
+                    val password = passwordEditText.text.toString()
+                    val alamat_regist = addressEditText.text.toString()
+                    val telepon = phoneEditText.text.toString()
+                    val gender = genderAutoComplete.text.toString() == "Male"
+                    val usia = ageEditText.text.toString()
+
+                    registerNewUser(
+                        imageProfil,
+                        id_ktp,
+                        name,
+                        email,
+                        password,
+                        alamat_regist,
+                        telepon,
+                        gender,
+                        usia.toInt()
+                    )
+                }  else {
+                    Toast.makeText(
+                        requireActivity(),
+                        getString(R.string.warning_register),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
         }
 
         binding.toSignIn.setOnClickListener {
@@ -168,8 +164,8 @@ class RegisterFragment : Fragment() {
             name,
             email,
             password,
-            alamatRegist,
             telepon,
+            alamatRegist,
             gender,
             usia,
             false

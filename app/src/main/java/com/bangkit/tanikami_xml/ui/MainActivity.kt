@@ -133,10 +133,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        private val REQUIRED_PERMISSION = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        private val REQUIRED_PERMISSION = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE)
 
         @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-        private val REQUIRED_PERMISSION_AD13 = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        private val REQUIRED_PERMISSION_AD13 = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_MEDIA_IMAGES)
 
         private const val REQUEST_CODE_PERMISSION = 10
     }

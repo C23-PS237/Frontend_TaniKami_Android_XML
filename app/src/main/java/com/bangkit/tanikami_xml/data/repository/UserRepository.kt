@@ -8,8 +8,6 @@ import com.bangkit.tanikami_xml.data.data_store.UserPreference
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.data.remote.response.RegisterResponse
 import com.bangkit.tanikami_xml.data.remote.retrofit.ApiService
-import com.bangkit.tanikami_xml.utils.Formatted.compressImage
-import com.bangkit.tanikami_xml.utils.ImageProcessor
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -37,11 +35,10 @@ class UserRepository @Inject constructor(
     ): LiveData<Response<RegisterResponse>> = liveData {
         emit(Response.Loading)
 
-        val compressedImage = compressImage(imageProfile)
-        val requestedImage = compressedImage.asRequestBody("image/jpeg".toMediaTypeOrNull())
+        val requestedImage = imageProfile.asRequestBody("image/jpeg".toMediaTypeOrNull())
         val imageMultiPart: MultipartBody.Part = MultipartBody.Part.createFormData(
             "profil",
-            compressedImage.name,
+            imageProfile.name,
             requestedImage
         )
 

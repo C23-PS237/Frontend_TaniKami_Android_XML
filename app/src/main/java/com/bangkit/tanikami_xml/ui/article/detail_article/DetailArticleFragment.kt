@@ -1,6 +1,7 @@
 package com.bangkit.tanikami_xml.ui.article.detail_article
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -34,12 +35,13 @@ class DetailArticleFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val idArticle = DetailArticleFragmentArgs.fromBundle(arguments as Bundle).idArtikel
+        Log.d("DetailArtikelId", "onViewCreated: $idArticle", )
 
-        articleViewModel.getDetailArticle(idArticle).observe(requireActivity()) {
+        articleViewModel.getDetailArticle(idArticle.toString()).observe(requireActivity()) {
             when (it) {
                 is Response.Loading -> ""
                 is Response.Success -> {
-                    val data = it.data[0]
+                    val data = it.data
                     binding.apply {
                         Glide.with(this@DetailArticleFragment)
                             .load(data)

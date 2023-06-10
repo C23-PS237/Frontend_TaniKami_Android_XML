@@ -24,7 +24,7 @@ class ArticleRepository @Inject constructor(
         }
     }
 
-    fun getDetailArticle(id_artikel: Int): LiveData<Response<List<PayloadItem>>> = liveData {
+    fun getDetailArticle(id_artikel: String): LiveData<Response<PayloadItem>> = liveData {
         emit(Response.Loading)
         try {
             val response = apiServ.getArticleByID(id_artikel).payload

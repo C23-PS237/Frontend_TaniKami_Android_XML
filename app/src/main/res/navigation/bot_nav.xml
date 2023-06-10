@@ -208,9 +208,6 @@
         <action
             android:id="@+id/action_uploadingBillFragment_to_paymentsStepFragment"
             app:popUpTo="@id/paymentsStepFragment" />
-        <action
-            android:id="@+id/action_uploadingBillFragment_to_cameraFragment"
-            app:popUpTo="@id/cameraFragment" />
     </fragment>
     <fragment
         android:id="@+id/editProductFragment"
@@ -220,15 +217,6 @@
         <action
             android:id="@+id/action_editProductFragment_to_confirmAddProductFragment"
             app:popUpTo="@id/confirmAddProductFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/cameraFragment"
-        android:name="com.bangkit.tanikami_xml.CameraFragment"
-        android:label="fragment_camera"
-        tools:layout="@layout/fragment_camera" >
-        <action
-            android:id="@+id/action_cameraFragment_to_uploadingBillFragment"
-            app:popUpTo="@id/uploadingBillFragment" />
     </fragment>
     <fragment
         android:id="@+id/detectionExtended"
