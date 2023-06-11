@@ -13,10 +13,6 @@ class UserStateViewModel @Inject constructor(
     private val userRepo: UserRepository
 ): ViewModel() {
 
-    fun getDataFromDataStore(): LiveData<UserModel> {
-        return userRepo.getUserFromDataStore().asLiveData()
-    }
-
     fun isLogin(): LiveData<Boolean> {
         return userRepo.isLogin().asLiveData()
     }
