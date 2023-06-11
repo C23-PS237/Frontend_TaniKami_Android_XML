@@ -17,31 +17,33 @@ class ProductRepository @Inject constructor(
 ){
 
     fun sellProduct(
-        idProduk:Int,
-        besaranStok: String,
-        namaProduk:String,
+        //idProduk:Int,
+        besaran_stok: String,
+        nama_produk:String,
         harga: Int,
-        urlGambar: MultipartBody.Part,
-        rekPenjual: String,
-        idKtp:String,
+        url_gambar: MultipartBody.Part,
+        rek_penjual: String,
+        id_ktp:String,
         stok: Int,
-        deskripsiProduk: String,
-        namaBank: String,
-        timestamp: String
+        deskripsi_produk: String,
+        nama_bank: String,
+        //timestamp: String
     ): LiveData<Response<SellProductResponse>> = liveData{
         emit(Response.Loading)
         try {
-            val response = apiServ.sellProduct( idProduk,
-                                                besaranStok,
-                                                namaProduk,
+            val response = apiServ.sellProduct(
+                //idProduk,
+                                                besaran_stok,
+                                                nama_produk,
                                                 harga,
-                                                urlGambar,
-                                                rekPenjual,
-                                                idKtp,
+                                                url_gambar,
+                                                rek_penjual,
+                                                id_ktp,
                                                 stok,
-                                                deskripsiProduk,
-                                                namaBank,
-                                                timestamp )
+                                                deskripsi_produk,
+                                                nama_bank
+                                                //timestamp
+                                                )
             emit(Response.Success(response))
         } catch (e: HttpException) {
             Log.d("Repository", "sellProduct: ${e.message}")

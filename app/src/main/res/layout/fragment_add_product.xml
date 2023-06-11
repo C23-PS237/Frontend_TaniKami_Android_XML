@@ -102,6 +102,35 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
+                android:id="@+id/tvIdKtp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_id_ktp"
+                android:textStyle="bold"
+                android:textSize="@dimen/_12ssp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/IdKTPEditTextLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/IdKTPEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/id_ktp"
+                    android:textColorHint="@color/green700"
+                    android:inputType="text"
+                    android:ems="10"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
                 android:id="@+id/tvBankName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -163,7 +192,7 @@
                 android:id="@+id/tvStocks"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/total_product_sold"
+                android:text="@string/total_product"
                 android:textStyle="bold"
                 android:textSize="@dimen/_12ssp"
                 android:layout_marginTop="@dimen/_16sdp"

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bangkit.tanikami_xml.R
 import com.bangkit.tanikami_xml.databinding.FragmentConfirmAddProductBinding
@@ -15,6 +16,7 @@ class ConfirmAddProductFragment : Fragment() {
 
     private var _binding: FragmentConfirmAddProductBinding? = null
     private val binding get() = _binding!!
+    private val confirmAddProductViewModel by viewModels<ConfirmAddProductViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,6 +33,7 @@ class ConfirmAddProductFragment : Fragment() {
             findNavController().navigate(R.id.action_confirmAddProductFragment_to_addProductFragment)
         }
         binding.btnSell.setOnClickListener {
+
             findNavController().navigate(R.id.action_confirmAddProductFragment_to_historySellFragment)
         }
     }

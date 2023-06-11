@@ -30,11 +30,11 @@ class HomeProductAdapter @Inject constructor(private val listProduct: List<Produ
 
         holder.binding.apply {
             Glide.with(holder.itemView.context)
-                .load(item.urlGambar)
+                .load(item.url_gambar)
                 .into(ivProducts)
 
-            tvProductsName.text = item.namaProduk
-            tvProductsDescription.text = item.deskripsiProduk
+            tvProductsName.text = item.nama_produk
+            tvProductsDescription.text = item.deskripsi_produk
             tvPrice.text = formatIDRCurrency(item.harga)
 
             holder.itemView.setOnClickListener {
