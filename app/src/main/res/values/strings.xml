@@ -148,7 +148,7 @@
     <string name="description_detect2">Upload your\'s photo to our ML model to detect disease of that plant</string>
     <string name="description_detect3">Search for cure in internet and take care your plants more</string>
     <string name="product_price_per_stock_size">Product Price per Stock Size</string>
-    <string name="total_product_sold">Total Product Sold</string>
+    <string name="total_product">Total Product</string>
     <string name="warning_register">Please choose an image first!!</string>
     <string name="hint_idKtp">NIK</string>
     <string name="register_user_success">Register User Success</string>

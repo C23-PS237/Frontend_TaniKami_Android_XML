@@ -18,31 +18,31 @@ data class ProductItem(
 	val idProduk: Int,
 
 	@field:SerializedName("besaran_stok")
-	val besaranStok: String,
+	val besaran_stok: String,
 
 	@field:SerializedName("nama_produk")
-	val namaProduk: String,
+	val nama_produk: String,
 
 	@field:SerializedName("harga")
 	val harga: Int,
 
 	@field:SerializedName("url_gambar")
-	val urlGambar: String,
+	val url_gambar: String,
 
 	@field:SerializedName("rek_penjual")
-	val rekPenjual: String,
+	val rek_penjual: String,
 
 	@field:SerializedName("id_ktp")
-	val idKtp: String,
+	val id_ktp: String,
 
 	@field:SerializedName("stok")
 	val stok: Int,
 
 	@field:SerializedName("deskripsi_produk")
-	val deskripsiProduk: String,
+	val deskripsi_produk: String,
 
 	@field:SerializedName("nama_bank")
-	val namaBank: String,
+	val nama_bank: String,
 
 	@field:SerializedName("timestamp")
 	val timestamp: String

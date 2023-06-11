@@ -5,7 +5,6 @@ import com.bangkit.tanikami_xml.data.remote.response.ArtikelDetaiilResponse
 import com.bangkit.tanikami_xml.data.remote.response.DetailProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.LoginResponse
 import com.bangkit.tanikami_xml.data.remote.response.ProductResponse
-import retrofit2.http.Field
 import com.bangkit.tanikami_xml.data.remote.response.RegisterResponse
 import com.bangkit.tanikami_xml.data.remote.response.SellProductResponse
 import okhttp3.MultipartBody
@@ -43,32 +42,32 @@ interface ApiService {
     @Multipart
     @POST("produk")
     suspend fun sellProduct(
-        @Field("id_produk") idProduk:Int,
-        @Field("besaran_stok") besaranStok: String,
-        @Field("nama_produk") namaProduk:String,
-        @Field("harga") harga: Int,
-        @Part ("url_gambar") urlGambar: MultipartBody.Part,
-        @Field("rek_penjual") rekPenjual: String,
-        @Field("id_ktp") idKtp:String,
-        @Field("stok") stok: Int,
-        @Field("deskripsi_produk") deskripsiProduk: String,
-        @Field("nama_bank") namaBank: String,
-        @Field("timestamp") timestamp: String
+        //@Part("id_produk") idProduk:Int,
+        @Part("besaran_stok") besaran_stok: String,
+        @Part("nama_produk") nama_produk:String,
+        @Part("harga") harga: Int,
+        @Part url_gambar: MultipartBody.Part,
+        @Part("rek_penjual") rek_penjual: String,
+        @Part("id_ktp") id_ktp:String,
+        @Part("stok") stok: Int,
+        @Part("deskripsi_produk") deskripsi_produk: String,
+        @Part("nama_bank") nama_bank: String,
+        //@Part("timestamp") timestamp: String
     ): SellProductResponse
 
     @Multipart
     @PUT("produk/{id_produk}")
     fun updateProduct(
-        @Field("id_produk") idProduk:Int,
-        @Field("besaran_stok") besaranStok: String,
-        @Field("nama_produk") namaProduk:String,
-        @Field("harga") harga: Int,
-        @Part ("url_gambar") urlGambar: MultipartBody.Part,
-        @Field("rek_penjual") rekPenjual: String,
-        @Field("stok") stok: Int,
-        @Field("deskripsi_produk") deskripsiProduk: String,
-        @Field("nama_bank") namaBank: String,
-        @Field("timestamp") timestamp: String
+        //@Part("id_produk") idProduk:Int,
+        @Part("besaran_stok") besaranStok: String,
+        @Part("nama_produk") namaProduk:String,
+        @Part("harga") harga: Int,
+        @Part url_gambar: MultipartBody.Part,
+        @Part("rek_penjual") rekPenjual: String,
+        @Part("stok") stok: Int,
+        @Part("deskripsi_produk") deskripsiProduk: String,
+        @Part("nama_bank") namaBank: String,
+        @Part("timestamp") timestamp: String
     ): ProductResponse
 
     @GET("produk")

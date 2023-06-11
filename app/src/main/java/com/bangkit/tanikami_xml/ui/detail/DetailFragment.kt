@@ -47,7 +47,7 @@ class DetailFragment() : Fragment() {
                 is Response.Success -> {
                     binding.apply {
                         Glide.with(this@DetailFragment)
-                            .load(it.data.payload.urlGambar)
+                            .load(it.data.payload.url_gambar)
                             .into(ivProductsDetail)
                         tvProductsNameDetail.text = it.data.payload.namaProduk
                         tvProductsPriceDetail.text = it.data.payload.harga.toString()

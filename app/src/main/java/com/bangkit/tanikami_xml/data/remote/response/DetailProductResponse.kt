@@ -26,7 +26,7 @@ data class Product(
 	val harga: Int,
 
 	@field:SerializedName("url_gambar")
-	val urlGambar: String,
+	val url_gambar: String,
 
 	@field:SerializedName("rek_penjual")
 	val rekPenjual: String,
