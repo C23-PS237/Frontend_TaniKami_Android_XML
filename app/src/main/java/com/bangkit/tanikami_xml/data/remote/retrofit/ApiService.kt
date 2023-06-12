@@ -91,9 +91,12 @@ interface ApiService {
     ):ProductResponse
 
     //Pembelian
-    //bukannya by id_ktp aja kah?
+    @GET("pembelian/ktp/{id_ktp}")
+    suspend fun getBuybyIdKtp(
+        @Path("id_ktp") id: String
+    ): GetBuyResponse
     @GET("pembelian/{id_transaksi}")
-    suspend fun getBuybyId(
+    suspend fun getBuybyIdTransaksi(
         @Path("id_transaksi") id: String
     ): GetBuyResponse
 

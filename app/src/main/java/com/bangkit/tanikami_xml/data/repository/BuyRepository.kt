@@ -13,13 +13,23 @@ class BuyRepository @Inject constructor(
     //private val userPref: UserPreference,
     private val apiServ: ApiService
 ){
-    fun getBuybyId(id_transaksi: String): LiveData<Response<GetBuyResponse>> = liveData {
+    fun getBuybyIdKtp(id_ktp: String): LiveData<Response<GetBuyResponse>> = liveData {
         emit(Response.Loading)
         try {
-            val response = apiServ.getBuybyId(id_transaksi)
+            val response = apiServ.getBuybyIdKtp(id_ktp)
             emit(Response.Success(response))
         } catch (e: HttpException) {
-            Log.d("Repository", "getProductbyIdTransaksi: ${e.message}")
+            Log.d("Repository", "getBuybyIdKtp: ${e.message}")
+            emit(Response.Error(e.message.toString()))
+        }
+    }
+    fun getBuybyIdTransaksi(id_transaksi: String): LiveData<Response<GetBuyResponse>> = liveData {
+        emit(Response.Loading)
+        try {
+            val response = apiServ.getBuybyIdTransaksi(id_transaksi)
+            emit(Response.Success(response))
+        } catch (e: HttpException) {
+            Log.d("Repository", "getBuybyIdTransaksi: ${e.message}")
             emit(Response.Error(e.message.toString()))
         }
     }
