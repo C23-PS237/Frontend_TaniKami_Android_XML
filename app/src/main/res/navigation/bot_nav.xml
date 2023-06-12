@@ -105,7 +105,10 @@
             app:launchSingleTop="true"/>
         <action
             android:id="@+id/action_loginFragment_to_nav_home"
-            app:destination="@id/nav_home" />
+            app:destination="@id/nav_home"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true"/>
     </fragment>
 
     <fragment

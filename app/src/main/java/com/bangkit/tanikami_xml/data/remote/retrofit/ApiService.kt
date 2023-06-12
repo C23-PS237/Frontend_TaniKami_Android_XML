@@ -2,6 +2,7 @@ package com.bangkit.tanikami_xml.data.remote.retrofit
 
 import com.bangkit.tanikami_xml.data.remote.response.ArticleResponse
 import com.bangkit.tanikami_xml.data.remote.response.ArtikelDetaiilResponse
+import com.bangkit.tanikami_xml.data.remote.response.BuyProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.DetailProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.GetBuyResponse
 import com.bangkit.tanikami_xml.data.remote.response.LoginResponse
@@ -95,6 +96,43 @@ interface ApiService {
     suspend fun getBuybyIdKtp(
         @Path("id_ktp") id: String
     ): GetBuyResponse
+
+    @Multipart
+    @POST("pembelian")
+    suspend fun buyProductNow(
+        @Part bukti_transfer: MultipartBody.Part,
+        @Part("id_ktp") id_ktp: String,
+        @Part("id_produk") id_produk: String,
+        @Part("alamat_penerima") alamat_penerima: String,
+        @Part("harga") harga: Int,
+        @Part("jumlah_beli") jumlah_beli: Int,
+        @Part("biaya_pengiriman") biaya_pengiriman: Int,
+        @Part("pajak") pajak: Int,
+        @Part("biaya_admin") biaya_admin: Int,
+        @Part("biaya_total") biaya_total: Int,
+        @Part("status_pembayaran") statusPembayaran: Boolean,
+        @Part("status_pengiriman") statusPengiriman: Boolean
+    ): BuyProductResponse
+
+    @Multipart
+    @PUT("pembelian/{id_transaksi}")
+    suspend fun updatePembelianByIdTransaksi(
+        @Path("id_transaksi") id_transaksi: String,
+        @Part bukti_transfer: MultipartBody.Part,
+        @Part("id_ktp") id_ktp: String,
+        @Part("id_produk") id_produk: Int,
+        @Part("alamat_penerima") alamat_penerima: String,
+        @Part("harga") harga: Int,
+        @Part("jumlah_beli") jumlah_beli: Int,
+        @Part("biaya_pengiriman") biaya_pengiriman: Int,
+        @Part("pajak") pajak: Int,
+        @Part("biaya_admin") biaya_admin: Int,
+        @Part("biaya_total") biaya_total: Int,
+        @Part("status_pembayaran") statusPembayaran: Boolean,
+        @Part("status_pengiriman") statusPengiriman: Boolean
+    ): BuyProductResponse // response belum dibuat nunggu postman
+
+
     @GET("pembelian/{id_transaksi}")
     suspend fun getBuybyIdTransaksi(
         @Path("id_transaksi") id: String

@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.bangkit.tanikami_xml.R
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.databinding.FragmentDetailBinding
+import com.bangkit.tanikami_xml.utils.Formatted
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,7 +24,7 @@ class DetailFragment() : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentDetailBinding.inflate(inflater, container, false)
         return binding.root
@@ -50,8 +51,11 @@ class DetailFragment() : Fragment() {
                             .load(it.data.payload.url_gambar)
                             .into(ivProductsDetail)
                         tvProductsNameDetail.text = it.data.payload.nama_produk
-                        tvProductsPriceDetail.text = it.data.payload.harga.toString()
-                        tvProductsStockDetail.text = it.data.payload.stok.toString()
+                        tvProductsPriceDetail.text = getString(R.string.products_price,
+                            Formatted.formatIDRCurrency(it.data.payload.harga),
+                            it.data.payload.besaran_stok
+                        )
+                        tvProductsStockDetail.text = getString(R.string.products_stock, it.data.payload.stok, it.data.payload.besaran_stok)
                         //binding.tvProductsRating.text = it.data.
                         tvProductsDescriptionDetailValue.text = it.data.payload.deskripsi_produk
                     }

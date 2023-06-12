@@ -25,7 +25,7 @@
                 app:srcCompat="@drawable/image"/>
 
             <androidx.coordinatorlayout.widget.CoordinatorLayout
-                android:layout_width="411dp"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/_100sdp">
 
                 <TextView
@@ -49,6 +49,7 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/_18ssp"
                     android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/tv_products_price_detail"
                     android:layout_width="wrap_content"
@@ -59,6 +60,7 @@
                     android:textSize="@dimen/_18ssp"
                     android:textColor="@color/black"
                     android:textStyle="bold|italic" />
+
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/fab_edit_detail"
                     android:layout_width="wrap_content"
@@ -87,7 +89,8 @@
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/_9sdp"
-                android:layout_marginStart="@dimen/_13sdp"/>
+                android:layout_marginStart="@dimen/_13sdp"
+                android:layout_marginBottom="@dimen/_8sdp"/>
 
             <ScrollView
                 android:id="@+id/sv_address"
@@ -108,25 +111,29 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvPhoneNumber">
+
                 <TextView
                     android:id="@+id/tv_products_description_detail_value"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/products_description_value"
-                    android:textSize="@dimen/_20ssp"
+                    android:textSize="@dimen/_16ssp"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
+                    android:textStyle="normal"
                     android:layout_marginTop="@dimen/_9sdp"
-                    android:layout_marginStart="@dimen/_13sdp"/>
+                    android:layout_marginStart="@dimen/_13sdp"
+                    android:layout_marginEnd="@dimen/_13sdp"/>
             </ScrollView>
 
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_5sdp"
                 android:background="@color/greySpace"/>
+
             <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:id="@+id/tv_products_rating"
                     android:layout_width="wrap_content"
@@ -137,6 +144,7 @@
                     android:textStyle="bold"
                     android:layout_marginTop="@dimen/_9sdp"
                     android:layout_marginStart="@dimen/_13sdp"/>
+
                 <ImageButton
                     android:id="@+id/ib_right"
                     android:layout_width="@dimen/_50sdp"
@@ -185,7 +193,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_amount"
-                    android:inputType="textEmailAddress"
+                    android:inputType="number"
                     android:ems="10"/>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>

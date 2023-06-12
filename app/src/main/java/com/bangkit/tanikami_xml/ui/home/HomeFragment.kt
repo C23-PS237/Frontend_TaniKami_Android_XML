@@ -34,6 +34,13 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+//        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+//            override fun handleOnBackPressed() {
+//                findNavController().clear
+//            }
+//
+//        })
+
         binding.fabSell.setOnClickListener {
             findNavController().navigate(R.id.action_nav_home_to_addProductFragment)
         }

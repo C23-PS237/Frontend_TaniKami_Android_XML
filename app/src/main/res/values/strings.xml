@@ -57,8 +57,8 @@
     <string name="products_name">Name of product to sell</string>
     <string name="products_description">Products Description</string>
     <string name="products_description_value">Products Description Value</string>
-    <string name="products_stock">Products Stock</string>
-    <string name="products_price">Products Price</string>
+    <string name="products_stock">Stock : %d %s</string>
+    <string name="products_price">Price : %s / %s</string>
     <string name="products_rating">Rating Product</string>
     <string name="products_amount">Amount To Buy</string>
     <string name="buy">Buy</string>
