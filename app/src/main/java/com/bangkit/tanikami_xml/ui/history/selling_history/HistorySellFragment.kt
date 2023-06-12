@@ -43,7 +43,6 @@ class HistorySellFragment : Fragment() {
         binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
     }
     private fun historySellProduct(){
-
         binding.apply {
             rvSalesHistory.layoutManager = LinearLayoutManager(requireActivity())
             historySellViewModel.getIdKtp().observe(requireActivity()) {
