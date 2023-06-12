@@ -21,7 +21,7 @@ class AddEditProductViewModel @Inject constructor(
         harga: Int,
         url_gambar: MultipartBody.Part,
         rek_penjual: String,
-        id_ktp:String,
+        //id_ktp:String,
         stok: Int,
         deskripsi_produk: String,
         nama_bank: String,
@@ -35,7 +35,7 @@ class AddEditProductViewModel @Inject constructor(
             harga,
             url_gambar,
             rek_penjual,
-            id_ktp,
+            //id_ktp,
             stok,
             deskripsi_produk,
             nama_bank

@@ -3,6 +3,7 @@ package com.bangkit.tanikami_xml.data.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
+//import com.bangkit.tanikami_xml.data.data_store.UserPreference
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.data.remote.response.DetailProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.ProductResponse
@@ -13,6 +14,7 @@ import retrofit2.HttpException
 import javax.inject.Inject
 
 class ProductRepository @Inject constructor(
+    //private val userPref: UserPreference,
     private val apiServ: ApiService
 ){
 
@@ -23,7 +25,7 @@ class ProductRepository @Inject constructor(
         harga: Int,
         url_gambar: MultipartBody.Part,
         rek_penjual: String,
-        id_ktp:String,
+        //id_ktp:String,
         stok: Int,
         deskripsi_produk: String,
         nama_bank: String,
@@ -38,7 +40,7 @@ class ProductRepository @Inject constructor(
                                                 harga,
                                                 url_gambar,
                                                 rek_penjual,
-                                                id_ktp,
+                                                //id_ktp,
                                                 stok,
                                                 deskripsi_produk,
                                                 nama_bank
@@ -72,7 +74,7 @@ class ProductRepository @Inject constructor(
         }
     }
 
-    fun getProductbyIdKTP(id_ktp: String): LiveData<Response<DetailProductResponse>> = liveData {
+    fun getProductbyIdKTP(id_ktp: String): LiveData<Response<ProductResponse>> = liveData {
         emit(Response.Loading)
         try {
             val response = apiServ.getProductbyIdKTP(id_ktp)

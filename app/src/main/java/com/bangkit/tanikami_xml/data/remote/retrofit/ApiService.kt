@@ -48,7 +48,7 @@ interface ApiService {
         @Part("harga") harga: Int,
         @Part url_gambar: MultipartBody.Part,
         @Part("rek_penjual") rek_penjual: String,
-        @Part("id_ktp") id_ktp:String,
+        //@Part("id_ktp") id_ktp:String,
         @Part("stok") stok: Int,
         @Part("deskripsi_produk") deskripsi_produk: String,
         @Part("nama_bank") nama_bank: String,
@@ -76,10 +76,10 @@ interface ApiService {
         @Path("id_produk") id_produk: Int
     ): DetailProductResponse
 
-    @GET("produk/{id_ktp}")
+    @GET("produk/ktp/{id_ktp}")
     suspend fun getProductbyIdKTP(
         @Path("id_ktp") id: String
-    ):DetailProductResponse
+    ):ProductResponse
 
     @DELETE("produk/{id_produk}")
     suspend fun deleteProductbyId(

@@ -15,7 +15,7 @@ data class ProductItem(
 
 	//@PrimaryKey(autoGenerate = true)
 	@field:SerializedName("id_produk")
-	val idProduk: Int,
+	val id_produk: Int,
 
 	@field:SerializedName("besaran_stok")
 	val besaran_stok: String,

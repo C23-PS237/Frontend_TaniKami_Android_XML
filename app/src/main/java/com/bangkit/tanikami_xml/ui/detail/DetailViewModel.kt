@@ -13,8 +13,8 @@ class DetailProductViewModel @Inject constructor(
     private val productRepo: ProductRepository
 ): ViewModel(){
 
-    fun getProductbyIdProduct(idProduk: Int) : LiveData<Response<DetailProductResponse>> {
-        return productRepo.getProductbyIdProduct(idProduk)
+    fun getProductbyIdProduct(id_produk: Int) : LiveData<Response<DetailProductResponse>> {
+        return productRepo.getProductbyIdProduct(id_produk)
     }
 
 }

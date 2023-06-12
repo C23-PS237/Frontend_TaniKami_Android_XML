@@ -103,7 +103,7 @@ class AddProductFragment : Fragment() {
             val harga = binding.priceSellEditText.text.toString().toInt()
             val rek_penjual = binding.bankNumberEditText.text.toString()
             val stok = binding.stocksEditText.text.toString().toInt()
-            val id_ktp = binding.IdKTPEditText.text.toString()
+            //val id_ktp = binding.IdKTPEditText.text.toString()
             val nama_bank = binding.bankNameEditText.text.toString()
             val deskripsi_produk = binding.descriptionSellEditText.text.toString()
 //            val timestamp = DateTimeFormatter
@@ -126,7 +126,7 @@ class AddProductFragment : Fragment() {
                 harga,
                 url_gambar,
                 rek_penjual,
-                id_ktp,
+                //id_ktp,
                 stok,
                 deskripsi_produk,
                 nama_bank

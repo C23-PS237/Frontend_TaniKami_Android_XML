@@ -46,14 +46,14 @@ class DetailFragment() : Fragment() {
 
                 is Response.Success -> {
                     binding.apply {
-                        Glide.with(this@DetailFragment)
+                        Glide.with(requireActivity())
                             .load(it.data.payload.url_gambar)
                             .into(ivProductsDetail)
-                        tvProductsNameDetail.text = it.data.payload.namaProduk
+                        tvProductsNameDetail.text = it.data.payload.nama_produk
                         tvProductsPriceDetail.text = it.data.payload.harga.toString()
                         tvProductsStockDetail.text = it.data.payload.stok.toString()
                         //binding.tvProductsRating.text = it.data.
-                        tvProductsDescriptionDetailValue.text = it.data.payload.deskripsiProduk
+                        tvProductsDescriptionDetailValue.text = it.data.payload.deskripsi_produk
                     }
                 }
             }

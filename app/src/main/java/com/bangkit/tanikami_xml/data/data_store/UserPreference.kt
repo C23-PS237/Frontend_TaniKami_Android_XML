@@ -5,8 +5,8 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.asLiveData
+//import androidx.lifecycle.LiveData
+//import androidx.lifecycle.asLiveData
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -58,6 +58,17 @@ class UserPreference @Inject constructor(private val dataStore: DataStore<Prefer
         }
     }
 
+    fun getIdKtp(): Flow<String> {
+        return dataStore.data.map { preferences->
+            preferences[ID_KEY] ?: ""
+        }
+    }
+
+    suspend fun saveIdKtp(id_ktp: String){
+        dataStore.edit { preferences ->
+            preferences[ID_KEY] = id_ktp
+        }
+    }
     companion object {
         private val ID_KEY = stringPreferencesKey("id_ktp")
         private val NAME_KEY = stringPreferencesKey("name")

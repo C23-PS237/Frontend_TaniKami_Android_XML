@@ -68,7 +68,7 @@ class HomeFragment : Fragment() {
                         listData.setOnItemClickCallback(object: HomeProductAdapter.OnItemClickCallback {
                             override fun onProductClicked(data: ProductItem) {
                                 val toDetailFragment = HomeFragmentDirections.actionNavHomeToDetailFragment()
-                                toDetailFragment.idProduct = data.idProduk
+                                toDetailFragment.idProduct = data.id_produk
                                 findNavController().navigate(toDetailFragment)
                             }
                         })
