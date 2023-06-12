@@ -3,6 +3,7 @@ package com.bangkit.tanikami_xml.data.remote.retrofit
 import com.bangkit.tanikami_xml.data.remote.response.ArticleResponse
 import com.bangkit.tanikami_xml.data.remote.response.ArtikelDetaiilResponse
 import com.bangkit.tanikami_xml.data.remote.response.DetailProductResponse
+import com.bangkit.tanikami_xml.data.remote.response.GetBuyResponse
 import com.bangkit.tanikami_xml.data.remote.response.LoginResponse
 import com.bangkit.tanikami_xml.data.remote.response.ProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.RegisterResponse
@@ -18,6 +19,7 @@ import retrofit2.http.Path
 
 interface ApiService {
 
+    //User
     @Multipart
     @POST("user")
     suspend fun registerUser(
@@ -39,6 +41,7 @@ interface ApiService {
         @Path("id_ktp") id_ktp: String
     ): LoginResponse
 
+    //Produk
     @Multipart
     @POST("produk")
     suspend fun sellProduct(
@@ -87,6 +90,14 @@ interface ApiService {
         @Path("id_produk") id: Int
     ):ProductResponse
 
+    //Pembelian
+    //bukannya by id_ktp aja kah?
+    @GET("pembelian/{id_transaksi}")
+    suspend fun getBuybyId(
+        @Path("id_transaksi") id: String
+    ): GetBuyResponse
+
+    //artikel
     @GET("artikel")
     suspend fun getArticle(): ArticleResponse
 

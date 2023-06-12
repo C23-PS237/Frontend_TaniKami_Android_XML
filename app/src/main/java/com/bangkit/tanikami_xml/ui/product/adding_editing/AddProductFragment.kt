@@ -87,7 +87,7 @@ class AddProductFragment : Fragment() {
             startGallery()
         }
         binding.btnDone.setOnClickListener {
-            //uploadProduct()
+            uploadProduct()
             findNavController().navigate(R.id.action_addProductFragment_to_confirmAddProductFragment)
         }
 
