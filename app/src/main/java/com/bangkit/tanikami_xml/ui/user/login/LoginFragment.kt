@@ -34,6 +34,8 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setDataIfNotNull()
+
         binding.apply {
 
             btnSignIn.setOnClickListener {
@@ -72,6 +74,18 @@ class LoginFragment : Fragment() {
         }
     }
 
+    private fun setDataIfNotNull() {
+        userViewModel.getDataFromDataStore().observe(viewLifecycleOwner) {
+            if (it != null) {
+                binding.apply {
+                    idKtpeditTextLogin.setText(it.id_ktp)
+                    emailEditTextLogin.setText(it.email)
+                    passwordEditTextLogin.setText(it.password)
+                }
+            }
+        }
+    }
+
     private fun loginNow(idKtp: String, email: String, password: String) {
         userViewModel.loginUser(idKtp).observe(requireActivity()) {
             when (it) {
@@ -83,7 +97,7 @@ class LoginFragment : Fragment() {
                     val data = it.data
                     if (data != null) {
                         if (data.email == email && data.password == password) {
-                            userViewModel.saveUserToDataStore(UserModel(data.idKtp, data.nama, data.telepon, data.alamatRegist, data.profil, true))
+                            userViewModel.saveUserToDataStore(UserModel(data.idKtp, data.nama, data.telepon, data.alamatRegist, data.profil, email, password, true))
                             findNavController().navigate(R.id.action_loginFragment_to_nav_home)
                             Snackbar.make(requireActivity().findViewById(android.R.id.content), "Hello Login ${data.email}, $email, ${data.password}, $password", Snackbar.LENGTH_LONG).show()
                         } else {

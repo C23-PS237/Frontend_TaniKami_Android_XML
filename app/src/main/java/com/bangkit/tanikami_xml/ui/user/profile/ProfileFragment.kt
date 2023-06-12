@@ -1,6 +1,7 @@
 package com.bangkit.tanikami_xml.ui.user.profile
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,6 +23,7 @@ class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
     private val userViewModel by viewModels<UserViewModel>()
+    private var stateUser: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,9 +42,12 @@ class ProfileFragment : Fragment() {
         }
 
         binding.btnLogout.setOnClickListener {
+             // must run in lifecycle only 1 time when inserted into viewLifecycleOwner he can logout when we go to diff menu and come back
+            stateUser = true
             userViewModel.logoutDeleteDataStore()
             findNavController().navigate(R.id.action_nav_profile_to_onBoardingFragment)
         }
+
         binding.btnPurchaseHistory.setOnClickListener {
             findNavController().navigate(R.id.action_nav_profile_to_historyBuyFragment)
         }
@@ -50,6 +55,7 @@ class ProfileFragment : Fragment() {
             findNavController().navigate(R.id.action_nav_profile_to_historySellFragment)
         }
     }
+
 
     private fun setDataProfile(idKtp: String) {
         userViewModel.loginUser(idKtp).observe(viewLifecycleOwner) {
@@ -79,9 +85,17 @@ class ProfileFragment : Fragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     override fun onDestroy() {
         super.onDestroy()
-        _binding = null
+        if (stateUser) {
+            stateUser = false
+            Log.d("PROFILE", "onDestroy: PROFILE logout")
+        }
     }
 
     companion object {

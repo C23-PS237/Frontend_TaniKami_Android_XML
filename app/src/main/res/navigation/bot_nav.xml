@@ -42,9 +42,9 @@
         <action
             android:id="@+id/action_nav_profile_to_onBoardingFragment"
             app:destination="@id/onBoardingFragment"
-            app:popUpTo="@id/nav_profile"
             app:launchSingleTop="true"
-            app:popUpToInclusive="true"/>
+            app:popUpTo="@id/nav_profile"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
