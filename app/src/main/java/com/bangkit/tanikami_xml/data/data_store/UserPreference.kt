@@ -21,6 +21,8 @@ class UserPreference @Inject constructor(private val dataStore: DataStore<Prefer
                 preferences[PHONE_KEY] ?: "",
                 preferences[ADDRESS_KEY] ?: "",
                 preferences[IMAGE_KEY] ?: "",
+                preferences[EMAIL_KEY] ?: "",
+                preferences[PASSWORD_KEY] ?: "",
                 preferences[STATE_KEY] ?: false
             )
         }
@@ -32,6 +34,9 @@ class UserPreference @Inject constructor(private val dataStore: DataStore<Prefer
             pref[NAME_KEY] = user.name
             pref[PHONE_KEY] = user.phone
             pref[ADDRESS_KEY] = user.address
+            pref[IMAGE_KEY] = user.image
+            pref[EMAIL_KEY] = user.email
+            pref[PASSWORD_KEY] = user.password
             pref[STATE_KEY] = user.isLogin
         }
     }
@@ -54,6 +59,9 @@ class UserPreference @Inject constructor(private val dataStore: DataStore<Prefer
             pref[NAME_KEY] = ""
             pref[PHONE_KEY] = ""
             pref[ADDRESS_KEY] = ""
+            pref[IMAGE_KEY] = ""
+            pref[EMAIL_KEY] = ""
+            pref[PASSWORD_KEY] = ""
             pref[STATE_KEY] = false
         }
     }
@@ -75,6 +83,8 @@ class UserPreference @Inject constructor(private val dataStore: DataStore<Prefer
         private val PHONE_KEY = stringPreferencesKey("phone")
         private val ADDRESS_KEY = stringPreferencesKey("address")
         private val IMAGE_KEY = stringPreferencesKey("image")
+        private val EMAIL_KEY = stringPreferencesKey("email")
+        private val PASSWORD_KEY = stringPreferencesKey("password")
         private val STATE_KEY = booleanPreferencesKey("state")
     }
 }

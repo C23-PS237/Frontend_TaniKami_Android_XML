@@ -2,6 +2,7 @@ package com.bangkit.tanikami_xml.ui.user
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.bangkit.tanikami_xml.data.data_store.UserModel
 import com.bangkit.tanikami_xml.data.helper.Response
@@ -37,9 +38,19 @@ class UserViewModel @Inject constructor(
         return userRepo.loginUser(idKtp)
     }
 
+    fun getDataFromDataStore(): LiveData<UserModel> {
+        return userRepo.getUserFromDataStore().asLiveData()
+    }
+
     fun saveUserToDataStore(user: UserModel) {
         viewModelScope.launch {
             userRepo.saveUserIntoDataStore(user)
+        }
+    }
+
+    fun logoutDeleteDataStore() {
+        viewModelScope.launch {
+            userRepo.logoutDataStore()
         }
     }
 }

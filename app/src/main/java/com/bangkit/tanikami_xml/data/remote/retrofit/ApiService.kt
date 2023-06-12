@@ -54,6 +54,7 @@ interface ApiService {
         @Part("nama_bank") nama_bank: String,
         //@Part("timestamp") timestamp: String
     ): SellProductResponse
+
     @Multipart
     @PUT("produk/{id_produk}")
     fun updateProduct(

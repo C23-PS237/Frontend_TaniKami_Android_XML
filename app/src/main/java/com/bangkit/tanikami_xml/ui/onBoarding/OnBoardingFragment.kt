@@ -42,13 +42,14 @@ class OnBoardingFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        userStateViewModel.isLogin().observe(viewLifecycleOwner) {
-            if (it) {
-                findNavController().navigate(R.id.action_onBoardingFragment_to_nav_home)
-            } else {
+//        userStateViewModel.isLogin().observe(viewLifecycleOwner) {
+//            if (it) {
+//                findNavController().navigate(R.id.action_onBoardingFragment_to_nav_home)
+//            } else {
+//
+//            }
+//        }
 
-            }
-        }
     }
 
     override fun onDestroy() {
