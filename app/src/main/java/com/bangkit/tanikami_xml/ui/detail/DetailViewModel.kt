@@ -2,6 +2,8 @@ package com.bangkit.tanikami_xml.ui.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import com.bangkit.tanikami_xml.data.data_store.UserPreference
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.data.remote.response.DetailProductResponse
 import com.bangkit.tanikami_xml.data.repository.ProductRepository
@@ -10,11 +12,16 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailProductViewModel @Inject constructor(
-    private val productRepo: ProductRepository
+    private val productRepo: ProductRepository,
+    private val userPref: UserPreference
 ): ViewModel(){
 
     fun getProductbyIdProduct(id_produk: Int) : LiveData<Response<DetailProductResponse>> {
         return productRepo.getProductbyIdProduct(id_produk)
+    }
+
+    fun getIdKtpUserForEditingButtonVisibility(): LiveData<String> {
+        return userPref.getIdKtp().asLiveData()
     }
 
 }

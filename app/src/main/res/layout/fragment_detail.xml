@@ -17,49 +17,65 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/iv_products_detail"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_230sdp"
-                android:contentDescription="@string/products_image"
-                app:srcCompat="@drawable/image"/>
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_4sdp">
 
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_100sdp">
+                <ImageView
+                    android:id="@+id/iv_products_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_230sdp"
+                    android:contentDescription="@string/products_image"
+                    app:srcCompat="@drawable/image"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
                 <TextView
                     android:id="@+id/tv_products_name_detail"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/products_name"
                     android:textSize="@dimen/_24ssp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
+                    android:maxLines="2"
                     android:layout_marginTop="@dimen/_9sdp"
-                    android:layout_marginStart="@dimen/_13sdp"/>
+                    android:layout_marginStart="@dimen/_13sdp"
+                    android:layout_marginEnd="@dimen/_13sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_products_detail"/>
 
                 <TextView
                     android:id="@+id/tv_products_stock_detail"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_13sdp"
-                    android:layout_marginTop="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
                     android:text="@string/products_stock"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_18ssp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_products_name_detail"/>
 
                 <TextView
                     android:id="@+id/tv_products_price_detail"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_13sdp"
-                    android:layout_marginTop="@dimen/_70sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_13sdp"
                     android:text="@string/products_price"
                     android:textSize="@dimen/_18ssp"
                     android:textColor="@color/black"
-                    android:textStyle="bold|italic" />
+                    android:textStyle="bold|italic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_products_stock_detail"/>
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/fab_edit_detail"
@@ -69,11 +85,13 @@
                     android:src="@drawable/baseline_edit_24"
                     android:background="@color/green200"
                     android:layout_gravity="end"
-                    android:layout_marginTop="@dimen/_28sdp"
-                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_13sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
                     app:fabCustomSize="@dimen/_40sdp"
-                    app:shapeAppearance="@style/Widget.Material3.CircularProgressIndicator.Medium"/>
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                    app:shapeAppearance="@style/Widget.Material3.CircularProgressIndicator.Medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/tv_products_name_detail"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"

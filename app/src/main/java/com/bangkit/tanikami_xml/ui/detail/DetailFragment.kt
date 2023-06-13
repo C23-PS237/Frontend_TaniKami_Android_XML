@@ -47,6 +47,7 @@ class DetailFragment() : Fragment() {
                 }
 
                 is Response.Success -> {
+                    setVisibilityEditButton(it.data.payload.id_ktp)
                     binding.apply {
                         Glide.with(requireActivity())
                             .load(it.data.payload.gambar_produk)
@@ -69,6 +70,14 @@ class DetailFragment() : Fragment() {
         }
         binding.btnBuy.setOnClickListener{
             findNavController().navigate(R.id.action_detailFragment_to_confirmPaymentFragment)
+        }
+    }
+
+    private fun setVisibilityEditButton(idKtpFromProduct: String) {
+        detailProductViewModel.getIdKtpUserForEditingButtonVisibility().observe(viewLifecycleOwner) {
+            if (it != idKtpFromProduct) {
+                binding.fabEditDetail.visibility = View.GONE
+            }
         }
     }
 

@@ -1,14 +1,11 @@
 package com.bangkit.tanikami_xml.ui.user.register
 
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,17 +14,14 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.FileProvider
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bangkit.tanikami_xml.R
 import com.bangkit.tanikami_xml.createCustomTempFile
-import com.bangkit.tanikami_xml.data.data_store.UserModel
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.databinding.FragmentRegisterBinding
 import com.bangkit.tanikami_xml.ui.user.UserViewModel
-import com.bangkit.tanikami_xml.ui.user.login.LoginFragmentDirections
 import com.bangkit.tanikami_xml.uriToFile
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -71,20 +65,6 @@ class RegisterFragment : Fragment() {
             }
         }
     }
-
-//    private fun imagePathProcessor(uri: Uri): String? {
-//        val projection = arrayOf(MediaStore.Images.Media.DATA)
-//        val cursor = requireActivity().contentResolver.query(uri, projection, null, null, null)
-//        val imagePath: String?
-//        if (cursor != null && cursor.moveToFirst()) {
-//            val columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
-//            imagePath = cursor.getString(columnIndex)
-//            cursor.close()
-//        } else {
-//            imagePath = null
-//        }
-//        return imagePath
-//    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -184,7 +164,7 @@ class RegisterFragment : Fragment() {
                         setComponentDisandAv(true)
                         Snackbar.make(
                             binding.root,
-                            it.error,
+                            getString(R.string.error_warning_register),
                             Snackbar.LENGTH_SHORT
                         ).show()
                     }
