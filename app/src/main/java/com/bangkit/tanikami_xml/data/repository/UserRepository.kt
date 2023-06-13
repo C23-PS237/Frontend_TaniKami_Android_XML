@@ -9,8 +9,10 @@ import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.data.remote.response.PItem
 import com.bangkit.tanikami_xml.data.remote.response.RegisterResponse
 import com.bangkit.tanikami_xml.data.remote.retrofit.ApiService
+import com.bangkit.tanikami_xml.reduceFileImage
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import retrofit2.HttpException
 import java.io.File
@@ -24,22 +26,23 @@ class UserRepository @Inject constructor(
     // Remote Repo syntax
     fun registerUser(
         imageProfile: File,
-        id_ktp: String,
-        name: String,
-        email: String,
-        password: String,
-        telepon: String,
-        alamat_regist: String,
-        gender: Boolean,
-        usia: Int,
-        status: Boolean
+        id_ktp: RequestBody,
+        name: RequestBody,
+        email: RequestBody,
+        password: RequestBody,
+        telepon: RequestBody,
+        alamat_regist: RequestBody,
+        gender: RequestBody,
+        usia: RequestBody,
+        status: RequestBody
     ): LiveData<Response<RegisterResponse>> = liveData {
         emit(Response.Loading)
 
-        val requestedImage = imageProfile.asRequestBody("image/jpeg".toMediaTypeOrNull())
+        val imageFile = reduceFileImage(imageProfile)
+        val requestedImage = imageFile.asRequestBody("image/jpeg".toMediaTypeOrNull())
         val imageMultiPart: MultipartBody.Part = MultipartBody.Part.createFormData(
             "profil",
-            imageProfile.name,
+            imageFile.name,
             requestedImage
         )
 

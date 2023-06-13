@@ -26,16 +26,16 @@ interface ApiService {
     @POST("user")
     suspend fun registerUser(
         @Part profil: MultipartBody.Part,
-        @Part("id_ktp") id_ktp:String,
-        @Part("nama") name: String,
-        @Part("email") email: String,
-        @Part("password") password: String,
-        @Part("telepon") telepon: String,
-        @Part("alamat_regist") alamat_regist: String,
-        @Part("alamat_penerima") alamat_penerima: String? = null,
-        @Part("gender") gender: Boolean,
-        @Part("usia") usia: Int,
-        @Part("status") status: Boolean,
+        @Part("id_ktp") id_ktp:RequestBody,
+        @Part("nama") name: RequestBody,
+        @Part("email") email: RequestBody,
+        @Part("password") password: RequestBody,
+        @Part("telepon") telepon: RequestBody,
+        @Part("alamat_regist") alamat_regist: RequestBody,
+        @Part("alamat_penerima") alamat_penerima: RequestBody? = null,
+        @Part("gender") gender: RequestBody,
+        @Part("usia") usia: RequestBody,
+        @Part("status") status: RequestBody,
     ): RegisterResponse
 
     @GET("user/{id_ktp}")
