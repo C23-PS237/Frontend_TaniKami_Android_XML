@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bangkit.tanikami_xml.R
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.data.remote.response.ProductItem
 import com.bangkit.tanikami_xml.databinding.FragmentHistorySellBinding
@@ -45,8 +44,8 @@ class HistorySellFragment : Fragment() {
     private fun historySellProduct(){
         binding.apply {
             rvSalesHistory.layoutManager = LinearLayoutManager(requireActivity())
-            historySellViewModel.getIdKtp().observe(requireActivity()) {
-                historySellViewModel.getProductbyIdKTP(it).observe(requireActivity()) {
+            historySellViewModel.getIdKtp().observe(viewLifecycleOwner) {
+                historySellViewModel.getProductbyIdKTP(it).observe(viewLifecycleOwner) {
                     when (it) {
                         is Response.Loading -> setLoading(true)
                         is Response.Error -> {
@@ -67,9 +66,9 @@ class HistorySellFragment : Fragment() {
                             listData.setOnItemClickCallback(object :
                                 HistorySellAdapter.OnItemClickCallback {
                                 override fun onHistorySellClicked(data: ProductItem) {
-//                                    val toDetailFragment = HistorySellFragmentDirections.actionHistorySellFragmentToDetailFragment()
-//                                    toDetailFragment.actionId = data.id_produk
-                                    findNavController().navigate(R.id.action_historySellFragment_to_detailFragment)
+                                    val toDetailFragment = HistorySellFragmentDirections.actionHistorySellFragmentToDetailFragment()
+                                    toDetailFragment.idProduct = data.id_produk
+                                    findNavController().navigate(toDetailFragment)
                                 }
                             })
                         }
