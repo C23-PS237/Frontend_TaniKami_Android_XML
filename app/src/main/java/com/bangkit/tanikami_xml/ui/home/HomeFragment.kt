@@ -55,7 +55,7 @@ class HomeFragment : Fragment() {
     private fun showListProducts() {
         binding.apply {
             rvProductSell.layoutManager = GridLayoutManager(requireActivity(), 2)
-            homeViewModel.getAllProducts().observe(requireActivity()) {
+            homeViewModel.getAllProducts().observe(viewLifecycleOwner) {
                 when (it) {
                     is Response.Loading -> setLoading(true)
                     is Response.Error -> {

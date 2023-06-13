@@ -33,8 +33,9 @@ class DetailFragment() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val idProduk = DetailFragmentArgs.fromBundle(arguments as Bundle).idProduct
+
         Log.d("DetailProductId", "onViewCreated: $idProduk", )
-        detailProductViewModel.getProductbyIdProduct(idProduk).observe(requireActivity()){
+        detailProductViewModel.getProductbyIdProduct(idProduk).observe(viewLifecycleOwner){
             when(it) {
                 is Response.Loading -> ""
                 is Response.Error -> {
@@ -48,7 +49,7 @@ class DetailFragment() : Fragment() {
                 is Response.Success -> {
                     binding.apply {
                         Glide.with(requireActivity())
-                            .load(it.data.payload.url_gambar)
+                            .load(it.data.payload.gambar_produk)
                             .into(ivProductsDetail)
                         tvProductsNameDetail.text = it.data.payload.nama_produk
                         tvProductsPriceDetail.text = getString(R.string.products_price,

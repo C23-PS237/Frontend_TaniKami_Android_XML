@@ -10,6 +10,7 @@ import com.bangkit.tanikami_xml.data.remote.response.ProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.SellProductResponse
 import com.bangkit.tanikami_xml.data.remote.retrofit.ApiService
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.HttpException
 import javax.inject.Inject
 
@@ -20,15 +21,15 @@ class ProductRepository @Inject constructor(
 
     fun sellProduct(
         //idProduk:Int,
-        besaran_stok: String,
-        nama_produk:String,
-        harga: Int,
-        url_gambar: MultipartBody.Part,
-        rek_penjual: String,
-        //id_ktp:String,
-        stok: Int,
-        deskripsi_produk: String,
-        nama_bank: String,
+        besaran_stok: RequestBody,
+        nama_produk:RequestBody,
+        harga: RequestBody,
+        gambar_produk: MultipartBody.Part,
+        rek_penjual: RequestBody,
+        id_ktp:RequestBody,
+        stok: RequestBody,
+        deskripsi_produk: RequestBody,
+        nama_bank: RequestBody,
         //timestamp: String
     ): LiveData<Response<SellProductResponse>> = liveData{
         emit(Response.Loading)
@@ -38,9 +39,9 @@ class ProductRepository @Inject constructor(
                                                 besaran_stok,
                                                 nama_produk,
                                                 harga,
-                                                url_gambar,
+                                                gambar_produk,
                                                 rek_penjual,
-                                                //id_ktp,
+                                                id_ktp,
                                                 stok,
                                                 deskripsi_produk,
                                                 nama_bank

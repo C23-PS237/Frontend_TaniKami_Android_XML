@@ -60,13 +60,15 @@ class HistorySellFragment : Fragment() {
 
                         is Response.Success -> {
                             setLoading(false)
-                            val listData = HistorySelllAdapter(it.data.payload)
+                            val listData = HistorySellAdapter(it.data.payload)
                             rvSalesHistory.setHasFixedSize(true)
                             rvSalesHistory.adapter = listData
 
                             listData.setOnItemClickCallback(object :
-                                HistorySelllAdapter.OnItemClickCallback {
-                                override fun onHistoryClicked(data: ProductItem) {
+                                HistorySellAdapter.OnItemClickCallback {
+                                override fun onHistorySellClicked(data: ProductItem) {
+//                                    val toDetailFragment = HistorySellFragmentDirections.actionHistorySellFragmentToDetailFragment()
+//                                    toDetailFragment.actionId = data.id_produk
                                     findNavController().navigate(R.id.action_historySellFragment_to_detailFragment)
                                 }
                             })

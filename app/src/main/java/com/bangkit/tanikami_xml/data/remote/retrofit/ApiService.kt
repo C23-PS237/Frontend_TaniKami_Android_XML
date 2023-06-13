@@ -10,6 +10,7 @@ import com.bangkit.tanikami_xml.data.remote.response.ProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.RegisterResponse
 import com.bangkit.tanikami_xml.data.remote.response.SellProductResponse
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Multipart
@@ -47,15 +48,15 @@ interface ApiService {
     @POST("produk")
     suspend fun sellProduct(
         //@Part("id_produk") idProduk:Int,
-        @Part("besaran_stok") besaran_stok: String,
-        @Part("nama_produk") nama_produk:String,
-        @Part("harga") harga: Int,
-        @Part url_gambar: MultipartBody.Part,
-        @Part("rek_penjual") rek_penjual: String,
-        //@Part("id_ktp") id_ktp:String,
-        @Part("stok") stok: Int,
-        @Part("deskripsi_produk") deskripsi_produk: String,
-        @Part("nama_bank") nama_bank: String,
+        @Part("besaran_stok") besaran_stok: RequestBody,
+        @Part("nama_produk") nama_produk:RequestBody,
+        @Part("harga") harga: RequestBody,
+        @Part gambar_produk: MultipartBody.Part,
+        @Part("rek_penjual") rek_penjual: RequestBody,
+        @Part("id_ktp") id_ktp:RequestBody,
+        @Part("stok") stok: RequestBody,
+        @Part("deskripsi_produk") deskripsi_produk: RequestBody,
+        @Part("nama_bank") nama_bank: RequestBody,
         //@Part("timestamp") timestamp: String
     ): SellProductResponse
 
@@ -66,7 +67,7 @@ interface ApiService {
         @Part("besaran_stok") besaranStok: String,
         @Part("nama_produk") namaProduk:String,
         @Part("harga") harga: Int,
-        @Part url_gambar: MultipartBody.Part,
+        @Part gambar_produk: MultipartBody.Part,
         @Part("rek_penjual") rekPenjual: String,
         @Part("stok") stok: Int,
         @Part("deskripsi_produk") deskripsiProduk: String,

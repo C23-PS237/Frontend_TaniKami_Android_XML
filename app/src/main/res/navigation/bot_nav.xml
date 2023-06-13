@@ -135,6 +135,9 @@
         <action
             android:id="@+id/action_addProductFragment_to_confirmAddProductFragment"
             app:destination="@id/confirmAddProductFragment" />
+        <action
+            android:id="@+id/action_addProductFragment_to_nav_home"
+            app:destination="@id/nav_home" />
     </fragment>
 
     <fragment
@@ -147,13 +150,17 @@
             app:destination="@id/nav_home" />
         <action
             android:id="@+id/action_confirmAddProductFragment_to_addProductFragment"
-            app:popUpTo="@id/addProductFragment" />
+            app:destination="@id/addProductFragment" />
         <action
             android:id="@+id/action_confirmAddProductFragment_to_editProductFragment"
-            app:popUpTo="@id/editProductFragment" />
+            app:destination="@id/editProductFragment" />
         <action
             android:id="@+id/action_confirmAddProductFragment_to_historySellFragment"
-            app:popUpTo="@id/historySellFragment" />
+            app:destination="@id/historySellFragment" />
+        <argument
+            android:name="id_product"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 
     <fragment
@@ -166,7 +173,7 @@
             app:destination="@id/paymentsStepFragment" />
         <action
             android:id="@+id/action_confirmPaymentFragment_to_detailFragment"
-            app:popUpTo="@id/detailFragment" />
+            app:destination="@id/detailFragment" />
     </fragment>
 
     <fragment
@@ -186,7 +193,7 @@
         tools:layout="@layout/fragment_history_buy" >
         <action
             android:id="@+id/action_historyBuyFragment_to_detailFragment"
-            app:popUpTo="@id/detailFragment" />
+            app:destination="@id/detailFragment" />
     </fragment>
     <fragment
         android:id="@+id/historySellFragment"
@@ -195,7 +202,7 @@
         tools:layout="@layout/fragment_history_sell" >
         <action
             android:id="@+id/action_historySellFragment_to_detailFragment"
-            app:popUpTo="@id/detailFragment" />
+            app:destination="@id/detailFragment" />
     </fragment>
     <fragment
         android:id="@+id/paymentsStepFragment"

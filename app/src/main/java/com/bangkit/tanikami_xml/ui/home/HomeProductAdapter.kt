@@ -30,7 +30,7 @@ class HomeProductAdapter @Inject constructor(private val listProduct: List<Produ
 
         holder.binding.apply {
             Glide.with(holder.itemView.context)
-                .load(item.url_gambar)
+                .load(item.gambar_produk)
                 .into(ivProducts)
 
             tvProductsName.text = item.nama_produk

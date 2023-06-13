@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import javax.inject.Inject
 
 
-class HistorySelllAdapter @Inject constructor(private val listHistory: List<ProductItem>): RecyclerView.Adapter<HistorySelllAdapter.ProductViewHolder>(){
+class HistorySellAdapter @Inject constructor(private val listHistory: List<ProductItem>): RecyclerView.Adapter<HistorySellAdapter.ProductViewHolder>(){
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -31,20 +31,20 @@ class HistorySelllAdapter @Inject constructor(private val listHistory: List<Prod
 
         holder.binding.apply {
             Glide.with(holder.itemView.context)
-                .load(item.url_gambar)
+                .load(item.gambar_produk)
                 .into(ivProductImage)
 
             tvProductName.text = item.nama_produk
             tvProductDescription.text = item.deskripsi_produk
             tvTotalPayment.text = Formatted.formatIDRCurrency(item.harga)
-
+            tvTimestamp.text = item.timestamp
             holder.itemView.setOnClickListener {
-                onItemClickCallback.onHistoryClicked(listHistory[holder.bindingAdapterPosition])
+                onItemClickCallback.onHistorySellClicked(listHistory[holder.bindingAdapterPosition])
             }
         }
     }
 
     interface OnItemClickCallback {
-        fun onHistoryClicked(data: ProductItem)
+        fun onHistorySellClicked(data: ProductItem)
     }
 }

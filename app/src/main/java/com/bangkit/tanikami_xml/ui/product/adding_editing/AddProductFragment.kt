@@ -26,6 +26,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 //import java.time.Instant
 //import java.time.ZoneOffset
@@ -88,7 +89,7 @@ class AddProductFragment : Fragment() {
         }
         binding.btnDone.setOnClickListener {
             uploadProduct()
-            findNavController().navigate(R.id.action_addProductFragment_to_confirmAddProductFragment)
+            //findNavController().navigate(R.id.action_addProductFragment_to_confirmAddProductFragment)
         }
 
     }
@@ -98,57 +99,62 @@ class AddProductFragment : Fragment() {
             //val token = it.data.loginResult.token
 
             //val idProduk = id+1
-            val besaran_stok = binding.stockSizeEditText.text.toString()
-            val nama_produk = binding.productsNameSellEditText.text.toString()
-            val harga = binding.priceSellEditText.text.toString().toInt()
-            val rek_penjual = binding.bankNumberEditText.text.toString()
-            val stok = binding.stocksEditText.text.toString().toInt()
+            val besaran_stok = binding.stockSizeEditText.text.toString().toRequestBody("text/plain".toMediaType())
+            val nama_produk = binding.productsNameSellEditText.text.toString().toRequestBody("text/plain".toMediaType())
+            val harga = binding.priceSellEditText.text.toString().toRequestBody("text/plain".toMediaType())
+            val rek_penjual = binding.bankNumberEditText.text.toString().toRequestBody("text/plain".toMediaType())
+            val stok = binding.stocksEditText.text.toString().toRequestBody("text/plain".toMediaType())
             //val id_ktp = binding.IdKTPEditText.text.toString()
-            val nama_bank = binding.bankNameEditText.text.toString()
-            val deskripsi_produk = binding.descriptionSellEditText.text.toString()
+            val nama_bank = binding.bankNameEditText.text.toString().toRequestBody("text/plain".toMediaType())
+            val deskripsi_produk = binding.descriptionSellEditText.text.toString().toRequestBody("text/plain".toMediaType())
 //            val timestamp = DateTimeFormatter
 //                .ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSS")
 //                .withZone(ZoneOffset.UTC)
 //                .format(Instant.now())
             val file = reduceFileImage(getFile as File)
-
-
             val requestImageFile = file.asRequestBody("image/jpeg".toMediaType())
-            val url_gambar: MultipartBody.Part = MultipartBody.Part.createFormData(
-                "url_gambar",
+            val gambar_produk: MultipartBody.Part = MultipartBody.Part.createFormData(
+                "gambar_produk",
                 file.name,
                 requestImageFile
             )
-            addEditProductViewModel.sellProduct(
-                //idProduk,
-                besaran_stok,
-                nama_produk,
-                harga,
-                url_gambar,
-                rek_penjual,
-                //id_ktp,
-                stok,
-                deskripsi_produk,
-                nama_bank
-                //timestamp
-            ).observe(requireActivity()){
-                when(it){
-                    is Response.Loading -> ""
-                    is Response.Error -> {
-                        Toast.makeText(
-                            requireActivity(),
-                            "Upload Story Gagal",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                    is Response.Success -> {
-                        Toast.makeText(
-                            requireActivity(),
-                            "Berhasil upload produk untuk dijual",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        findNavController().navigate(R.id.action_addProductFragment_to_confirmAddProductFragment)
+            addEditProductViewModel.getIdKtp().observe(viewLifecycleOwner) {
+                addEditProductViewModel.sellProduct(
+                    //idProduk,
+                    besaran_stok,
+                    nama_produk,
+                    harga,
+                    gambar_produk,
+                    rek_penjual,
+                    it.toRequestBody("text/plain".toMediaType()),
+                    stok,
+                    deskripsi_produk,
+                    nama_bank
+                    //timestamp
+                ).observe(viewLifecycleOwner) {
+                    when (it) {
+                        is Response.Loading -> ""
+                        is Response.Error -> {
+                            Toast.makeText(
+                                requireActivity(),
+                                "Upload Story Gagal",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
 
+                        is Response.Success -> {
+                            Toast.makeText(
+                                requireActivity(),
+                                "Berhasil upload produk untuk dijual",
+                                Toast.LENGTH_SHORT
+                            ).show()
+//                            findNavController().navigate(R.id.action_addProductFragment_to_confirmAddProductFragment)
+                              findNavController().navigate(R.id.action_addProductFragment_to_nav_home)
+//                            val toConfirmAddProductFragment = AddProductFragmentDirections.actionAddProductFragmentToConfirmAddProductFragment()
+//                            toConfirmAddProductFragment.idProduct = ProductItem.
+//                            findNavController().navigate(toConfirmAddProductFragment)
+
+                        }
                     }
                 }
             }
