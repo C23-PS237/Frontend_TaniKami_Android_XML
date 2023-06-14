@@ -68,17 +68,13 @@ class HistoryBuyFragment : Fragment() {
                             }
                             Log.d("listIdProduk", listIdProduk.toString())
 
-                            for (produk in listIdProduk){
-                                historyBuyViewModel.getProductbyIdProduct(produk).observe(viewLifecycleOwner){ dataProduk ->
-                                    when(dataProduk){
-                                        is Response.Loading -> ""
-                                        is Response.Error -> ""
-                                        is Response.Success -> {
-                                            listProduk.add(dataProduk.data.payload)
-
-                                        }
+                            historyBuyViewModel.getListProductsByIdProducts(listIdProduk).observe(viewLifecycleOwner) { result ->
+                                when (result) {
+                                    is Response.Loading -> ""
+                                    is Response.Error -> ""
+                                    is Response.Success -> {
+                                        listProduk.addAll(result.data)
                                     }
-
                                 }
                             }
 

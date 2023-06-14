@@ -7,6 +7,7 @@ import com.bangkit.tanikami_xml.data.data_store.UserPreference
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.data.remote.response.DetailProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.GetBuyResponse
+import com.bangkit.tanikami_xml.data.remote.response.Product
 import com.bangkit.tanikami_xml.data.repository.BuyRepository
 import com.bangkit.tanikami_xml.data.repository.ProductRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -28,5 +29,9 @@ class HistoryBuyViewModel @Inject constructor(
 
     fun getProductbyIdProduct(id_produk: Int) : LiveData<Response<DetailProductResponse>> {
         return productRepo.getProductbyIdProduct(id_produk)
+    }
+
+    fun getListProductsByIdProducts(id_products: List<Int>): LiveData<Response<List<Product>>> {
+        return buyRepo.getListDataBuyByIdProducts(id_products)
     }
 }

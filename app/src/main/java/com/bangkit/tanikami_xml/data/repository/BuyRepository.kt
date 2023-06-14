@@ -6,6 +6,7 @@ import androidx.lifecycle.liveData
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.data.remote.response.BuyProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.GetBuyResponse
+import com.bangkit.tanikami_xml.data.remote.response.Product
 import com.bangkit.tanikami_xml.data.remote.response.ProductResponse
 import com.bangkit.tanikami_xml.data.remote.retrofit.ApiService
 import com.bangkit.tanikami_xml.reduceFileImage
@@ -32,8 +33,24 @@ class BuyRepository @Inject constructor(
         }
     }
 
+    fun getListDataBuyByIdProducts(id_products: List<Int>): LiveData<Response<List<Product>>> = liveData {
+        emit(Response.Loading)
+        try {
+            val listProducts = mutableListOf<Product>()
+            for (i in id_products) {
+                val responseProduct = apiServ.getProductbyIdProduct(i)
+                listProducts.add(responseProduct.payload)
+            }
 
-    fun getBuybyIdTransaksi(id_transaksi: String): LiveData<Response<GetBuyResponse>> = liveData {
+            emit(Response.Success(listProducts))
+        } catch (e: HttpException) {
+            Log.d("BUYRepository", "getProductByIdProducts: ${e.message}")
+            emit(Response.Error(e.message.toString()))
+        }
+    }
+
+
+    fun getBuyByIdTransaksi(id_transaksi: String): LiveData<Response<GetBuyResponse>> = liveData {
         //suspend fun getProductByIdTransaksi(id_transaksi: String):
         emit(Response.Loading)
         try {
