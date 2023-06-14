@@ -7,7 +7,6 @@ import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.data.remote.response.BuyProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.GetBuyResponse
 import com.bangkit.tanikami_xml.data.remote.response.Product
-import com.bangkit.tanikami_xml.data.remote.response.ProductResponse
 import com.bangkit.tanikami_xml.data.remote.retrofit.ApiService
 import com.bangkit.tanikami_xml.reduceFileImage
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -33,20 +32,19 @@ class BuyRepository @Inject constructor(
         }
     }
 
-    fun getListDataBuyByIdProducts(id_products: List<Int>): LiveData<Response<List<Product>>> = liveData {
-        emit(Response.Loading)
+    fun getListDataBuyByIdProducts(id_products: List<Int>): LiveData<List<Product>> = liveData {
+        val listProducts = mutableListOf<Product>()
+
         try {
-            val listProducts = mutableListOf<Product>()
             for (i in id_products) {
                 val responseProduct = apiServ.getProductbyIdProduct(i)
                 listProducts.add(responseProduct.payload)
             }
-
-            emit(Response.Success(listProducts))
         } catch (e: HttpException) {
             Log.d("BUYRepository", "getProductByIdProducts: ${e.message}")
-            emit(Response.Error(e.message.toString()))
         }
+
+        emit(listProducts)
     }
 
 

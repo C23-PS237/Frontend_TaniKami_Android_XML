@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bangkit.tanikami_xml.R
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.data.remote.response.BuyProduct
 import com.bangkit.tanikami_xml.data.remote.response.Product
@@ -69,29 +68,23 @@ class HistoryBuyFragment : Fragment() {
                             Log.d("listIdProduk", listIdProduk.toString())
 
                             historyBuyViewModel.getListProductsByIdProducts(listIdProduk).observe(viewLifecycleOwner) { result ->
-                                when (result) {
-                                    is Response.Loading -> ""
-                                    is Response.Error -> ""
-                                    is Response.Success -> {
-                                        listProduk.addAll(result.data)
+                                listProduk.addAll(result)
+
+                                Log.d("listProduk", listProduk.toString())
+                                setLoading(false)
+                                val historyBuyAdapter = HistoryBuyAdapter(listData, listProduk)
+                                rvPurchaseHistory.setHasFixedSize(true)
+                                rvPurchaseHistory.adapter = historyBuyAdapter
+
+                                historyBuyAdapter.setOnItemClickCallback(object :
+                                    HistoryBuyAdapter.OnItemClickCallback {
+                                    override fun onHistoryBuyClicked(data: BuyProduct) {
+                                        val toDetailFragment = HistoryBuyFragmentDirections.actionHistoryBuyFragmentToDetailFragment()
+                                        toDetailFragment.idProduct = data.idProduk
+                                        findNavController().navigate(toDetailFragment)
                                     }
-                                }
+                                })
                             }
-
-                            Log.d("listProduk", listProduk.toString())
-                            setLoading(false)
-                            val historyBuyAdapter = HistoryBuyAdapter(listData, listProduk)
-                            rvPurchaseHistory.setHasFixedSize(true)
-                            rvPurchaseHistory.adapter = historyBuyAdapter
-
-                            historyBuyAdapter.setOnItemClickCallback(object :
-                                HistoryBuyAdapter.OnItemClickCallback {
-                                override fun onHistoryBuyClicked(data: BuyProduct) {
-                                    val toDetailFragment = HistoryBuyFragmentDirections.actionHistoryBuyFragmentToDetailFragment()
-                                    toDetailFragment.idProduct = data.idProduk
-                                    findNavController().navigate(toDetailFragment)
-                                }
-                            })
                         }
                     }
                 }

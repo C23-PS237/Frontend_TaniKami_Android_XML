@@ -31,7 +31,7 @@ class HistoryBuyViewModel @Inject constructor(
         return productRepo.getProductbyIdProduct(id_produk)
     }
 
-    fun getListProductsByIdProducts(id_products: List<Int>): LiveData<Response<List<Product>>> {
+    fun getListProductsByIdProducts(id_products: List<Int>): LiveData<List<Product>> {
         return buyRepo.getListDataBuyByIdProducts(id_products)
     }
 }
