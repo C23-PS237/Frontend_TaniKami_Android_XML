@@ -8,8 +8,10 @@ import com.bangkit.tanikami_xml.data.remote.response.BuyProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.GetBuyResponse
 import com.bangkit.tanikami_xml.data.remote.response.ProductResponse
 import com.bangkit.tanikami_xml.data.remote.retrofit.ApiService
+import com.bangkit.tanikami_xml.reduceFileImage
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import retrofit2.HttpException
 import java.io.File
@@ -43,31 +45,32 @@ class BuyRepository @Inject constructor(
         }
     }
 
-    suspend fun buyProduct(
+    fun buyProduct(
         bukti_transfer: File,
-        id_ktp: String,
-        id_produk: String,
-        alamat_penerima: String,
-        harga: Int,
-        jumlah_beli: Int,
-        biaya_pengiriman: Int,
-        pajak: Int,
-        biaya_admin: Int,
-        biaya_total: Int,
-        status_pembayaran: Boolean,
-        status_pengiriman: Boolean
+        id_ktp: RequestBody,
+        id_produk: RequestBody,
+        alamat_penerima: RequestBody,
+        harga: RequestBody,
+        jumlah_beli: RequestBody,
+        biaya_pengiriman: RequestBody,
+        pajak: RequestBody,
+        biaya_admin: RequestBody,
+        biaya_total: RequestBody,
+        status_pembayaran: RequestBody,
+        status_pengiriman: RequestBody
     ): LiveData<Response<BuyProductResponse>> = liveData {
         emit(Response.Loading)
 
-        val requestedImageBill = bukti_transfer.asRequestBody("image/jpeg".toMediaTypeOrNull())
+        val imageFile = reduceFileImage(bukti_transfer)
+        val requestedImageBill = imageFile.asRequestBody("image/jpeg".toMediaTypeOrNull())
         val imageMultiPart: MultipartBody.Part = MultipartBody.Part.createFormData(
             "bukti_transfer",
-            bukti_transfer.name,
+            imageFile.name,
             requestedImageBill
         )
 
         try {
-            apiServ.buyProductNow(
+            val response = apiServ.buyProductNow(
                 imageMultiPart,
                 id_ktp,
                 id_produk,
@@ -80,6 +83,9 @@ class BuyRepository @Inject constructor(
                 status_pembayaran,
                 status_pengiriman
             )
+
+            emit(Response.Success(response))
+
         } catch (e: HttpException) {
             emit(Response.Error(e.message.toString()))
             Log.d(TAG, "buyProduct: ${e.message.toString()}")

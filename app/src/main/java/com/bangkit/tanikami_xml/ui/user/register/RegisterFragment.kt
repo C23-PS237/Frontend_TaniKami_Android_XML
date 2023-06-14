@@ -1,14 +1,11 @@
 package com.bangkit.tanikami_xml.ui.user.register
 
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,14 +13,20 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bangkit.tanikami_xml.R
+import com.bangkit.tanikami_xml.createCustomTempFile
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.databinding.FragmentRegisterBinding
 import com.bangkit.tanikami_xml.ui.user.UserViewModel
+import com.bangkit.tanikami_xml.uriToFile
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 
 @AndroidEntryPoint
@@ -34,44 +37,33 @@ class RegisterFragment : Fragment() {
     private val userViewModel by viewModels<UserViewModel>()
 
     private var getFile: File? = null
+    private lateinit var photoPath: String
+
+
     private val launchIntentCamera = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {
-        if (it.resultCode == Activity.RESULT_OK) {
-            getFile = it.data?.extras?.get("data") as File
-            val profilBitmap = it.data?.extras?.get("data") as Bitmap
-            binding.tvProfileImage.setImageBitmap(profilBitmap)
+        if (it.resultCode == AppCompatActivity.RESULT_OK) {
+            val myFile = File(photoPath)
+            myFile.let { result ->
+                getFile = result
+                binding.tvProfileImage.setImageBitmap(BitmapFactory.decodeFile(result.path))
+            }
         }
     }
 
     private val launchIntentGallery = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
+        if (result.resultCode == AppCompatActivity.RESULT_OK) {
             val selectedImage = result.data?.data as Uri
             selectedImage.let { uri ->
-                Log.e(TAG, "TESTING IMAGE: $uri")
-                val path = imagePathProcessor(uri)
-                getFile = File(path!!)
+                val myFile = uriToFile(uri, requireActivity())
+                getFile = myFile
 
-                val bitmapProfile: Bitmap = BitmapFactory.decodeFile(path)
-                binding.tvProfileImage.setImageBitmap(bitmapProfile)
+                binding.tvProfileImage.setImageURI(uri)
             }
         }
-    }
-
-    private fun imagePathProcessor(uri: Uri): String? {
-        val projection = arrayOf(MediaStore.Images.Media.DATA)
-        val cursor = requireActivity().contentResolver.query(uri, projection, null, null, null)
-        val imagePath: String?
-        if (cursor != null && cursor.moveToFirst()) {
-            val columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
-            imagePath = cursor.getString(columnIndex)
-            cursor.close()
-        } else {
-            imagePath = null
-        }
-        return imagePath
     }
 
     override fun onCreateView(
@@ -87,11 +79,22 @@ class RegisterFragment : Fragment() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         intent.resolveActivity(requireActivity().packageManager)
 
-        launchIntentCamera.launch(intent)
+        createCustomTempFile(requireContext()).also {
+            val photoUri: Uri = FileProvider.getUriForFile(
+                requireActivity(),
+                "com.bangkit.tanikami_xml",
+                it
+            )
+            photoPath = it.absolutePath
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri)
+
+            launchIntentCamera.launch(intent)
+        }
     }
 
     private fun pickPictureFromGallery() {
-        val intent = Intent(Intent.ACTION_PICK)
+        val intent = Intent()
+        intent.action = Intent.ACTION_GET_CONTENT
         intent.type = "image/*"
         val chooser = Intent.createChooser(intent, getString(R.string.pick_one_picture))
         launchIntentGallery.launch(chooser)
@@ -108,28 +111,7 @@ class RegisterFragment : Fragment() {
 
             btnSignUp.setOnClickListener {
                 if (getFile != null) {
-
-                    val imageProfil = getFile as File
-                    val name = nameEditTextRegister.text.toString()
-                    val id_ktp = idKtpEditText.text.toString()
-                    val email = emailEditText.text.toString()
-                    val password = passwordEditText.text.toString()
-                    val alamat_regist = addressEditText.text.toString()
-                    val telepon = phoneEditText.text.toString()
-                    val gender = genderAutoComplete.text.toString() == "Male"
-                    val usia = ageEditText.text.toString()
-
-                    registerNewUser(
-                        imageProfil,
-                        id_ktp,
-                        name,
-                        email,
-                        password,
-                        alamat_regist,
-                        telepon,
-                        gender,
-                        usia.toInt()
-                    )
+                    registerNewUser()
                 }  else {
                     Toast.makeText(
                         requireActivity(),
@@ -146,53 +128,59 @@ class RegisterFragment : Fragment() {
 
     }
 
-    private fun registerNewUser(
-        imageProfil: File,
-        id_ktp: String,
-        name: String,
-        email: String,
-        password: String,
-        alamatRegist: String,
-        telepon: String,
-        gender: Boolean,
-        usia: Int,
-    ) {
+    private fun registerNewUser() {
         setComponentDisandAv(false)
-        userViewModel.registerNewUser(
-            imageProfil,
-            id_ktp,
-            name,
-            email,
-            password,
-            telepon,
-            alamatRegist,
-            gender,
-            usia,
-            false
-        ).observe(requireActivity()) {
-            when (it) {
-                is Response.Loading -> {
-                    setComponentDisandAv(false)
-                }
-                is Response.Error -> {
-                    setComponentDisandAv(true)
-                    Snackbar.make(
-                        binding.root,
-                        it.error,
-                        Snackbar.LENGTH_SHORT
-                    ).show()
-                }
-                is Response.Success -> {
-                    val response = it.data.payload.isSuccess
-                    if (response == 1) {
-                        AlertDialog.Builder(requireActivity()).apply {
-                            setTitle(getString(R.string.register_user_success))
-                            setMessage(getString(R.string.msg_register_success))
-                            setPositiveButton("OK") { _, _ ->
-                                findNavController().navigate(R.id.action_registerFragment_to_nav_home)
+
+        binding.apply {
+            val imageProfil = getFile as File
+            val name = nameEditTextRegister.text.toString().toRequestBody("text/plain".toMediaType())
+            val id_ktp = idKtpEditText.text.toString().toRequestBody("text/plain".toMediaType())
+            val email = emailEditText.text.toString().toRequestBody("text/plain".toMediaType())
+            val password = passwordEditText.text.toString().toRequestBody("text/plain".toMediaType())
+            val alamat_regist = addressEditText.text.toString().toRequestBody("text/plain".toMediaType())
+            val telepon = phoneEditText.text.toString().toRequestBody("text/plain".toMediaType())
+            val temp = if (genderAutoComplete.text.toString() == "Male") "1" else "0"
+              val gender = temp.toRequestBody("text/plain".toMediaType())
+            val usia = ageEditText.text.toString().toRequestBody("text/plain".toMediaType())
+
+            userViewModel.registerNewUser(
+                imageProfil,
+                id_ktp,
+                name,
+                email,
+                password,
+                telepon,
+                alamat_regist,
+                gender,
+                usia,
+                "1".toRequestBody("text/plain".toMediaType())
+            ).observe(requireActivity()) {
+                when (it) {
+                    is Response.Loading -> {
+                        setComponentDisandAv(false)
+                    }
+
+                    is Response.Error -> {
+                        setComponentDisandAv(true)
+                        Snackbar.make(
+                            binding.root,
+                            getString(R.string.error_warning_register),
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                    }
+
+                    is Response.Success -> {
+                        val response = it.data.payload.isSuccess
+                        if (response == 1) {
+                            AlertDialog.Builder(requireActivity()).apply {
+                                setTitle(getString(R.string.register_user_success))
+                                setMessage(getString(R.string.msg_register_success))
+                                setPositiveButton("OK") { _, _ ->
+                                    findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+                                }
+                                create()
+                                show()
                             }
-                            create()
-                            show()
                         }
                     }
                 }

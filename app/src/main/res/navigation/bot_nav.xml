@@ -56,6 +56,7 @@
             android:id="@+id/action_nav_detection_to_detectionExtended"
             app:destination="@id/detectionExtended" />
     </fragment>
+
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.bangkit.tanikami_xml.ui.detail.DetailFragment"
@@ -122,9 +123,6 @@
             app:popUpTo="@id/registerFragment"
             app:popUpToInclusive="true"
             app:launchSingleTop="true"/>
-        <action
-            android:id="@+id/action_registerFragment_to_nav_home"
-            app:destination="@id/nav_home" />
     </fragment>
 
     <fragment
@@ -171,9 +169,14 @@
         <action
             android:id="@+id/action_confirmPaymentFragment_to_paymentsStepFragment"
             app:destination="@id/paymentsStepFragment" />
-        <action
-            android:id="@+id/action_confirmPaymentFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+        <argument
+            android:name="id_product"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+        <argument
+            android:name="total_buy"
+            app:argType="integer"
+            android:defaultValue="0"/>
     </fragment>
 
     <fragment
@@ -186,6 +189,7 @@
             app:argType="integer"
             android:defaultValue="0" />
     </fragment>
+
     <fragment
         android:id="@+id/historyBuyFragment"
         android:name="com.bangkit.tanikami_xml.ui.history.buying_history.HistoryBuyFragment"
@@ -195,6 +199,7 @@
             android:id="@+id/action_historyBuyFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/historySellFragment"
         android:name="com.bangkit.tanikami_xml.ui.history.selling_history.HistorySellFragment"
@@ -204,6 +209,7 @@
             android:id="@+id/action_historySellFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/paymentsStepFragment"
         android:name="com.bangkit.tanikami_xml.ui.payment.payment_steps.PaymentsStepFragment"
@@ -226,6 +232,7 @@
             android:id="@+id/action_uploadingBillFragment_to_paymentsStepFragment"
             app:popUpTo="@id/paymentsStepFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/editProductFragment"
         android:name="com.bangkit.tanikami_xml.ui.product.adding_editing.EditProductFragment"
@@ -235,6 +242,7 @@
             android:id="@+id/action_editProductFragment_to_confirmAddProductFragment"
             app:popUpTo="@id/confirmAddProductFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/detectionExtended"
         android:name="com.bangkit.tanikami_xml.ui.detection.DetectionExtended"

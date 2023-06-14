@@ -72,6 +72,12 @@ class UserPreference @Inject constructor(private val dataStore: DataStore<Prefer
         }
     }
 
+    fun getAddress(): Flow<String> {
+        return dataStore.data.map { pref ->
+            pref[ADDRESS_KEY] ?: ""
+        }
+    }
+
     suspend fun saveIdKtp(id_ktp: String){
         dataStore.edit { preferences ->
             preferences[ID_KEY] = id_ktp

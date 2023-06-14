@@ -11,6 +11,7 @@ import com.bangkit.tanikami_xml.data.remote.response.RegisterResponse
 import com.bangkit.tanikami_xml.data.repository.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import okhttp3.RequestBody
 import java.io.File
 import javax.inject.Inject
 
@@ -21,15 +22,15 @@ class UserViewModel @Inject constructor(
 
     fun registerNewUser(
         imageProfile: File,
-        id_ktp: String,
-        name: String,
-        email: String,
-        password: String,
-        telepon: String,
-        alamat_regist: String,
-        gender: Boolean,
-        usia: Int,
-        status: Boolean
+        id_ktp: RequestBody,
+        name: RequestBody,
+        email: RequestBody,
+        password: RequestBody,
+        telepon: RequestBody,
+        alamat_regist: RequestBody,
+        gender: RequestBody,
+        usia: RequestBody,
+        status: RequestBody
     ): LiveData<Response<RegisterResponse>> {
         return userRepo.registerUser(imageProfile, id_ktp, name, email, password, telepon, alamat_regist, gender, usia, status)
     }

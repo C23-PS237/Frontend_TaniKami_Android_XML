@@ -137,7 +137,7 @@ class AddProductFragment : Fragment() {
                         is Response.Error -> {
                             Toast.makeText(
                                 requireActivity(),
-                                "Upload Story Gagal",
+                                "Upload Produk Gagal",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
@@ -175,6 +175,7 @@ class AddProductFragment : Fragment() {
             launcherIntentCamera.launch(intent)
         }
     }
+
     private val launcherIntentCamera = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {

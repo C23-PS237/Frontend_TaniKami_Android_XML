@@ -26,16 +26,16 @@ interface ApiService {
     @POST("user")
     suspend fun registerUser(
         @Part profil: MultipartBody.Part,
-        @Part("id_ktp") id_ktp:String,
-        @Part("nama") name: String,
-        @Part("email") email: String,
-        @Part("password") password: String,
-        @Part("telepon") telepon: String,
-        @Part("alamat_regist") alamat_regist: String,
-        @Part("alamat_penerima") alamat_penerima: String? = null,
-        @Part("gender") gender: Boolean,
-        @Part("usia") usia: Int,
-        @Part("status") status: Boolean,
+        @Part("id_ktp") id_ktp:RequestBody,
+        @Part("nama") name: RequestBody,
+        @Part("email") email: RequestBody,
+        @Part("password") password: RequestBody,
+        @Part("telepon") telepon: RequestBody,
+        @Part("alamat_regist") alamat_regist: RequestBody,
+        @Part("alamat_penerima") alamat_penerima: RequestBody? = null,
+        @Part("gender") gender: RequestBody,
+        @Part("usia") usia: RequestBody,
+        @Part("status") status: RequestBody,
     ): RegisterResponse
 
     @GET("user/{id_ktp}")
@@ -102,17 +102,17 @@ interface ApiService {
     @POST("pembelian")
     suspend fun buyProductNow(
         @Part bukti_transfer: MultipartBody.Part,
-        @Part("id_ktp") id_ktp: String,
-        @Part("id_produk") id_produk: String,
-        @Part("alamat_penerima") alamat_penerima: String,
-        @Part("harga") harga: Int,
-        @Part("jumlah_beli") jumlah_beli: Int,
-        @Part("biaya_pengiriman") biaya_pengiriman: Int,
-        @Part("pajak") pajak: Int,
-        @Part("biaya_admin") biaya_admin: Int,
-        @Part("biaya_total") biaya_total: Int,
-        @Part("status_pembayaran") statusPembayaran: Boolean,
-        @Part("status_pengiriman") statusPengiriman: Boolean
+        @Part("id_ktp") id_ktp: RequestBody,
+        @Part("id_produk") id_produk: RequestBody,
+        @Part("alamat_penerima") alamat_penerima: RequestBody,
+        @Part("harga") harga: RequestBody,
+        @Part("jumlah_beli") jumlah_beli: RequestBody,
+        @Part("biaya_pengiriman") biaya_pengiriman: RequestBody,
+        @Part("pajak") pajak: RequestBody,
+        @Part("biaya_admin") biaya_admin: RequestBody,
+        @Part("biaya_total") biaya_total: RequestBody,
+        @Part("status_pembayaran") statusPembayaran: RequestBody,
+        @Part("status_pengiriman") statusPengiriman: RequestBody
     ): BuyProductResponse
 
     @Multipart
