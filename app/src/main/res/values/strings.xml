@@ -102,7 +102,7 @@
     <string name="cost_details_title">Cost Details</string>
     <string name="tax">Tax(2%)</string>
     <string name="admin">Admin</string>
-    <string name="admin_cost">Rp 2000</string>
+    <string name="admin_cost">Rp. 2,000</string>
     <string name="total">Total</string>
     <string name="total_payment">Rp Total</string>
     <string name="cancel">Cancel</string>
@@ -154,6 +154,10 @@
     <string name="register_user_success">Register User Success</string>
     <string name="msg_register_success">msg: You have Successfully created new account, next please login!</string>
     <string name="error_warning_register">Register Failed, connection error or your NIK already registered!!</string>
+    <string name="tax_value">Rp. 2,500</string>
+    <string name="amount_buy">Amount : %d %s</string>
+    <string name="sum_all_buy">sum all buy</string>
+    <string name="indicator_products_cost">Products cost</string>
 
 
     <!-- Array for ML model -->

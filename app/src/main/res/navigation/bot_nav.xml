@@ -169,9 +169,14 @@
         <action
             android:id="@+id/action_confirmPaymentFragment_to_paymentsStepFragment"
             app:destination="@id/paymentsStepFragment" />
-        <action
-            android:id="@+id/action_confirmPaymentFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+        <argument
+            android:name="id_product"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+        <argument
+            android:name="total_buy"
+            app:argType="integer"
+            android:defaultValue="0"/>
     </fragment>
 
     <fragment

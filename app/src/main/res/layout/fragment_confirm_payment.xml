@@ -11,58 +11,76 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_22sdp"
+            app:cardCornerRadius="@dimen/_8sdp"
             android:foreground="@drawable/stroke_bg">
 
-            <ImageView
-                android:id="@+id/iv_products"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_80sdp"
-                android:contentDescription="@string/products_image"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginBottom="@dimen/_20sdp"
-                android:src="@drawable/image"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp">
 
-            <TextView
-                android:id="@+id/tv_product_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_112sdp"
-                android:layout_marginTop="@dimen/_18sdp"
-                android:layout_marginEnd="@dimen/_16sdp"
-                android:textSize="@dimen/_24sdp"
-                android:textStyle="bold"
-                android:text="@string/product_name"
-                android:textColor="@color/black"/>
-            <TextView
-                android:id="@+id/tv_product_stock"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_112sdp"
-                android:layout_marginTop="@dimen/_52sdp"
-                android:layout_marginEnd="@dimen/_16sdp"
-                android:textSize="@dimen/_18sdp"
-                android:textStyle="bold"
-                android:text="@string/products_stock"
-                android:textColor="@color/black"/>
+                <ImageView
+                    android:id="@+id/iv_products"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:contentDescription="@string/products_image"
+                    android:src="@drawable/image"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
-            <TextView
-                android:id="@+id/tv_product_price"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_112sdp"
-                android:layout_marginTop="@dimen/_80sdp"
-                android:layout_marginEnd="@dimen/_16sdp"
-                android:textSize="@dimen/_16sdp"
-                android:textStyle="bold|italic"
-                android:text="@string/products_price"
-                android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/tv_product_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:textSize="@dimen/_24sdp"
+                    android:textStyle="bold"
+                    android:text="@string/product_name"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@id/iv_products"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tv_product_stock"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textSize="@dimen/_18sdp"
+                    android:textStyle="bold"
+                    android:text="@string/amount_buy"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@id/iv_products"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_product_name"/>
+
+                <TextView
+                    android:id="@+id/tv_product_price"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textSize="@dimen/_16sdp"
+                    android:textStyle="bold|italic"
+                    android:text="@string/products_price"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@id/iv_products"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_product_stock"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
         </androidx.cardview.widget.CardView>
 
 
@@ -78,114 +96,125 @@
             android:text="@string/cost_details_title"
             android:textColor="@color/black"/>
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/tv_product_name_payment"
-            android:layout_width="@dimen/_160sdp"
-            android:layout_height="@dimen/_30sdp"
-            android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_300sdp"
-            android:text="@string/products_name"
-            android:textSize="@dimen/_18ssp"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
-
-        <TextView
-            android:id="@+id/tv_product_name_cost_payment"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_185sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_16sdp"
-            android:gravity="end"
-            android:text="@string/product_price"
-            android:textSize="@dimen/_18ssp"
-            android:textColor="@color/black"/>
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/tv_tax"
-            android:layout_width="@dimen/_160sdp"
-            android:layout_height="@dimen/_30sdp"
             android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_300sdp"
-            android:text="@string/tax"
-            android:textSize="@dimen/_18ssp"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_8sdp">
+
             <TextView
-                android:id="@+id/tv_tax_payment"
+                android:id="@+id/tv_product_name_payment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_185sdp"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_16sdp"
+                android:text="@string/indicator_products_cost"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_product_name_cost_payment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:gravity="end"
+                android:text="@string/sum_all_buy"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@id/tv_product_name_payment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+
+            <TextView
+                android:id="@+id/tv_tax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
                 android:text="@string/tax"
-                android:textSize="@dimen/_18ssp"
-                android:textColor="@color/black"/>
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/tv_admin"
-            android:layout_width="@dimen/_160sdp"
-            android:layout_height="@dimen/_30sdp"
-            android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_300sdp"
-            android:text="@string/admin"
-            android:textSize="@dimen/_18ssp"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
-        <TextView
-            android:id="@+id/tv_admin_payment_cost"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_185sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_16sdp"
-            android:text="@string/admin_cost"
-            android:textSize="@dimen/_18ssp"
-            android:textColor="@color/black"/>
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
-        <com.google.android.material.divider.MaterialDivider
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_2sdp"
-            android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginEnd="@dimen/_16sdp"/>
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_product_name_cost_payment"/>
+
+            <TextView
+                android:id="@+id/tv_tax_payment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/tax_value"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/black"
+                android:gravity="end"
+                app:layout_constraintTop_toBottomOf="@id/tv_product_name_cost_payment"
+                app:layout_constraintStart_toStartOf="@id/tv_product_name_cost_payment"
+                app:layout_constraintEnd_toEndOf="@id/tv_product_name_cost_payment"/>
+
+            <TextView
+                android:id="@+id/tv_admin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/admin"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_tax_payment" />
+
+            <TextView
+                android:id="@+id/tv_admin_payment_cost"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/admin_cost"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/black"
+                android:gravity="end"
+                app:layout_constraintTop_toBottomOf="@id/tv_tax_payment"
+                app:layout_constraintStart_toStartOf="@id/tv_tax_payment"
+                app:layout_constraintEnd_toEndOf="@id/tv_tax_payment"/>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/divider_payment"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:layout_constraintTop_toBottomOf="@id/tv_admin_payment_cost"/>
+
             <TextView
                 android:id="@+id/tv_total"
-                android:layout_width="@dimen/_160sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_300sdp"
                 android:text="@string/total"
                 android:textSize="@dimen/_18ssp"
                 android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/divider_payment"
+                app:layout_constraintStart_toStartOf="parent"/>
+
             <TextView
                 android:id="@+id/tv_total_payment"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_185sdp"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_16sdp"
                 android:text="@string/total_payment"
                 android:textSize="@dimen/_18ssp"
-                android:textColor="@color/black"/>
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                android:textColor="@color/black"
+                android:gravity="end"
+                app:layout_constraintStart_toStartOf="@id/tv_admin_payment_cost"
+                app:layout_constraintEnd_toEndOf="@id/tv_admin_payment_cost"
+                app:layout_constraintTop_toBottomOf="@id/divider_payment" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <ScrollView
             android:id="@+id/sv_address"
             android:fillViewport="true"
@@ -199,6 +228,7 @@
             <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:id="@+id/tv_address"
                     android:layout_width="match_parent"
@@ -210,6 +240,7 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:justificationMode="inter_word" />
+
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/fab_edit_detail"
                     android:layout_width="wrap_content"
@@ -225,24 +256,17 @@
                     app:shapeAppearance="@style/Widget.Material3.CircularProgressIndicator.Medium"/>
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
         </ScrollView>
-        <Button
-            android:id="@+id/btn_cancel"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
-            android:backgroundTint="@color/green700"
-            android:text="@string/cancel"
-            android:textColor="@color/white"
-            android:layout_marginStart="@dimen/_42sdp"
-            android:layout_marginEnd="@dimen/_42sdp"
-            android:layout_marginTop="@dimen/_32sdp"
-            android:layout_marginBottom="@dimen/_32sdp"/>
+
         <Button
             android:id="@+id/btn_pay"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
             android:backgroundTint="@color/green700"
             android:text="@string/pay"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold"
             android:textColor="@color/white"
+            android:layout_marginTop="@dimen/_32sdp"
             android:layout_marginStart="@dimen/_42sdp"
             android:layout_marginEnd="@dimen/_42sdp"
             android:layout_marginBottom="@dimen/_32sdp"/>

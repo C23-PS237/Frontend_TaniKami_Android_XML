@@ -15,12 +15,15 @@ import com.bangkit.tanikami_xml.databinding.FragmentDetailBinding
 import com.bangkit.tanikami_xml.utils.Formatted
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
+import kotlin.properties.Delegates
 
 @AndroidEntryPoint
 class DetailFragment() : Fragment() {
     private val detailProductViewModel by  viewModels<DetailProductViewModel>()
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
+    private lateinit var id_produk: String
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,6 +52,7 @@ class DetailFragment() : Fragment() {
                 is Response.Success -> {
                     setVisibilityEditButton(it.data.payload.id_ktp)
                     binding.apply {
+                        id_produk = it.data.payload.id_produk.toString()
                         Glide.with(requireActivity())
                             .load(it.data.payload.gambar_produk)
                             .into(ivProductsDetail)
@@ -69,7 +73,14 @@ class DetailFragment() : Fragment() {
             findNavController().navigate(R.id.action_detailFragment_to_editProductFragment)
         }
         binding.btnBuy.setOnClickListener{
-            findNavController().navigate(R.id.action_detailFragment_to_confirmPaymentFragment)
+            if (binding.amountEditTextProduct.text.toString() != "") {
+                val toPaymentFragment = DetailFragmentDirections.actionDetailFragmentToConfirmPaymentFragment()
+                toPaymentFragment.idProduct = id_produk.toInt()
+                toPaymentFragment.totalBuy = binding.amountEditTextProduct.text.toString().toInt()
+                findNavController().navigate(toPaymentFragment)
+            } else {
+                Toast.makeText(requireActivity(), "Amount to buy can't be empty", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
