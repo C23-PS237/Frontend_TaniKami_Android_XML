@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class GetBuyResponse(
 
 	@field:SerializedName("payload")
-	val payload: BuyProduct,
+	val payload: List<BuyProduct>,
 
 	@field:SerializedName("message")
 	val message: String

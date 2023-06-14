@@ -13,7 +13,6 @@ data class ProductResponse(
 
 data class ProductItem(
 
-	//@PrimaryKey(autoGenerate = true)
 	@field:SerializedName("id_produk")
 	val id_produk: Int,
 

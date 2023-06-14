@@ -6,6 +6,7 @@ import androidx.lifecycle.liveData
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.data.remote.response.BuyProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.GetBuyResponse
+import com.bangkit.tanikami_xml.data.remote.response.ProductResponse
 import com.bangkit.tanikami_xml.data.remote.retrofit.ApiService
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody

@@ -154,6 +154,7 @@
     <string name="register_user_success">Register User Success</string>
     <string name="msg_register_success">msg: You have Successfully created new account, next please login!</string>
 
+    <string name="id_transaksi_history">Id Transaksi</string>
 
     <!-- Array for ML model -->
     <string-array name="label">

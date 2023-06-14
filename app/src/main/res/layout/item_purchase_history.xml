@@ -91,9 +91,34 @@
 
                     </LinearLayout>
                 </LinearLayout>
-
             </LinearLayout>
 
+        <TextView
+            android:id="@+id/tv_created_at"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:maxLines="1"
+            android:textSize="@dimen/_8ssp"
+            android:layout_gravity="start|bottom"
+            android:textColor="@color/black"
+            android:textAlignment="textStart"
+            tools:text="@tools:sample/lorem/random"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"/>
+        <TextView
+            android:id="@+id/tv_updated_at"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:maxLines="1"
+            android:textSize="@dimen/_8ssp"
+            android:layout_gravity="start|bottom"
+            android:textColor="@color/black"
+            android:textAlignment="textStart"
+            tools:text="@tools:sample/lorem/random"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"/>
         <Button
             android:id="@+id/btn_received"
             android:layout_width="match_parent"
