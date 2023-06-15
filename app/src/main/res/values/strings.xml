@@ -122,7 +122,7 @@
     <string name="payment_method_info">Payment method via MBangking</string>
     <string name="payment_step">1. Maximum proof of payment can be uploaded within 24 hours.\n2. Upload proof of transfer before __/__/____</string>
     <string name="button_upload_bill">Upload Transfer Bill</string>
-    <string name="classified_as">Classified as : \n 1. %s and Confidence Value of : %f\n 2. %s and Confidence Value of : %f\n 3. %s and Confidence Value of : %f</string>
+    <string name="classified_as">Instruction : Choose or capture one image of plant leaf and click submit button to detect disease</string>
     <string name="pick_one_picture">Pick One Picture</string>
     <string name="permission">No Permission Granted, Request Again!!</string>
 
@@ -160,6 +160,8 @@
     <string name="indicator_products_cost">Products cost</string>
 
     <string name="id_transaksi_history">Id Transaksi</string>
+    <string name="detection_msg">Your plants condition classified as %s \n with confidence : %d percent</string>
+    <string name="detection_alert_title">Result</string>
 
     <!-- Array for ML model -->
     <string-array name="label">

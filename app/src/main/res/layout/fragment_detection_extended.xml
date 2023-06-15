@@ -41,6 +41,7 @@
         android:backgroundTint="@color/green700"
         android:text="@string/gallery"
         android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btn_submit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_detection" />
@@ -55,6 +56,7 @@
         android:backgroundTint="@color/green700"
         android:text="@string/camera"
         android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btn_submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_gallery"
@@ -70,6 +72,7 @@
         android:backgroundTint="@color/green700"
         android:text="@string/submit"
         android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_detection"
         tools:layout_editor_absoluteX="21dp" />
@@ -79,7 +82,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/classified_as"
-        android:textStyle="bold"
+        android:textStyle="normal"
         android:textSize="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_4sdp"
         android:layout_marginStart="@dimen/_4sdp"

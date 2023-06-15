@@ -1,6 +1,7 @@
 package com.bangkit.tanikami_xml.ui.detection
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -19,7 +20,6 @@ import com.bangkit.tanikami_xml.databinding.FragmentDetectionExtendedBinding
 import com.bangkit.tanikami_xml.ml.Model2
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
-import java.io.File
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 
@@ -30,24 +30,11 @@ class DetectionExtended : Fragment() {
     private val imageSize = 224
     private var reSizedImage: Bitmap? = null
 
-    private lateinit var currentPhotoPath: String
-    private var getFile: File? = null
     private val launcherIntentCamera = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {
         if (it.resultCode == Activity.RESULT_OK) {
-            val myFile =  it.data?.extras?.get("data") as Bitmap //File(currentPhotoPath)
-
-//            myFile.let { file ->
-//                getFile = file
-//                val image: Bitmap = BitmapFactory.decodeFile(file.path)
-//                val dimension: Int = image.width.coerceAtMost(image.height)
-//                val imageOut = ThumbnailUtils.extractThumbnail(image, dimension, dimension)
-//
-//                binding.ivDetection.setImageBitmap(imageOut)
-//
-//                reSizedImage = Bitmap.createScaledBitmap(imageOut, imageSize, imageSize, false)
-//            }
+            val myFile =  it.data?.extras?.get("data") as Bitmap
 
             val image: Bitmap = myFile
             val dimension: Int = image.width.coerceAtMost(image.height)
@@ -143,10 +130,6 @@ class DetectionExtended : Fragment() {
             val confidence = outputFeature0.floatArray
             var maxPos = 0
             var maxConfidence = 0f
-            var maxPos2 = 0
-            var maxConfidence2 = 0f
-            var maxPos3 = 0
-            var maxConfidence3 = 0f
 
             for (i in confidence.indices) {
                 if (confidence[i] > maxConfidence) {
@@ -154,21 +137,19 @@ class DetectionExtended : Fragment() {
                     maxPos = i
                 }
             }
-            for (i in confidence.indices) {
-                if (confidence[i] > maxConfidence && confidence[i] < maxConfidence) {
-                    maxConfidence2 = confidence[i]
-                    maxPos2 = i
-                }
-            }
-            for (i in confidence.indices) {
-                if (confidence[i] > maxConfidence3 && confidence[i] < maxConfidence2) {
-                    maxConfidence3 = confidence[i]
-                    maxPos3 = i
-                }
-            }
 
             val classes = resources.getStringArray(R.array.label)
-            binding.result.text = getString(R.string.classified_as, classes[maxPos], maxConfidence, classes[maxPos2], maxConfidence2, classes[maxPos3], maxConfidence3)
+            val percent = maxConfidence * 100
+
+            AlertDialog.Builder(requireActivity()).apply {
+                setTitle(getString(R.string.detection_alert_title))
+                setMessage(getString(R.string.detection_msg, classes[maxPos], percent.toInt()))
+                setPositiveButton("OK") { dialog, _ ->
+                    dialog.dismiss()
+                }
+                create()
+                show()
+            }
 
             // Releases model resources if no longer used.
             model.close()
@@ -187,12 +168,7 @@ class DetectionExtended : Fragment() {
         intent.resolveActivity(requireActivity().packageManager)
 
         launcherIntentCamera.launch(intent)
-
-//        createTemporaryFile(requireActivity()).also {
-//            val photoUri: Uri = FileProvider.getUriForFile(requireActivity(), "com.bangkit.tanikami_xml", it)
-//            currentPhotoPath = it.absolutePath
-//            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri)
-//        }
+        
     }
 
     override fun onDestroy() {
