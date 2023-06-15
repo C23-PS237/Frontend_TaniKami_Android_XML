@@ -1,10 +1,13 @@
 package com.bangkit.tanikami_xml.ui.home
 
+import android.app.SearchManager
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -53,6 +56,32 @@ class HomeFragment : Fragment() {
     }
 
     private fun showListProducts() {
+        decide()
+
+        binding.apply {
+            val searchManager = activity?.getSystemService(Context.SEARCH_SERVICE) as SearchManager
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(activity?.componentName))
+            searchView.queryHint = "Mencari Data"
+            searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String): Boolean {
+                    decide(query)
+                    searchView.clearFocus()
+                    return true
+                }
+
+                override fun onQueryTextChange(query: String): Boolean {
+                    if (query.isEmpty()) {
+                        decide()
+                    }
+                    return true
+                }
+
+            })
+
+        }
+    }
+
+    private fun decide(query: String = "") {
         binding.apply {
             rvProductSell.layoutManager = GridLayoutManager(requireActivity(), 2)
             homeViewModel.getAllProducts().observe(viewLifecycleOwner) {
@@ -68,11 +97,17 @@ class HomeFragment : Fragment() {
                     }
                     is Response.Success -> {
                         setLoading(false)
-                        val listData = HomeProductAdapter(it.data.payload)
-                        rvProductSell.setHasFixedSize(true)
-                        rvProductSell.adapter = listData
+                        val listData = it.data.payload
 
-                        listData.setOnItemClickCallback(object: HomeProductAdapter.OnItemClickCallback {
+                        val filteredList = listData.filter { nama ->
+                            nama.nama_produk.lowercase().contains(query)
+                        }
+
+                        val adapter = HomeProductAdapter(filteredList)
+                        rvProductSell.setHasFixedSize(true)
+                        rvProductSell.adapter = adapter
+
+                        adapter.setOnItemClickCallback(object: HomeProductAdapter.OnItemClickCallback {
                             override fun onProductClicked(data: ProductItem) {
                                 val toDetailFragment = HomeFragmentDirections.actionNavHomeToDetailFragment()
                                 toDetailFragment.idProduct = data.id_produk

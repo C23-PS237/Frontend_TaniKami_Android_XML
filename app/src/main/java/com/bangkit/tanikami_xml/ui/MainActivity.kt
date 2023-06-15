@@ -12,17 +12,19 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bangkit.tanikami_xml.R
-import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.databinding.ActivityMainBinding
 import com.bangkit.tanikami_xml.ui.home.HomeViewModel
 import com.bangkit.tanikami_xml.ui.user.UserViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -32,19 +34,22 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var stat = true
-
-        viewModel.getAllProducts().observe(this@MainActivity) {
-            when (it) {
-                is Response.Loading -> { stat = true }
-                is Response.Success -> { stat = false }
-                is Response.Error -> { stat = false }
-            }
-        }
+//        var stat = true
+//
+//        viewModel.getAllProducts().observe(this@MainActivity) {
+//            when (it) {
+//                is Response.Loading -> { stat = true }
+//                is Response.Success -> { stat = false }
+//                is Response.Error -> { stat = false }
+//            }
+//        }
 
         installSplashScreen().apply {
             setKeepOnScreenCondition {
-                stat
+                lifecycleScope.launch {
+                    delay(3000)
+                }
+                false
             }
         }
 
