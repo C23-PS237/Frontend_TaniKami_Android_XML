@@ -30,6 +30,22 @@ class OnBoardingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val state = OnBoardingFragmentArgs.fromBundle(arguments as Bundle).state
+
+        if (state) {
+            userStateViewModel.isLogin().observe(viewLifecycleOwner) {
+                if (it.isLogin) {
+                    findNavController().navigate(R.id.action_onBoardingFragment_to_nav_home)
+                }
+            }
+        } else {
+            userStateViewModel.isLogin().observe(viewLifecycleOwner) {
+                if (it.isLogin) {
+                    userStateViewModel.logout()
+                }
+            }
+        }
+
         binding.toLogin.setOnClickListener {
             findNavController().navigate(R.id.action_onBoardingFragment_to_loginFragment)
         }
@@ -37,19 +53,6 @@ class OnBoardingFragment : Fragment() {
         binding.toRegister.setOnClickListener {
             findNavController().navigate(R.id.action_onBoardingFragment_to_registerFragment)
         }
-    }
-
-    override fun onStart() {
-        super.onStart()
-
-//        userStateViewModel.isLogin().observe(viewLifecycleOwner) {
-//            if (it) {
-//                findNavController().navigate(R.id.action_onBoardingFragment_to_nav_home)
-//            } else {
-//
-//            }
-//        }
-
     }
 
     override fun onDestroy() {

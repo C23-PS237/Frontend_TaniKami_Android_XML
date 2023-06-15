@@ -3,11 +3,11 @@ package com.bangkit.tanikami_xml.ui.home
 import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -37,12 +37,10 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
-//            override fun handleOnBackPressed() {
-//                findNavController().clear
-//            }
-//
-//        })
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            activity?.finish()
+        }
 
         binding.fabSell.setOnClickListener {
             findNavController().navigate(R.id.action_nav_home_to_addProductFragment)
@@ -61,7 +59,7 @@ class HomeFragment : Fragment() {
         binding.apply {
             val searchManager = activity?.getSystemService(Context.SEARCH_SERVICE) as SearchManager
             searchView.setSearchableInfo(searchManager.getSearchableInfo(activity?.componentName))
-            searchView.queryHint = "Mencari Data"
+            searchView.queryHint = getString(R.string.home_search_hints)
             searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String): Boolean {
                     decide(query)
@@ -91,7 +89,7 @@ class HomeFragment : Fragment() {
                         setLoading(false)
                         Snackbar.make(
                             binding.root,
-                            it.error,
+                            getString(R.string.warning_connection),
                             Snackbar.LENGTH_SHORT
                         ).show()
                     }
@@ -100,7 +98,7 @@ class HomeFragment : Fragment() {
                         val listData = it.data.payload
 
                         val filteredList = listData.filter { nama ->
-                            nama.nama_produk.lowercase().contains(query)
+                            nama.nama_produk.lowercase().contains(query.lowercase())
                         }
 
                         val adapter = HomeProductAdapter(filteredList)
@@ -123,15 +121,5 @@ class HomeFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
-        Log.e("HOMEO", "onDestroy: ooooohhhh Destroyed MAMA") // testing lifecycle fragment
-    }
-
-    override fun onStart() {
-        super.onStart()
-        Log.e("HOMEO", "onStart: OHHH MAMA I'AM BACK")  // testing lifecycle fragment
-    }
-
-    companion object {
-
     }
 }

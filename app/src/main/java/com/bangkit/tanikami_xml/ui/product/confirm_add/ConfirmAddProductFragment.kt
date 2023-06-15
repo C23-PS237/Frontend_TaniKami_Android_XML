@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import com.bangkit.tanikami_xml.R
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.databinding.FragmentConfirmAddProductBinding
-import com.bangkit.tanikami_xml.ui.detail.DetailFragmentArgs
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -33,9 +32,6 @@ class ConfirmAddProductFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnCancel.setOnClickListener {
-            findNavController().navigate(R.id.action_confirmAddProductFragment_to_addProductFragment)
-        }
         binding.btnSell.setOnClickListener {
 
             findNavController().navigate(R.id.action_confirmAddProductFragment_to_historySellFragment)

@@ -160,7 +160,7 @@
     <string name="indicator_products_cost">Products cost</string>
 
     <string name="total_payment_history">Total Pembayaran:</string>
-    <string name="purchase_buyer_history">Purchase Buyer History</string>
+    <string name="purchase_buyer_history">List of sold Items</string>
     <string name="products_price_history">%s / %s</string>
     <string name="id_transaksi_history">Id Transaksi</string>
     <string name="detection_msg">Your plants condition classified as %s \n with confidence : %d percent</string>
@@ -172,6 +172,8 @@
     <string name="choose_one_bill_image_first">Choose one bill image first</string>
     <string name="back">Icon Back</string>
     <string name="habis">Stock: EMPTY</string>
+    <string name="home_search_hints">Search for products</string>
+    <string name="warning_connection">Connection internet lost</string>
     <!-- Array for ML model -->
     <string-array name="label">
         <item>Apple Scab</item>

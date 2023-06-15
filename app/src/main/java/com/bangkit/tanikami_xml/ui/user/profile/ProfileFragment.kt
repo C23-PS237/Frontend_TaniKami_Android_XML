@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bangkit.tanikami_xml.R
@@ -36,15 +37,22 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        userViewModel.getDataFromDataStore().observe(viewLifecycleOwner) { data ->
-            setDataProfile(data.id_ktp)
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            activity?.finish()
         }
 
         binding.btnLogout.setOnClickListener {
-             // must run in lifecycle only 1 time when inserted into viewLifecycleOwner he can logout when we go to diff menu and come back
+            // must run in lifecycle only 1 time when inserted into viewLifecycleOwner he can logout when we go to diff menu and come back
+            // use safeArgs to make it works in logout and direct login
             stateUser = true
             userViewModel.logoutDeleteDataStore()
-            findNavController().navigate(R.id.action_nav_profile_to_onBoardingFragment)
+            val direcArgs = ProfileFragmentDirections.actionNavProfileToOnBoardingFragment()
+            direcArgs.state = false
+            findNavController().navigate(direcArgs)
+        }
+
+        userViewModel.getDataFromDataStore().observe(viewLifecycleOwner) { data ->
+            setDataProfile(data.id_ktp)
         }
 
         binding.btnPurchaseHistory.setOnClickListener {
@@ -98,8 +106,5 @@ class ProfileFragment : Fragment() {
             stateUser = false
             Log.d("PROFILE", "onDestroy: PROFILE logout")
         }
-    }
-
-    companion object {
     }
 }
