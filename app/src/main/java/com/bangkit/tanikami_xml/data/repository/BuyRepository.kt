@@ -8,13 +8,8 @@ import com.bangkit.tanikami_xml.data.remote.response.BuyProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.GetBuyResponse
 import com.bangkit.tanikami_xml.data.remote.response.Product
 import com.bangkit.tanikami_xml.data.remote.retrofit.ApiService
-import com.bangkit.tanikami_xml.reduceFileImage
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import okhttp3.RequestBody.Companion.asRequestBody
 import retrofit2.HttpException
-import java.io.File
 import javax.inject.Inject
 
 class BuyRepository @Inject constructor(
@@ -61,7 +56,6 @@ class BuyRepository @Inject constructor(
     }
 
     fun buyProduct(
-        bukti_transfer: File,
         id_ktp: RequestBody,
         id_produk: RequestBody,
         alamat_penerima: RequestBody,
@@ -72,21 +66,13 @@ class BuyRepository @Inject constructor(
         biaya_admin: RequestBody,
         biaya_total: RequestBody,
         status_pembayaran: RequestBody,
-        status_pengiriman: RequestBody
+        status_pengiriman: RequestBody,
+        id_penjual: RequestBody
     ): LiveData<Response<BuyProductResponse>> = liveData {
         emit(Response.Loading)
 
-        val imageFile = reduceFileImage(bukti_transfer)
-        val requestedImageBill = imageFile.asRequestBody("image/jpeg".toMediaTypeOrNull())
-        val imageMultiPart: MultipartBody.Part = MultipartBody.Part.createFormData(
-            "bukti_transfer",
-            imageFile.name,
-            requestedImageBill
-        )
-
         try {
             val response = apiServ.buyProductNow(
-                imageMultiPart,
                 id_ktp,
                 id_produk,
                 alamat_penerima,
@@ -96,7 +82,8 @@ class BuyRepository @Inject constructor(
                 biaya_admin,
                 biaya_total,
                 status_pembayaran,
-                status_pengiriman
+                status_pengiriman,
+                id_penjual
             )
 
             emit(Response.Success(response))

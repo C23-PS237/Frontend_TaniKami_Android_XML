@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bangkit.tanikami_xml.R
 import com.bangkit.tanikami_xml.databinding.FragmentDetectionExtendedBinding
@@ -94,7 +95,17 @@ class DetectionExtended : Fragment() {
         binding.apply {
             btnCamera.setOnClickListener { startTakePicture() }
             btnGallery.setOnClickListener { startPicPicture() }
-            btnSubmit.setOnClickListener { classifyPic(reSizedImage) }
+            btnSubmit.setOnClickListener {
+                if (reSizedImage != null) {
+                    classifyPic(reSizedImage)
+                } else {
+                    Toast.makeText(
+                        requireActivity(),
+                        getString(R.string.warning_register),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
         }
 
 
@@ -174,9 +185,5 @@ class DetectionExtended : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
-    }
-
-    companion object {
-
     }
 }

@@ -101,18 +101,18 @@ interface ApiService {
     @Multipart
     @POST("pembelian")
     suspend fun buyProductNow(
-        @Part bukti_transfer: MultipartBody.Part,
         @Part("id_ktp") id_ktp: RequestBody,
         @Part("id_produk") id_produk: RequestBody,
         @Part("alamat_penerima") alamat_penerima: RequestBody,
         @Part("harga") harga: RequestBody,
-        @Part("jumlah_beli") jumlah_beli: RequestBody,
+        @Part("jumlah_dibeli") jumlah_beli: RequestBody,
         @Part("biaya_pengiriman") biaya_pengiriman: RequestBody,
         @Part("pajak") pajak: RequestBody,
         @Part("biaya_admin") biaya_admin: RequestBody,
         @Part("biaya_total") biaya_total: RequestBody,
         @Part("status_pembayaran") statusPembayaran: RequestBody,
-        @Part("status_pengiriman") statusPengiriman: RequestBody
+        @Part("status_pengiriman") statusPengiriman: RequestBody,
+        @Part("id_penjual") id_penjual: RequestBody
     ): BuyProductResponse
 
     @Multipart

@@ -11,7 +11,6 @@ import com.bangkit.tanikami_xml.data.repository.BuyRepository
 import com.bangkit.tanikami_xml.data.repository.ProductRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import okhttp3.RequestBody
-import java.io.File
 import javax.inject.Inject
 
 @HiltViewModel
@@ -22,7 +21,6 @@ class PaymentViewModel @Inject constructor(
 ): ViewModel() {
 
     fun buyProductNow(
-        bukti_transfer: File,
         id_ktp: RequestBody,
         id_produk: RequestBody,
         alamat_penerima: RequestBody,
@@ -33,9 +31,10 @@ class PaymentViewModel @Inject constructor(
         biaya_admin: RequestBody,
         biaya_total: RequestBody,
         status_pembayaran: RequestBody,
-        status_pengiriman: RequestBody
+        status_pengiriman: RequestBody,
+        id_penjual: RequestBody
     ): LiveData<Response<BuyProductResponse>> {
-        return buyRepo.buyProduct(bukti_transfer, id_ktp, id_produk, alamat_penerima, harga, jumlah_dibeli, biaya_pengiriman, pajak, biaya_admin, biaya_total, status_pembayaran, status_pengiriman)
+        return buyRepo.buyProduct(id_ktp, id_produk, alamat_penerima, harga, jumlah_dibeli, biaya_pengiriman, pajak, biaya_admin, biaya_total, status_pembayaran, status_pengiriman, id_penjual)
     }
 
     fun getDataProductById(id_produk: Int) : LiveData<Response<DetailProductResponse>> {
@@ -44,5 +43,9 @@ class PaymentViewModel @Inject constructor(
 
     fun getAddress(): LiveData<String> {
         return userPref.getAddress().asLiveData()
+    }
+
+    fun getIdKtp(): LiveData<String> {
+        return userPref.getIdKtp().asLiveData()
     }
 }
