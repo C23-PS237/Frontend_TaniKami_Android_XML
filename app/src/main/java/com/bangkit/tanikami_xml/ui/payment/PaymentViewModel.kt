@@ -8,6 +8,7 @@ import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.data.remote.response.BuyProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.DetailProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.GetByIdTransaksiResponse
+import com.bangkit.tanikami_xml.data.remote.response.ProductUpdateStockResponse
 import com.bangkit.tanikami_xml.data.remote.response.UpdatePembelianResponse
 import com.bangkit.tanikami_xml.data.repository.BuyRepository
 import com.bangkit.tanikami_xml.data.repository.ProductRepository
@@ -88,5 +89,9 @@ class PaymentViewModel @Inject constructor(
 
     fun getIdKtp(): LiveData<String> {
         return userPref.getIdKtp().asLiveData()
+    }
+
+    fun updateProductStock(id_produk: Int, stok: Int): LiveData<Response<ProductUpdateStockResponse>> {
+        return productRepo.updateProductStock(id_produk, stok)
     }
 }

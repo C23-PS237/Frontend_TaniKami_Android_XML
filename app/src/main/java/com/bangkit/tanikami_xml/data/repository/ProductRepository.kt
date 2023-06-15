@@ -3,10 +3,10 @@ package com.bangkit.tanikami_xml.data.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
-//import com.bangkit.tanikami_xml.data.data_store.UserPreference
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.data.remote.response.DetailProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.ProductResponse
+import com.bangkit.tanikami_xml.data.remote.response.ProductUpdateStockResponse
 import com.bangkit.tanikami_xml.data.remote.response.SellProductResponse
 import com.bangkit.tanikami_xml.data.remote.retrofit.ApiService
 import okhttp3.MultipartBody
@@ -53,6 +53,32 @@ class ProductRepository @Inject constructor(
             emit(Response.Error(e.message.toString()))
         }
     }
+
+    fun setStock(id_produk: Int): LiveData<Int> = liveData {
+        try {
+            var sumStock = 0
+            val response1 = apiServ.getPenjualanByIdProduk(id_produk).payload
+            for (item in response1) {
+                sumStock += item.jumlahDibeli
+            }
+
+            emit(sumStock)
+        } catch (e: HttpException) {
+            Log.d("Repository", "sellProduct: ${e.message}")
+        }
+    }
+
+    fun updateProductStock(id_produk: Int, stok: Int): LiveData<Response<ProductUpdateStockResponse>> = liveData {
+        emit(Response.Loading)
+        try {
+            val response = apiServ.updateStockInProduct(id_produk, stok)
+            emit(Response.Success(response))
+        } catch (e: HttpException) {
+            Log.d("Repository", "sellProduct: ${e.message}")
+            emit(Response.Error(e.message.toString()))
+        }
+    }
+
     fun getAllProducts(): LiveData<Response<ProductResponse>> = liveData {
         emit(Response.Loading)
         try {

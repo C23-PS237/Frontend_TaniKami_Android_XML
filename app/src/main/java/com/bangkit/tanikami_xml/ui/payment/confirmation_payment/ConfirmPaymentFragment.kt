@@ -28,6 +28,7 @@ class ConfirmPaymentFragment : Fragment() {
     private val paymentViewModel by viewModels<PaymentViewModel>()
     private lateinit var data_pembelian: PembelianTempData
     private var totalDibayar: Int = 0
+    private var stockStart: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -72,10 +73,22 @@ class ConfirmPaymentFragment : Fragment() {
                             setTitle("Successfully buying")
                             setMessage("Product added to history buy, complete payment now!")
                             setPositiveButton("OK") { _,_ ->
-                                val confDirections = ConfirmPaymentFragmentDirections.actionConfirmPaymentFragmentToPaymentsStepFragment()
-                                confDirections.totalDibayar = totalDibayar
-                                confDirections.idTransaksi = result.data.data.id
-                                findNavController().navigate(confDirections)
+                                val tempStock = stockStart - amount
+                                paymentViewModel.updateProductStock(id_product, tempStock).observe(viewLifecycleOwner) { dataResponse ->
+                                    when (dataResponse) {
+                                        is Response.Loading -> ""
+                                        is Response.Error -> ""
+                                        is Response.Success -> {
+                                            val data = dataResponse.data.payload.isSuccess
+                                            if (data == 1) {
+                                                val confDirections = ConfirmPaymentFragmentDirections.actionConfirmPaymentFragmentToPaymentsStepFragment()
+                                                confDirections.totalDibayar = totalDibayar
+                                                confDirections.idTransaksi = result.data.data.id
+                                                findNavController().navigate(confDirections)
+                                            }
+                                        }
+                                    }
+                                }
                             }
                             create()
                             show()
@@ -119,6 +132,7 @@ class ConfirmPaymentFragment : Fragment() {
                         }
 
                         totalDibayar = temp_total
+                        stockStart = data.stok
 
                         paymentViewModel.getIdKtp().observe(viewLifecycleOwner) { dataKTP ->
                             val idKtp_ReqBody = dataKTP.toRequestBody("text/plain".toMediaTypeOrNull())

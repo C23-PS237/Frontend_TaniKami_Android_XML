@@ -15,28 +15,6 @@
     app:cardCornerRadius="@dimen/_8sdp"
     app:cardElevation="@dimen/_5sdp">
 
-    <TextView
-        android:id="@+id/tv_sold_out"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/_12sdp"
-        android:layout_gravity="center"
-        android:text="@string/sold_out"
-        android:textSize="@dimen/_12ssp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textAllCaps="true"
-        android:background="@color/cardview_shadow_start_color"
-        android:visibility="gone"
-        tools:visibility="visible"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/cardview_shadow_start_color"
-        android:visibility="gone"
-        tools:visibility="visible"/>
-
     <LinearLayout
         android:id="@+id/llImage"
         android:layout_width="match_parent"
@@ -85,4 +63,27 @@
                 android:layout_marginBottom="@dimen/_4sdp"
                 tools:text="@string/products_price" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_sold_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_12sdp"
+        android:layout_gravity="center"
+        android:text="@string/sold_out"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:visibility="gone"
+        android:background="@color/red_warning"
+        tools:visibility="visible"/>
+
+    <View
+        android:id="@+id/closed_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cardview_shadow_start_color"
+        android:visibility="gone"
+        tools:visibility="visible"/>
 </androidx.cardview.widget.CardView>

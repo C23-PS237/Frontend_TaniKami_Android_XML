@@ -15,7 +15,6 @@ import com.bangkit.tanikami_xml.databinding.FragmentDetailBinding
 import com.bangkit.tanikami_xml.utils.Formatted
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
-import kotlin.properties.Delegates
 
 @AndroidEntryPoint
 class DetailFragment() : Fragment() {
@@ -61,7 +60,12 @@ class DetailFragment() : Fragment() {
                             Formatted.formatIDRCurrency(it.data.payload.harga),
                             it.data.payload.besaran_stok
                         )
-                        tvProductsStockDetail.text = getString(R.string.products_stock, it.data.payload.stok, it.data.payload.besaran_stok)
+                        if (it.data.payload.stok > 0 ) {
+                            tvProductsStockDetail.text = getString(R.string.products_stock, it.data.payload.stok, it.data.payload.besaran_stok)
+                        } else {
+                            tvProductsStockDetail.text = getString(R.string.habis)
+                            btnBuy.isEnabled = false
+                        }
                         //binding.tvProductsRating.text = it.data.
                         tvProductsDescriptionDetailValue.text = it.data.payload.deskripsi_produk
                     }

@@ -12,4 +12,5 @@
     <color name="placeholder">#858181</color>
     <color name="red">#FF0000</color>
     <color name="red_warning">#FA3E3E</color>
+    <color name="blackcover">#B2000000</color>
 </resources>

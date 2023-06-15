@@ -1,6 +1,7 @@
 package com.bangkit.tanikami_xml.ui.home
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.tanikami_xml.data.remote.response.ProductItem
@@ -36,6 +37,14 @@ class HomeProductAdapter @Inject constructor(private val listProduct: List<Produ
             tvProductsName.text = item.nama_produk
             tvProductsDescription.text = item.deskripsi_produk
             tvPrice.text = formatIDRCurrency(item.harga)
+
+            if (item.stok <= 0) {
+                tvSoldOut.visibility = View.VISIBLE
+                closedView.visibility = View.VISIBLE
+            } else {
+                tvSoldOut.visibility = View.GONE
+                closedView.visibility = View.GONE
+            }
 
             holder.itemView.setOnClickListener {
                 onItemClickCallback.onProductClicked(listProduct[holder.bindingAdapterPosition])

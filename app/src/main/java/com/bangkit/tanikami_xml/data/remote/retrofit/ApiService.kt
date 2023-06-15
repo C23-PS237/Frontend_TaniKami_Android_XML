@@ -5,16 +5,20 @@ import com.bangkit.tanikami_xml.data.remote.response.ArtikelDetaiilResponse
 import com.bangkit.tanikami_xml.data.remote.response.BuyProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.DetailProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.GetBuyResponse
+import com.bangkit.tanikami_xml.data.remote.response.GetByIdProductiResponse
 import com.bangkit.tanikami_xml.data.remote.response.GetByIdTransaksiResponse
 import com.bangkit.tanikami_xml.data.remote.response.GetPurchaseBuyerResponse
 import com.bangkit.tanikami_xml.data.remote.response.LoginResponse
 import com.bangkit.tanikami_xml.data.remote.response.ProductResponse
+import com.bangkit.tanikami_xml.data.remote.response.ProductUpdateStockResponse
 import com.bangkit.tanikami_xml.data.remote.response.RegisterResponse
 import com.bangkit.tanikami_xml.data.remote.response.SellProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.UpdatePembelianResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.DELETE
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.Part
@@ -146,6 +150,18 @@ interface ApiService {
     suspend fun getBuybyIdPenjual(
         @Path("id_penjual") id_penjual:String
     ): GetPurchaseBuyerResponse
+
+    @GET("pembelian/produk/{id_produk}")
+    fun getPenjualanByIdProduk(
+        @Path("id_produk") id_produk: Int
+    ): GetByIdProductiResponse
+
+    @FormUrlEncoded
+    @PUT("produk/stok/{id_produk}")
+    suspend fun updateStockInProduct(
+        @Path("id_produk") id_produk: Int,
+        @Field("stok") stok: Int,
+    ): ProductUpdateStockResponse
 
     //artikel
     @GET("artikel")
