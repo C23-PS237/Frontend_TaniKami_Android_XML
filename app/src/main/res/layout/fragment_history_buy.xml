@@ -11,8 +11,22 @@
         android:layout_height="@dimen/_50sdp"
         android:background="@color/green700"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="@string/purchase_history"/>
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"
+            android:contentDescription="@string/back"
+            android:backgroundTint="@color/white"
+            android:layout_marginStart="@dimen/_8sdp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/purchase_history"
+            android:textSize="@dimen/_16ssp"
+            android:layout_marginEnd="@dimen/_30sdp"/>
+    </androidx.appcompat.widget.Toolbar>
 
     <ScrollView
         android:layout_width="match_parent"
