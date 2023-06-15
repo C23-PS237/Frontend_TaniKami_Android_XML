@@ -170,7 +170,7 @@
     <string name="clip_label">Seller Account Number</string>
     <string name="toast_indi_clip">Account Number Copied</string>
     <string name="choose_one_bill_image_first">Choose one bill image first</string>
-
+    <string name="back">Icon Back</string>
     <!-- Array for ML model -->
     <string-array name="label">
         <item>Apple Scab</item>
