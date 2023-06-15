@@ -120,7 +120,7 @@
     <string name="capture">Capture Icon</string>
     <string name="switch_icon">Switch Icon</string>
     <string name="payment_method_info">Payment method via MBangking</string>
-    <string name="payment_step">1. Maximum proof of payment can be uploaded within 24 hours.\n2. Upload proof of transfer before __/__/____</string>
+    <string name="payment_step">1. Choose Transfer, add seller bank account number.\n2. Insert number you want to transfer.\n3. Check money you want to transfer is correct. \n4. Click Confirm, and insert your PIN number. \n5. After that print your transfer bill and upload it by clicking button upload below. \n6. Maximum proof of payment can be uploaded within 24 hours.</string>
     <string name="button_upload_bill">Upload Transfer Bill</string>
     <string name="classified_as">Instruction : Choose or capture one image of plant leaf and click submit button to detect disease</string>
     <string name="pick_one_picture">Pick One Picture</string>
@@ -165,6 +165,11 @@
     <string name="id_transaksi_history">Id Transaksi</string>
     <string name="detection_msg">Your plants condition classified as %s \n with confidence : %d percent</string>
     <string name="detection_alert_title">Result</string>
+    <string name="sending_cost">Sending cost</string>
+    <string name="account_number">1330023120941</string>
+    <string name="clip_label">Seller Account Number</string>
+    <string name="toast_indi_clip">Account Number Copied</string>
+    <string name="choose_one_bill_image_first">Choose one bill image first</string>
 
     <!-- Array for ML model -->
     <string-array name="label">

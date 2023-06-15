@@ -27,6 +27,7 @@ class ConfirmPaymentFragment : Fragment() {
     private val binding get() = _binding!!
     private val paymentViewModel by viewModels<PaymentViewModel>()
     private lateinit var data_pembelian: PembelianTempData
+    private var totalDibayar: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +40,8 @@ class ConfirmPaymentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
 
         val id_product = ConfirmPaymentFragmentArgs.fromBundle(arguments as Bundle).idProduct
         val amount = ConfirmPaymentFragmentArgs.fromBundle(arguments as Bundle).totalBuy
@@ -69,7 +72,10 @@ class ConfirmPaymentFragment : Fragment() {
                             setTitle("Successfully buying")
                             setMessage("Product added to history buy, complete payment now!")
                             setPositiveButton("OK") { _,_ ->
-                                findNavController().navigate(R.id.action_confirmPaymentFragment_to_paymentsStepFragment)
+                                val confDirections = ConfirmPaymentFragmentDirections.actionConfirmPaymentFragmentToPaymentsStepFragment()
+                                confDirections.totalDibayar = totalDibayar
+                                confDirections.idTransaksi = result.data.data.id
+                                findNavController().navigate(confDirections)
                             }
                             create()
                             show()
@@ -104,12 +110,15 @@ class ConfirmPaymentFragment : Fragment() {
                         tvProductNameCostPayment.text = formatIDRCurrency(tempPrice)
                         val temp_tax = tempPrice * 2 / 100
                         tvTaxPayment.text = formatIDRCurrency(temp_tax)
-                        val temp_total = tempPrice + temp_tax + 2000
+                        val temp_total = tempPrice + temp_tax + 2000 + 20000
                         tvTotalPayment.text = formatIDRCurrency(temp_total)
                         tvAdminPaymentCost.text = formatIDRCurrency(2000)
+                        tvBiayaPengirimanPayment.setText(formatIDRCurrency(20000))
                         paymentViewModel.getAddress().observe(viewLifecycleOwner) { dataAddress ->
                             addressEditText.setText(dataAddress)
                         }
+
+                        totalDibayar = temp_total
 
                         paymentViewModel.getIdKtp().observe(viewLifecycleOwner) { dataKTP ->
                             val idKtp_ReqBody = dataKTP.toRequestBody("text/plain".toMediaTypeOrNull())

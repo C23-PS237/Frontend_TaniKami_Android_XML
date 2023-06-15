@@ -181,12 +181,36 @@
                 app:layout_constraintStart_toStartOf="@id/tv_tax_payment"
                 app:layout_constraintEnd_toEndOf="@id/tv_tax_payment"/>
 
+            <TextView
+                android:id="@+id/tv_biaya_pengiriman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/sending_cost"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_admin" />
+
+            <TextView
+                android:id="@+id/tv_biaya_pengiriman_payment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/black"
+                android:gravity="end"
+                app:layout_constraintTop_toBottomOf="@id/tv_admin_payment_cost"
+                app:layout_constraintStart_toStartOf="@id/tv_admin_payment_cost"
+                app:layout_constraintEnd_toEndOf="@id/tv_admin_payment_cost"/>
+
             <com.google.android.material.divider.MaterialDivider
                 android:id="@+id/divider_payment"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_2sdp"
                 android:layout_marginTop="@dimen/_8sdp"
-                app:layout_constraintTop_toBottomOf="@id/tv_admin_payment_cost"/>
+                app:layout_constraintTop_toBottomOf="@id/tv_biaya_pengiriman_payment"/>
 
             <TextView
                 android:id="@+id/tv_total"

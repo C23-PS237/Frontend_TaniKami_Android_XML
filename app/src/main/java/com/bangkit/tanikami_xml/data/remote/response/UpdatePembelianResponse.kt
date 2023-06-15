@@ -2,16 +2,16 @@ package com.bangkit.tanikami_xml.data.remote.response
 
 import com.google.gson.annotations.SerializedName
 
-data class RegisterResponse(
+data class UpdatePembelianResponse(
 
 	@field:SerializedName("payload")
-	val payload: ResponseUpdated,
+	val payload: Payload,
 
 	@field:SerializedName("message")
 	val message: String
 )
 
-data class ResponseUpdated(
+data class Payload(
 
 	@field:SerializedName("id")
 	val id: Int,

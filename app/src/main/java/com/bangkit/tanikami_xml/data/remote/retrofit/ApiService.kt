@@ -5,11 +5,13 @@ import com.bangkit.tanikami_xml.data.remote.response.ArtikelDetaiilResponse
 import com.bangkit.tanikami_xml.data.remote.response.BuyProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.DetailProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.GetBuyResponse
+import com.bangkit.tanikami_xml.data.remote.response.GetByIdTransaksiResponse
 import com.bangkit.tanikami_xml.data.remote.response.GetPurchaseBuyerResponse
 import com.bangkit.tanikami_xml.data.remote.response.LoginResponse
 import com.bangkit.tanikami_xml.data.remote.response.ProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.RegisterResponse
 import com.bangkit.tanikami_xml.data.remote.response.SellProductResponse
+import com.bangkit.tanikami_xml.data.remote.response.UpdatePembelianResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.DELETE
@@ -119,26 +121,26 @@ interface ApiService {
     @Multipart
     @PUT("pembelian/{id_transaksi}")
     suspend fun updatePembelianByIdTransaksi(
-        @Path("id_transaksi") id_transaksi: String,
+        @Path("id_transaksi") id_transaksi: Int,
         @Part bukti_transfer: MultipartBody.Part,
-        @Part("id_ktp") id_ktp: String,
-        @Part("id_produk") id_produk: Int,
-        @Part("alamat_penerima") alamat_penerima: String,
-        @Part("harga") harga: Int,
-        @Part("jumlah_beli") jumlah_beli: Int,
-        @Part("biaya_pengiriman") biaya_pengiriman: Int,
-        @Part("pajak") pajak: Int,
-        @Part("biaya_admin") biaya_admin: Int,
-        @Part("biaya_total") biaya_total: Int,
-        @Part("status_pembayaran") statusPembayaran: Boolean,
-        @Part("status_pengiriman") statusPengiriman: Boolean
-    ): BuyProductResponse // response belum dibuat nunggu postman
-
+        @Part("id_ktp") id_ktp: RequestBody,
+        @Part("id_produk") id_produk: RequestBody,
+        @Part("alamat_penerima") alamat_penerima: RequestBody,
+        @Part("harga") harga: RequestBody,
+        @Part("jumlah_dibeli") jumlah_beli: RequestBody,
+        @Part("biaya_pengiriman") biaya_pengiriman: RequestBody,
+        @Part("pajak") pajak: RequestBody,
+        @Part("biaya_admin") biaya_admin: RequestBody,
+        @Part("biaya_total") biaya_total: RequestBody,
+        @Part("status_pembayaran") statusPembayaran: RequestBody,
+        @Part("status_pengiriman") statusPengiriman: RequestBody,
+        @Part("id_penjual") id_penjual: RequestBody
+    ): UpdatePembelianResponse
 
     @GET("pembelian/{id_transaksi}")
     suspend fun getBuybyIdTransaksi(
-        @Path("id_transaksi") id: String
-    ): GetBuyResponse
+        @Path("id_transaksi") id: Int
+    ): GetByIdTransaksiResponse
 
     @GET("pembelian/penjual/{id_penjual}")
     suspend fun getBuybyIdPenjual(
