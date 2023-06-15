@@ -15,7 +15,6 @@ import com.bangkit.tanikami_xml.ui.user.UserViewModel
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 import com.bangkit.tanikami_xml.data.helper.Response
-import com.google.android.material.snackbar.Snackbar
 
 @AndroidEntryPoint
 class ProfileFragment : Fragment() {
@@ -50,6 +49,9 @@ class ProfileFragment : Fragment() {
 
         binding.btnPurchaseHistory.setOnClickListener {
             findNavController().navigate(R.id.action_nav_profile_to_historyBuyFragment)
+        }
+        binding.btnPurchaseBuyerHistory.setOnClickListener {
+            findNavController().navigate(R.id.action_nav_profile_to_historyPurchaseBuyerFragment)
         }
         binding.btnSalesHistory.setOnClickListener {
             findNavController().navigate(R.id.action_nav_profile_to_historySellFragment)

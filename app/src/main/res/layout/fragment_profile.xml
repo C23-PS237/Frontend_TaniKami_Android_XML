@@ -151,6 +151,24 @@
             app:layout_constraintTop_toBottomOf="@+id/sv_address" />
 
         <Button
+            android:id="@+id/btn_purchase_buyer_history"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_53sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:backgroundTint="@color/green700"
+            android:text="@string/purchase_buyer_history"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_purchase_history" />
+
+        <Button
             android:id="@+id/btn_sales_history"
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="match_parent"
@@ -166,7 +184,7 @@
             android:textStyle="bold"
             android:backgroundTint="@color/green700"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_purchase_history"
+            app:layout_constraintTop_toBottomOf="@id/btn_purchase_buyer_history"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 

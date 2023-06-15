@@ -5,6 +5,7 @@ import com.bangkit.tanikami_xml.data.remote.response.ArtikelDetaiilResponse
 import com.bangkit.tanikami_xml.data.remote.response.BuyProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.DetailProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.GetBuyResponse
+import com.bangkit.tanikami_xml.data.remote.response.GetPurchaseBuyerResponse
 import com.bangkit.tanikami_xml.data.remote.response.LoginResponse
 import com.bangkit.tanikami_xml.data.remote.response.ProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.RegisterResponse
@@ -138,6 +139,11 @@ interface ApiService {
     suspend fun getBuybyIdTransaksi(
         @Path("id_transaksi") id: String
     ): GetBuyResponse
+
+    @GET("pembelian/penjual/{id_penjual}")
+    suspend fun getBuybyIdPenjual(
+        @Path("id_penjual") id_penjual:String
+    ): GetPurchaseBuyerResponse
 
     //artikel
     @GET("artikel")

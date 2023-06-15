@@ -15,183 +15,183 @@
             android:id="@+id/iv_image_confirm_product"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_200sdp"
-            android:contentDescription="@string/products_image"
             android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginEnd="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
             android:layout_marginBottom="@dimen/_16sdp"
+            android:contentDescription="@string/products_image"
             android:src="@drawable/image"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_product_name_confirm"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/tv_product_name_confirm"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tv_product_name_confirm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_8sdp"
-                android:text="@string/product_name_confirm"
-                android:textSize="@dimen/_18ssp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_image_confirm_product" />
+        <TextView
+            android:id="@+id/tv_product_name_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:text="@string/product_name_confirm"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_image_confirm_product" />
 
-            <TextView
-                android:id="@+id/tv_value_product_name_confirm"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_8sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_16sdp"
-                android:maxLines="2"
-                android:ellipsize="end"
-                android:text="@string/product_name"
-                android:textSize="@dimen/_18ssp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toEndOf="@id/tv_product_name_confirm"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_image_confirm_product"/>
+        <TextView
+            android:id="@+id/tv_value_product_name_confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@string/product_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_product_name_confirm"
+            app:layout_constraintTop_toBottomOf="@+id/iv_image_confirm_product" />
 
-            <TextView
-                android:id="@+id/tv_product_stock_confirm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_8sdp"
-                android:text="@string/product_stock_confirm"
-                android:textSize="@dimen/_18ssp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="@+id/tv_product_name_confirm"
-                app:layout_constraintTop_toBottomOf="@+id/tv_value_product_name_confirm"/>
+        <TextView
+            android:id="@+id/tv_product_stock_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:text="@string/product_stock_confirm"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tv_product_name_confirm"
+            app:layout_constraintTop_toBottomOf="@+id/tv_value_product_name_confirm" />
 
-            <TextView
-                android:id="@+id/tv_value_product_stock_confirm"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_16sdp"
-                android:text="@string/stock"
-                android:textSize="@dimen/_18ssp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="@id/tv_value_product_name_confirm"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_value_product_name_confirm"/>
+        <TextView
+            android:id="@+id/tv_value_product_stock_confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:text="@string/stock"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_value_product_name_confirm"
+            app:layout_constraintTop_toBottomOf="@id/tv_value_product_name_confirm" />
 
-            <TextView
-                android:id="@+id/tv_product_price_confirm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_8sdp"
-                android:text="@string/product_price_confirm"
-                android:textSize="@dimen/_18ssp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="@+id/tv_product_stock_confirm"
-                app:layout_constraintTop_toBottomOf="@id/tv_value_product_stock_confirm"/>
+        <TextView
+            android:id="@+id/tv_product_price_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:text="@string/product_price_confirm"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tv_product_stock_confirm"
+            app:layout_constraintTop_toBottomOf="@id/tv_value_product_stock_confirm" />
 
-            <TextView
-                android:id="@+id/tv_value_product_price_confirm"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_16sdp"
-                android:layout_marginStart="@dimen/_8sdp"
-                android:text="@string/product_price"
-                android:textSize="@dimen/_18ssp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toEndOf="@id/tv_product_price_confirm"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_value_product_stock_confirm"/>
+        <TextView
+            android:id="@+id/tv_value_product_price_confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:text="@string/product_price"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_product_price_confirm"
+            app:layout_constraintTop_toBottomOf="@id/tv_value_product_stock_confirm" />
 
-            <TextView
-                android:id="@+id/tv_bank_name_confirm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_300sdp"
-                android:text="@string/bank_name_confirm"
-                android:textSize="@dimen/_18ssp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="@+id/tv_product_price_confirm"
-                app:layout_constraintTop_toBottomOf="@id/tv_value_product_price_confirm"/>
+        <TextView
+            android:id="@+id/tv_bank_name_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_300sdp"
+            android:text="@string/bank_name_confirm"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tv_product_price_confirm"
+            app:layout_constraintTop_toBottomOf="@id/tv_value_product_price_confirm" />
 
-            <TextView
-                android:id="@+id/tv_value_bank_name_confirm"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_8sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_16sdp"
-                android:text="@string/bank_name"
-                android:textSize="@dimen/_18ssp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toEndOf="@id/tv_bank_name_confirm"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_value_product_price_confirm"/>
+        <TextView
+            android:id="@+id/tv_value_bank_name_confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:text="@string/bank_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_bank_name_confirm"
+            app:layout_constraintTop_toBottomOf="@id/tv_value_product_price_confirm" />
 
-            <TextView
-                android:id="@+id/tv_account_number_confirm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:text="@string/account_number_confirm"
-                android:textSize="@dimen/_18ssp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="@id/tv_bank_name_confirm"
-                app:layout_constraintTop_toBottomOf="@id/tv_value_bank_name_confirm"/>
+        <TextView
+            android:id="@+id/tv_account_number_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/account_number_confirm"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tv_bank_name_confirm"
+            tools:layout_editor_absoluteY="462dp"
+            tools:ignore="MissingConstraints" />
 
-            <TextView
-                android:id="@+id/tv_value_account_number_confirm"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_8sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_16sdp"
-                android:text="@string/bank_account_number"
-                android:maxLines="2"
-                android:textSize="@dimen/_18ssp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toEndOf="@id/tv_account_number_confirm"
-                app:layout_constraintTop_toBottomOf="@id/tv_bank_name_confirm"
-                app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+            android:id="@+id/tv_value_account_number_confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:maxLines="2"
+            android:text="@string/bank_account_number"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_account_number_confirm"
+            app:layout_constraintTop_toBottomOf="@id/tv_bank_name_confirm" />
 
         <ScrollView
             android:id="@+id/sv_address"
-            android:fillViewport="true"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_137sdp"
             android:layout_marginStart="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:background="@drawable/stroke_bg"
-            app:layout_constraintStart_toStartOf="parent"
+            android:fillViewport="true"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_value_account_number_confirm">
 
             <TextView
                 android:id="@+id/tv_product_description_confirm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
                 android:paddingHorizontal="@dimen/_8sdp"
                 android:paddingVertical="@dimen/_8sdp"
-                android:textSize="@dimen/_12sdp"
-                tools:text="@string/product_description"
                 android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
                 android:textStyle="bold"
-                android:justificationMode="inter_word" />
+                tools:text="@string/product_description" />
         </ScrollView>
 
 
@@ -199,39 +199,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginEnd="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
             android:layout_marginBottom="@dimen/_16sdp"
             android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sv_address"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sv_address">
 
             <Button
                 android:id="@+id/btnCancel"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_weight="1"
                 android:backgroundTint="@color/green700"
                 android:text="@string/cancel"
-                android:textSize="@dimen/_16ssp"
                 android:textColor="@color/white"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btnSell"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:backgroundTint="@color/green700"
                 android:text="@string/sell"
-                android:textSize="@dimen/_16ssp"
                 android:textColor="@color/white"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

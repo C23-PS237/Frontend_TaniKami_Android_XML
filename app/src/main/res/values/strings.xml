@@ -159,6 +159,9 @@
     <string name="sum_all_buy">sum all buy</string>
     <string name="indicator_products_cost">Products cost</string>
 
+    <string name="total_payment_history">Total Pembayaran:</string>
+    <string name="purchase_buyer_history">Purchase Buyer History</string>
+    <string name="products_price_history">%s / %s</string>
     <string name="id_transaksi_history">Id Transaksi</string>
     <string name="detection_msg">Your plants condition classified as %s \n with confidence : %d percent</string>
     <string name="detection_alert_title">Result</string>

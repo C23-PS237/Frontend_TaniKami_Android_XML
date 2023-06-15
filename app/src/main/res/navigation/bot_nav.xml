@@ -45,6 +45,9 @@
             app:launchSingleTop="true"
             app:popUpTo="@id/nav_profile"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_nav_profile_to_historyPurchaseBuyerFragment"
+            app:destination="@id/historyPurchaseBuyerFragment" />
     </fragment>
 
     <fragment
@@ -251,5 +254,14 @@
         <action
             android:id="@+id/action_detectionExtended_to_nav_detection"
             app:destination="@id/nav_detection" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyPurchaseBuyerFragment"
+        android:name="com.bangkit.tanikami_xml.ui.history.purchase_buyer.HistoryPurchaseBuyerFragment"
+        android:label="fragment_history_purchase_buyer"
+        tools:layout="@layout/fragment_history_purchase_buyer" >
+        <action
+            android:id="@+id/action_historyPurchaseBuyerFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
 </navigation>

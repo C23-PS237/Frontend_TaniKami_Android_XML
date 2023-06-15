@@ -6,6 +6,7 @@ import androidx.lifecycle.liveData
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.data.remote.response.BuyProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.GetBuyResponse
+import com.bangkit.tanikami_xml.data.remote.response.GetPurchaseBuyerResponse
 import com.bangkit.tanikami_xml.data.remote.response.Product
 import com.bangkit.tanikami_xml.data.remote.retrofit.ApiService
 import okhttp3.RequestBody
@@ -13,7 +14,6 @@ import retrofit2.HttpException
 import javax.inject.Inject
 
 class BuyRepository @Inject constructor(
-    //private val userPref: UserPreference,
     private val apiServ: ApiService
 ){
     fun getBuybyIdKtp(id_ktp: String): LiveData<Response<GetBuyResponse>> = liveData {
@@ -42,9 +42,18 @@ class BuyRepository @Inject constructor(
         emit(listProducts)
     }
 
+    fun getPurchaseBuyerByIdPenjual(id_ktp: String): LiveData<Response<GetPurchaseBuyerResponse>> = liveData {
 
+        emit(Response.Loading)
+        try {
+            val response = apiServ.getBuybyIdPenjual(id_ktp)
+            emit(Response.Success(response))
+        } catch (e: HttpException) {
+            Log.d("Repository", "getPurchaseBuyerbyIdPenjual: ${e.message}")
+            emit(Response.Error(e.message.toString()))
+        }
+    }
     fun getBuyByIdTransaksi(id_transaksi: String): LiveData<Response<GetBuyResponse>> = liveData {
-        //suspend fun getProductByIdTransaksi(id_transaksi: String):
         emit(Response.Loading)
         try {
             val response = apiServ.getBuybyIdTransaksi(id_transaksi)
