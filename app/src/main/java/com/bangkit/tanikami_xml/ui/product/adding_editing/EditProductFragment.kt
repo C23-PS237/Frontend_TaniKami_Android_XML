@@ -96,13 +96,13 @@ class EditProductFragment : Fragment() {
             val description = descriptionSellEditTextEdit.text.toString()
 
             if (name_product == "" || bank_name == "" || rek_penjual == "" || stocks == "" || stock_size == "" || price == "" || description == "") {
-                productNameSellEditTextLayoutEdit.error = "Product name can't empty"
-                bankNameEditTextLayoutEdit.error = "Bank name can't empty"
-                bankNumberEditTextLayoutEdit.error = "Bank account number can't empty"
-                stocksEditTextLayoutEdit.error = "Stock can't empty"
-                stockSizeEditTextLayoutEdit.error = "Stock size can't empty"
-                priceSellEditTextLayoutEdit.error = "Price can't empty"
-                descriptionSellEditTextLayoutEdit.error = "Description can't empty"
+                productNameSellEditTextLayoutEdit.error = getString(R.string.empty_warning_pname)
+                bankNameEditTextLayoutEdit.error = getString(R.string.empty_warning_bname)
+                bankNumberEditTextLayoutEdit.error = getString(R.string.empty_warning_bn)
+                stocksEditTextLayoutEdit.error = getString(R.string.empty_warning_se)
+                stockSizeEditTextLayoutEdit.error = getString(R.string.empty_warningss)
+                priceSellEditTextLayoutEdit.error = getString(R.string.empty_warning_ps)
+                descriptionSellEditTextLayoutEdit.error = getString(R.string.empty_warning_ds)
             } else {
                 productNameSellEditTextLayoutEdit.error = ""
                 bankNameEditTextLayoutEdit.error = ""

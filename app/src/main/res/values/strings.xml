@@ -176,6 +176,27 @@
     <string name="warning_connection">Connection internet lost</string>
     <string name="watning_edit_product">Please select new picture for product</string>
     <string name="edit_data_success">Edit Data Success</string>
+    <string name="total_buy">Total : %d %s</string>
+    <string name="status_purcase">PAID</string>
+    <string name="status_purcase2">UNPAID</string>
+    <string name="status_purchase3">ARRIVED</string>
+    <string name="status_purchase4">PENDING</string>
+    <string name="chooser_pic">Choose a Picture</string>
+    <string name="title_alert_up_bill">Bill Successfully Uploaded</string>
+    <string name="des_alert_up_nill">Your transfer bill uploaded, data being updated</string>
+    <string name="empty_warning_pname">Product name can\'t empty</string>
+    <string name="empty_warning_bname">Bank name can\'t empty</string>
+    <string name="empty_warning_bn">Bank account number can\'t empty</string>
+    <string name="empty_warning_se">Stock can\'t empty</string>
+    <string name="empty_warningss">Stock size can\'t empty</string>
+    <string name="empty_warning_ps">Price can\'t empty</string>
+    <string name="empty_warning_ds">Description can\'t empty</string>
+    <string name="data_failed_to_be_shown">Data failed to be shown</string>
+    <string name="nik_can_t_empty">NIK can\'t Empty</string>
+    <string name="email_can_t_empty">Email can\'t empty</string>
+    <string name="password_can_t_empty">Password can\'t empty</string>
+    <string name="successfully_login">Successfully Login</string>
+    <string name="password_or_email_wrong">Password or email wrong</string>
     <!-- Array for ML model -->
     <string-array name="label">
         <item>Apple Scab</item>

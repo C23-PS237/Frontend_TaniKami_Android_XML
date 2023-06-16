@@ -44,19 +44,19 @@ class LoginFragment : Fragment() {
                 val password = passwordEditTextLogin.text.toString()
 
                 if (id_ktp == "") {
-                    idktpLayoutLogin.error = "NIK tidak boleh kosong"
+                    idktpLayoutLogin.error = getString(R.string.nik_can_t_empty)
                 } else {
                     idktpLayoutLogin.error = ""
                 }
 
                 if (email == "") {
-                    emailEditTextLayout.error = "Email tidak boleh kosong"
+                    emailEditTextLayout.error = getString(R.string.email_can_t_empty)
                 } else {
                     emailEditTextLayout.error = ""
                 }
 
                 if (password == "") {
-                    passwordEditTextLayout.error = "Password tidak boleh kosong"
+                    passwordEditTextLayout.error = getString(R.string.password_can_t_empty)
                 } else {
                     passwordEditTextLayout.error = ""
                 }
@@ -99,9 +99,9 @@ class LoginFragment : Fragment() {
                         if (data.email == email && data.password == password) {
                             userViewModel.saveUserToDataStore(UserModel(data.idKtp, data.nama, data.telepon, data.alamatRegist, data.profil, email, password, true))
                             findNavController().navigate(R.id.action_loginFragment_to_nav_home)
-                            Snackbar.make(requireActivity().findViewById(android.R.id.content), "Hello Login ${data.email}, $email, ${data.password}, $password", Snackbar.LENGTH_LONG).show()
+                            Snackbar.make(requireActivity().findViewById(android.R.id.content), getString(R.string.successfully_login), Snackbar.LENGTH_LONG).show()
                         } else {
-                            Snackbar.make(requireActivity().findViewById(android.R.id.content), "Password or email wrong ${data.email}, $email, ${data.password}, $password", Snackbar.LENGTH_LONG).show()
+                            Snackbar.make(requireActivity().findViewById(android.R.id.content), getString(R.string.password_or_email_wrong), Snackbar.LENGTH_LONG).show()
                         }
                     }
                 }

@@ -125,8 +125,8 @@ class UploadingBillFragment : Fragment() {
                             is Response.Success -> {
                                 if (response_update.data.payload.isSuccess == 1) {
                                     AlertDialog.Builder(requireActivity()).apply {
-                                        setTitle("Bill Successfully Uploaded")
-                                        setMessage("Your transfer bill uploaded, data being updated")
+                                        setTitle(getString(R.string.title_alert_up_bill))
+                                        setMessage(getString(R.string.des_alert_up_nill))
                                         setPositiveButton("OK") { _, _ ->
                                             findNavController().navigate(R.id.action_uploadingBillFragment_to_historyBuyFragment)
                                         }
@@ -163,7 +163,7 @@ class UploadingBillFragment : Fragment() {
         val intent = Intent()
         intent.action = Intent.ACTION_GET_CONTENT
         intent.type = "image/*"
-        val chooser = Intent.createChooser(intent, "Choose a Picture")
+        val chooser = Intent.createChooser(intent, getString(R.string.chooser_pic))
         launcherIntentGallery.launch(chooser)
     }
 

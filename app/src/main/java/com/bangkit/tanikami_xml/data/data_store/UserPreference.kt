@@ -41,12 +41,6 @@ class UserPreference @Inject constructor(private val dataStore: DataStore<Prefer
         }
     }
 
-    suspend fun login() {
-        dataStore.edit { pref ->
-            pref[STATE_KEY] = true
-        }
-    }
-
     fun isLogin(): Flow<Boolean> {
         return dataStore.data.map {
             it[STATE_KEY] ?: false
@@ -78,11 +72,6 @@ class UserPreference @Inject constructor(private val dataStore: DataStore<Prefer
         }
     }
 
-    suspend fun saveIdKtp(id_ktp: String){
-        dataStore.edit { preferences ->
-            preferences[ID_KEY] = id_ktp
-        }
-    }
     companion object {
         private val ID_KEY = stringPreferencesKey("id_ktp")
         private val NAME_KEY = stringPreferencesKey("name")

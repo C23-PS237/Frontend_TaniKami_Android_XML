@@ -29,20 +29,9 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val viewModel by viewModels<HomeViewModel>()
-    private val userViewModel by viewModels<UserViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        var stat = true
-//
-//        viewModel.getAllProducts().observe(this@MainActivity) {
-//            when (it) {
-//                is Response.Loading -> { stat = true }
-//                is Response.Success -> { stat = false }
-//                is Response.Error -> { stat = false }
-//            }
-//        }
 
         installSplashScreen().apply {
             setKeepOnScreenCondition {
@@ -59,17 +48,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         val navView: BottomNavigationView = binding.navBotView
-        //navView.itemActiveIndicatorColor = getColorStateList(androidx.appcompat.R.color.primary_dark_material_dark)
-        //navView.itemIconTintList = null
-
-//        if (navView.isPressed) {
-//            navView.itemTextColor = getColorStateList(R.color.green700)
-//            navView.itemIconTintList = getColorStateList(R.color.green700)
-//        } else {
-//            navView.itemTextColor = getColorStateList(R.color.green200)
-//            navView.itemIconTintList = getColorStateList(R.color.green200)
-//        }
-        // destinationRoute.id != R.id.nav_home || destinationRoute.id != R.id.nav_article || destinationRoute.id != R.id.nav_detection || destinationRoute.id != R.id.nav_profile
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
 

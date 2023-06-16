@@ -35,7 +35,7 @@ class DetailArticleFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val idArticle = DetailArticleFragmentArgs.fromBundle(arguments as Bundle).idArtikel
-        Log.d("DetailArtikelId", "onViewCreated: $idArticle", )
+        Log.d(TAG, "onViewCreated: $idArticle", )
 
         articleViewModel.getDetailArticle(idArticle.toString()).observe(requireActivity()) {
             when (it) {
@@ -69,5 +69,6 @@ class DetailArticleFragment : Fragment() {
     }
 
     companion object {
+        private const val TAG = "DetailArtikelId"
     }
 }

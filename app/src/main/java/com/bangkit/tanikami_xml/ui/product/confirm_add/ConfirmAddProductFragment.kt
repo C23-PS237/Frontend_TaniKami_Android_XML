@@ -44,7 +44,7 @@ class ConfirmAddProductFragment : Fragment() {
                 is Response.Error -> {
                     Toast.makeText(
                         requireActivity(),
-                        "Data gagal ditampilkan",
+                        getString(R.string.data_failed_to_be_shown),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -55,18 +55,15 @@ class ConfirmAddProductFragment : Fragment() {
                             .load(it.data.payload.gambar_produk)
                             .into(ivImageConfirmProduct)
 
-                        tvValueProductNameConfirm.text = it.data.payload.nama_produk.toString()
-                        tvProductDescriptionConfirm.text = it.data.payload.deskripsi_produk.toString()
-                        tvValueBankNameConfirm.text = it.data.payload.nama_bank.toString()
-                        tvValueAccountNumberConfirm.text = it.data.payload.rek_penjual.toString()
-                        tvValueProductPriceConfirm.text = it.data.payload.nama_produk.toString()
+                        tvValueProductNameConfirm.text = it.data.payload.nama_produk
+                        tvProductDescriptionConfirm.text = it.data.payload.deskripsi_produk
+                        tvValueBankNameConfirm.text = it.data.payload.nama_bank
+                        tvValueAccountNumberConfirm.text = it.data.payload.rek_penjual
+                        tvValueProductPriceConfirm.text = it.data.payload.nama_produk
                         tvValueProductStockConfirm.text = it.data.payload.stok.toString()
                     }
                 }
             }
         }
-    }
-
-    companion object {
     }
 }

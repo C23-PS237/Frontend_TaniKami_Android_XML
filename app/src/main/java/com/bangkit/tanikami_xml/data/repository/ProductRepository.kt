@@ -20,12 +20,10 @@ import java.io.File
 import javax.inject.Inject
 
 class ProductRepository @Inject constructor(
-    //private val userPref: UserPreference,
     private val apiServ: ApiService
 ){
 
     fun sellProduct(
-        //idProduk:Int,
         besaran_stok: RequestBody,
         nama_produk:RequestBody,
         harga: RequestBody,
@@ -35,12 +33,10 @@ class ProductRepository @Inject constructor(
         stok: RequestBody,
         deskripsi_produk: RequestBody,
         nama_bank: RequestBody,
-        //timestamp: String
     ): LiveData<Response<SellProductResponse>> = liveData{
         emit(Response.Loading)
         try {
             val response = apiServ.sellProduct(
-                //idProduk,
                                                 besaran_stok,
                                                 nama_produk,
                                                 harga,
@@ -50,7 +46,6 @@ class ProductRepository @Inject constructor(
                                                 stok,
                                                 deskripsi_produk,
                                                 nama_bank
-                                                //timestamp
                                                 )
             emit(Response.Success(response))
         } catch (e: HttpException) {

@@ -108,7 +108,7 @@ class ConfirmPaymentFragment : Fragment() {
             when (it) {
                 is Response.Loading -> ""
                 is Response.Error -> {
-                    Toast.makeText(requireActivity(), "${it.error}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireActivity(), getString(R.string.warning_connection), Toast.LENGTH_SHORT).show()
                 }
                 is Response.Success -> {
                     val data = it.data.payload
@@ -166,6 +166,11 @@ class ConfirmPaymentFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
     companion object {

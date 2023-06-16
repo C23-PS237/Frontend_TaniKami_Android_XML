@@ -26,7 +26,6 @@ class AddEditProductViewModel @Inject constructor(
     }
 
     fun sellProduct(
-        //idProduk: Int,
         besaran_stok: RequestBody,
         nama_produk:RequestBody,
         harga: RequestBody,
@@ -36,11 +35,9 @@ class AddEditProductViewModel @Inject constructor(
         stok: RequestBody,
         deskripsi_produk: RequestBody,
         nama_bank: RequestBody,
-        //timestamp: String
         )
     : LiveData<Response<SellProductResponse>> {
         return productRepo.sellProduct(
-            //idProduk,
             besaran_stok,
             nama_produk,
             harga,
@@ -50,7 +47,6 @@ class AddEditProductViewModel @Inject constructor(
             stok,
             deskripsi_produk,
             nama_bank
-            //timestamp
         )
     }
 

@@ -1,6 +1,5 @@
 package com.bangkit.tanikami_xml.ui.product.adding_editing
 
-//import android.Manifest
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
@@ -28,9 +27,6 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
-//import java.time.Instant
-//import java.time.ZoneOffset
-//import java.time.format.DateTimeFormatter
 
 @AndroidEntryPoint
 class AddProductFragment : Fragment() {
@@ -40,27 +36,6 @@ class AddProductFragment : Fragment() {
     private lateinit var currentPhotoPath: String
     private val addEditProductViewModel by viewModels<AddEditProductViewModel>()
 
-//    override fun onRequestPermissionsResult(
-//        requestCode: Int,
-//        permissions: Array<String>,
-//        grantResults: IntArray
-//    ) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-//        if (requestCode == REQUEST_CODE_PERMISSIONS) {
-//            if (!allPermissionsGranted()) {
-//                Toast.makeText(
-//                    requireActivity(),
-//                    "Tidak mendapatkan permission.",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//                activity?.finish()
-//            }
-//        }
-//    }
-
-//    private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
-//        ContextCompat.checkSelfPermission(requireContext(), it) == PackageManager.PERMISSION_GRANTED
-//    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -73,13 +48,6 @@ class AddProductFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        if (!allPermissionsGranted()) {
-//            ActivityCompat.requestPermissions(
-//                requireActivity(),
-//                REQUIRED_PERMISSIONS,
-//                REQUEST_CODE_PERMISSIONS
-//            )
-//        }
 
         binding.btnCameraAddProduct.setOnClickListener {
             startTakePhoto()
@@ -89,28 +57,21 @@ class AddProductFragment : Fragment() {
         }
         binding.btnDone.setOnClickListener {
             uploadProduct()
-            //findNavController().navigate(R.id.action_addProductFragment_to_confirmAddProductFragment)
         }
 
     }
 
     private fun uploadProduct(){
         if (getFile != null) {
-            //val token = it.data.loginResult.token
 
-            //val idProduk = id+1
             val besaran_stok = binding.stockSizeEditText.text.toString().toRequestBody("text/plain".toMediaType())
             val nama_produk = binding.productsNameSellEditText.text.toString().toRequestBody("text/plain".toMediaType())
             val harga = binding.priceSellEditText.text.toString().toRequestBody("text/plain".toMediaType())
             val rek_penjual = binding.bankNumberEditText.text.toString().toRequestBody("text/plain".toMediaType())
             val stok = binding.stocksEditText.text.toString().toRequestBody("text/plain".toMediaType())
-            //val id_ktp = binding.IdKTPEditText.text.toString()
             val nama_bank = binding.bankNameEditText.text.toString().toRequestBody("text/plain".toMediaType())
             val deskripsi_produk = binding.descriptionSellEditText.text.toString().toRequestBody("text/plain".toMediaType())
-//            val timestamp = DateTimeFormatter
-//                .ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSS")
-//                .withZone(ZoneOffset.UTC)
-//                .format(Instant.now())
+
             val file = reduceFileImage(getFile as File)
             val requestImageFile = file.asRequestBody("image/jpeg".toMediaType())
             val gambar_produk: MultipartBody.Part = MultipartBody.Part.createFormData(
@@ -120,7 +81,6 @@ class AddProductFragment : Fragment() {
             )
             addEditProductViewModel.getIdKtp().observe(viewLifecycleOwner) {
                 addEditProductViewModel.sellProduct(
-                    //idProduk,
                     besaran_stok,
                     nama_produk,
                     harga,
@@ -130,7 +90,6 @@ class AddProductFragment : Fragment() {
                     stok,
                     deskripsi_produk,
                     nama_bank
-                    //timestamp
                 ).observe(viewLifecycleOwner) {
                     when (it) {
                         is Response.Loading -> ""
@@ -148,11 +107,7 @@ class AddProductFragment : Fragment() {
                                 "Berhasil upload produk untuk dijual",
                                 Toast.LENGTH_SHORT
                             ).show()
-//                            findNavController().navigate(R.id.action_addProductFragment_to_confirmAddProductFragment)
                               findNavController().navigate(R.id.action_addProductFragment_to_nav_home)
-//                            val toConfirmAddProductFragment = AddProductFragmentDirections.actionAddProductFragmentToConfirmAddProductFragment()
-//                            toConfirmAddProductFragment.idProduct = ProductItem.
-//                            findNavController().navigate(toConfirmAddProductFragment)
 
                         }
                     }
@@ -182,8 +137,6 @@ class AddProductFragment : Fragment() {
         if (it.resultCode == AppCompatActivity.RESULT_OK) {
             val myFile = File(currentPhotoPath)
             myFile.let { file ->
-//              Silakan gunakan kode ini jika mengalami perubahan rotasi
-//              rotateFile(file)
                 getFile = file
                 binding.ivImageAddProduct.setImageBitmap(BitmapFactory.decodeFile(file.path))
             }
@@ -210,10 +163,9 @@ class AddProductFragment : Fragment() {
             }
         }
     }
-    companion object {
-//        const val CAMERA_X_RESULT = 200
-//
-//        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
-//        private const val REQUEST_CODE_PERMISSIONS = 10
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

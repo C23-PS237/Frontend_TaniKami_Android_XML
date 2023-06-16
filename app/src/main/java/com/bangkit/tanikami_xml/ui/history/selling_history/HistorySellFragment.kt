@@ -23,7 +23,7 @@ class HistorySellFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentHistorySellBinding.inflate(inflater, container, false)
         return binding.root
@@ -33,9 +33,6 @@ class HistorySellFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         historySellProduct()
-//        binding.rvSalesHistory.setOnClickListener {
-//            findNavController().navigate(R.id.action_historySellFragment_to_detailFragment)
-//        }
     }
 
     private fun setLoading(state: Boolean) {
@@ -78,7 +75,9 @@ class HistorySellFragment : Fragment() {
         }
 
     }
-    companion object {
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

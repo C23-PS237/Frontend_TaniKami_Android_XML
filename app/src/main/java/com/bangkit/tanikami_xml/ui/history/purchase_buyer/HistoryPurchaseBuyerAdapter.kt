@@ -36,8 +36,8 @@ class HistoryPurchaseBuyerAdapter @Inject constructor(private val listHistory: L
                 .into(ivProductImage)
 
             tvProductName.text = itemProduct.nama_produk
-            tvOneProductPrice.text = "${itemProduct.harga} / ${itemProduct.besaran_stok}"
-            tvProductAmountProductTobuy.text = "${itemHistory.jumlahDibeli.toString()} ${itemProduct.besaran_stok}"
+            tvOneProductPrice.text = holder.itemView.context.getString(R.string.stock, itemProduct.harga, itemProduct.besaran_stok)
+            tvProductAmountProductTobuy.text = holder.itemView.context.getString(R.string.total_buy, itemHistory.jumlahDibeli, itemProduct.besaran_stok)
             tvTotalPaymentHistory.setText(R.string.total_payment_history)
             tvValueTotalPaymentHistory.text = Formatted.formatIDRCurrency(itemHistory.biayaTotal)
             tvTimestamp.text = itemHistory.createdAt

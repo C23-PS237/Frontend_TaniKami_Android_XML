@@ -26,7 +26,7 @@ class HistoryPurchaseBuyerFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHistoryPurchaseBuyerBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -63,13 +63,13 @@ class HistoryPurchaseBuyerFragment : Fragment() {
                             for (item in listData) {
                                 listIdProduk.add(item.idProduk)
                             }
-                            Log.d("listIdProduk", listIdProduk.toString())
+                            Log.d(TAG, listIdProduk.toString())
 
                             historyPurchaseBuyerViewModel.getListProductsByIdProducts(listIdProduk)
                                 .observe(viewLifecycleOwner) { result ->
                                     listProduk.addAll(result)
 
-                                    Log.d("listProduk", listProduk.toString())
+                                    Log.d(TAG, listProduk.toString())
                                     setLoading(false)
                                     val historyPurchaseBuyerAdapter = HistoryPurchaseBuyerAdapter(listData, listProduk)
                                     rvPurchaseBuyerHistory.setHasFixedSize(true)
@@ -92,6 +92,6 @@ class HistoryPurchaseBuyerFragment : Fragment() {
     }
 
     companion object {
-
+        private const val TAG = "listIdProduk&Produk"
     }
 }

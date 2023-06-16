@@ -60,7 +60,4 @@ class OnBoardingFragment : Fragment() {
         _binding = null
     }
 
-    companion object {
-
-    }
 }

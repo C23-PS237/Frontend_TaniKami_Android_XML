@@ -66,7 +66,6 @@ class DetailFragment() : Fragment() {
                             tvProductsStockDetail.text = getString(R.string.habis)
                             btnBuy.isEnabled = false
                         }
-                        //binding.tvProductsRating.text = it.data.
                         tvProductsDescriptionDetailValue.text = it.data.payload.deskripsi_produk
                     }
                 }
@@ -98,6 +97,11 @@ class DetailFragment() : Fragment() {
                 binding.fabEditDetail.visibility = View.GONE
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
     companion object {

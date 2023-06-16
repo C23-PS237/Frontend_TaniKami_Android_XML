@@ -24,7 +24,7 @@ class HistoryBuyFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentHistoryBuyBinding.inflate(inflater, container, false)
         return binding.root
@@ -33,9 +33,6 @@ class HistoryBuyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         historyBuyProduct()
-//        binding.rvPurchaseHistory.setOnClickListener {
-//            findNavController().navigate(R.id.action_historyBuyFragment_to_detailFragment)
-//        }
     }
 
     private fun setLoading(state: Boolean) {
@@ -65,12 +62,12 @@ class HistoryBuyFragment : Fragment() {
                             for (item in listData){
                                 listIdProduk.add(item.idProduk)
                             }
-                            Log.d("listIdProduk", listIdProduk.toString())
+                            Log.d(TAG, listIdProduk.toString())
 
                             historyBuyViewModel.getListProductsByIdProducts(listIdProduk).observe(viewLifecycleOwner) { result ->
                                 listProduk.addAll(result)
 
-                                Log.d("listProduk", listProduk.toString())
+                                Log.d(TAG, listProduk.toString())
                                 setLoading(false)
                                 val historyBuyAdapter = HistoryBuyAdapter(listData, listProduk)
                                 rvPurchaseHistory.setHasFixedSize(true)
@@ -91,7 +88,13 @@ class HistoryBuyFragment : Fragment() {
             }
         }
     }
-    companion object {
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
+    companion object {
+        private const val TAG = "listIdProduk"
     }
 }

@@ -73,7 +73,6 @@ class UserRepository @Inject constructor(
 
     fun isLogin() = userPref.isLogin()
 
-    suspend fun loginDataStore() = userPref.login()
     suspend fun logoutDataStore() = userPref.logout()
 
     companion object {

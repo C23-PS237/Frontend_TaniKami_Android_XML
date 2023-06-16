@@ -21,7 +21,6 @@ import java.io.File
 import javax.inject.Inject
 
 class BuyRepository @Inject constructor(
-    //private val userPref: UserPreference,
     private val apiServ: ApiService
 ){
     fun getBuybyIdKtp(id_ktp: String): LiveData<Response<GetBuyResponse>> = liveData {

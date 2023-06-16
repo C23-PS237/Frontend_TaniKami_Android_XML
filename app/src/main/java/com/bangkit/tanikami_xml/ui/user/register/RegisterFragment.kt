@@ -216,10 +216,4 @@ class RegisterFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
-    companion object {
-        private const val TAG = "RegisterFragment"
-        private const val CAMERA_PERMISSION_CODE = 1
-        private const val GALLERY_PERMISSION_CODE = 2
-    }
 }
