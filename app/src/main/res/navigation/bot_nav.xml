@@ -267,7 +267,17 @@
         android:id="@+id/editProductFragment"
         android:name="com.bangkit.tanikami_xml.ui.product.adding_editing.EditProductFragment"
         android:label="fragment_edit_product"
-        tools:layout="@layout/fragment_edit_product" />
+        tools:layout="@layout/fragment_edit_product" >
+        <argument
+            android:name="id_produk"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_editProductFragment_to_nav_home"
+            app:destination="@id/nav_home"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/detectionExtended"

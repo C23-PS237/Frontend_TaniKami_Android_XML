@@ -74,8 +74,12 @@ class DetailFragment() : Fragment() {
         }
 
         binding.fabEditDetail.setOnClickListener{
-            findNavController().navigate(R.id.action_detailFragment_to_editProductFragment)
+            val editDirects = DetailFragmentDirections.actionDetailFragmentToEditProductFragment(idProduk)
+            editDirects.idProduk = idProduk
+
+            findNavController().navigate(editDirects)
         }
+
         binding.btnBuy.setOnClickListener{
             if (binding.amountEditTextProduct.text.toString() != "") {
                 val toPaymentFragment = DetailFragmentDirections.actionDetailFragmentToConfirmPaymentFragment()

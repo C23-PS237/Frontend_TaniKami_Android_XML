@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bangkit.tanikami_xml.R
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.data.remote.response.PayloadItem
 import com.bangkit.tanikami_xml.databinding.FragmentArticleBinding
@@ -53,16 +54,18 @@ class ArticleFragment : Fragment() {
             rvArticle.layoutManager = LinearLayoutManager(requireActivity())
             articleViewModel.getArticle().observe(requireActivity()) {
                 when (it) {
-                    is Response.Loading -> "" // set kosong dulu masih ada masalah lifecycle
+                    is Response.Loading -> setLoading(true)
                     is Response.Error -> {
+                        setLoading(true)
                         Snackbar.make(
                             binding.root,
-                            it.error,
+                            getString(R.string.warning_connection),
                             Snackbar.LENGTH_SHORT
                         ).show()
                     }
 
                     is Response.Success -> {
+                        setLoading(false)
                         val list = it.data
                         val listData = ArticleAdapter(list)
                         rvArticle.adapter = listData

@@ -6,12 +6,17 @@ import androidx.lifecycle.liveData
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.data.remote.response.DetailProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.ProductResponse
+import com.bangkit.tanikami_xml.data.remote.response.ProductUpdateResponse
 import com.bangkit.tanikami_xml.data.remote.response.ProductUpdateStockResponse
 import com.bangkit.tanikami_xml.data.remote.response.SellProductResponse
 import com.bangkit.tanikami_xml.data.remote.retrofit.ApiService
+import com.bangkit.tanikami_xml.reduceFileImage
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import retrofit2.HttpException
+import java.io.File
 import javax.inject.Inject
 
 class ProductRepository @Inject constructor(
@@ -54,17 +59,42 @@ class ProductRepository @Inject constructor(
         }
     }
 
-    fun setStock(id_produk: Int): LiveData<Int> = liveData {
-        try {
-            var sumStock = 0
-            val response1 = apiServ.getPenjualanByIdProduk(id_produk).payload
-            for (item in response1) {
-                sumStock += item.jumlahDibeli
-            }
+    fun editUpdateProduct(
+        id_produk: Int,
+        gambar_produk: File,
+        nama_produk: RequestBody,
+        besaran_stok: RequestBody,
+        stok: RequestBody,
+        harga: RequestBody,
+        deskripsi_produk: RequestBody,
+        nama_bank: RequestBody,
+        rek_penjual: RequestBody
+    ): LiveData<Response<ProductUpdateResponse>> = liveData {
 
-            emit(sumStock)
+        val imageFile = reduceFileImage(gambar_produk)
+        val requestedImage = imageFile.asRequestBody("image/jpeg".toMediaTypeOrNull())
+        val imageMultiPart: MultipartBody.Part = MultipartBody.Part.createFormData(
+            "gambar_produk",
+            imageFile.name,
+            requestedImage
+        )
+
+        try {
+            val response = apiServ.updateProduct(
+                id_produk,
+                imageMultiPart,
+                nama_produk,
+                besaran_stok,
+                stok,
+                harga,
+                deskripsi_produk,
+                nama_bank,
+                rek_penjual
+            )
+            emit(Response.Success(response))
         } catch (e: HttpException) {
-            Log.d("Repository", "sellProduct: ${e.message}")
+            Log.d("Repository", "updateProduct: ${e.message}")
+            emit(Response.Error(e.message.toString()))
         }
     }
 
@@ -111,27 +141,4 @@ class ProductRepository @Inject constructor(
             emit(Response.Error(e.message.toString()))
         }
     }
-//    fun getArticle(): LiveData<Response<List<Article>>> = liveData {
-//        emit(Response.Loading)
-//        try {
-//            emit(Response.Success(FakeDataSource.articleBasis))
-//        } catch (e: HttpException) {
-//            Log.d("Repository", "getArticle: ${e.message}")
-//            emit(Response.Error(e.message.toString()))
-//        }
-//    }
-//
-//    fun getDetailArticle(id_artikel: Int): LiveData<Response<Article>> = liveData {
-//        emit(Response.Loading)
-//        try {
-//            FakeDataSource.articleBasis.forEach {
-//                if (it.id_artikel == id_artikel) {
-//                    emit(Response.Success(it))
-//                }
-//            }
-//        } catch (e: Exception) {
-//            Log.d("RepoDetail", "getDetailArticle: ${e.message}")
-//            emit(Response.Error(e.message.toString()))
-//        }
-//    }
 }

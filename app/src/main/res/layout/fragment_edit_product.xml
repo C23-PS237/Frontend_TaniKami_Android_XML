@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:actionBarNavMode="standard"
     tools:context=".ui.product.adding_editing.EditProductFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -17,59 +19,72 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/toolbar">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="251dp">
-
-                <ImageButton
-                    android:id="@+id/ib_camera"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:contentDescription="@string/camera"
-                    android:layout_marginStart="@dimen/_45sdp"
-                    android:layout_marginTop="@dimen/_32sdp"
-                    android:background="@color/green200"
-                    android:src="@drawable/baseline_camera" />
-
-                <Button
-                    android:id="@+id/btn_gallery"
-                    android:layout_width="@dimen/_107sdp"
-                    android:layout_height="@dimen/_36sdp"
-                    android:layout_marginStart="@dimen/_16sdp"
-                    android:layout_marginTop="@dimen/_90sdp"
-                    android:layout_marginBottom="@dimen/_36sdp"
-                    android:backgroundTint="@color/green700"
-                    android:text="@string/gallery"
-                    android:textColor="@color/white"/>
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp">
 
                 <ImageView
-                    android:id="@+id/iv_image"
+                    android:id="@+id/iv_image_edit_product"
                     android:layout_width="@dimen/_166sdp"
                     android:layout_height="@dimen/_158sdp"
-                    android:layout_gravity="end"
+                    android:layout_marginEnd="@dimen/_8sdp"
                     android:contentDescription="@string/products_image"
-                    android:layout_margin="@dimen/_16sdp"
                     android:background="@drawable/stroke_bg"
-                    android:src="@drawable/image" />
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                    android:src="@drawable/image"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <ImageButton
+                    android:id="@+id/btn_camera_edit_product"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/camera"
+                    android:backgroundTint="@color/green200"
+                    android:src="@drawable/baseline_camera"
+                    app:layout_constraintStart_toEndOf="@+id/iv_image_edit_product"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/btn_gallery_edit"/>
+
+                <Button
+                    android:id="@+id/btn_gallery_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:backgroundTint="@color/green700"
+                    android:text="@string/gallery"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toEndOf="@id/iv_image_edit_product"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_camera_edit_product"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:id="@+id/tvProductsNameSell"
+                android:id="@+id/tvProductsNameSell_edit"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_15sdp"
-                android:text="@string/products_name"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_product_name"
+                android:textStyle="bold"
+                android:textSize="@dimen/_12ssp"
                 android:layout_marginTop="@dimen/_16sdp"
-                android:layout_marginStart="@dimen/_16sdp"/>
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"/>
+
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/productNameSellEditTextLayout"
+                android:id="@+id/productNameSellEditTextLayout_edit"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -77,24 +92,28 @@
                 android:layout_marginEnd="@dimen/_16sdp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/productsNameSellEditText"
+                    android:id="@+id/productsNameSellEditText_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/products_name"
                     android:textColorHint="@color/green700"
-                    android:inputType="textPersonName"
+                    android:inputType="text"
                     android:ems="10"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/tvBankName"
+                android:id="@+id/tvBankName_edit"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_15sdp"
-                android:text="@string/bank_name"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_bank_name"
+                android:textStyle="bold"
+                android:textSize="@dimen/_12ssp"
                 android:layout_marginTop="@dimen/_16sdp"
-                android:layout_marginStart="@dimen/_16sdp"/>
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"/>
+
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/bankNameEditTextLayout"
+                android:id="@+id/bankNameEditTextLayout_edit"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -102,24 +121,28 @@
                 android:layout_marginEnd="@dimen/_16sdp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/bankNameEditText"
+                    android:id="@+id/bankNameEditText_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/bank_name"
                     android:textColorHint="@color/green700"
-                    android:inputType="textCapCharacters"
+                    android:inputType="text"
                     android:ems="10"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/tvBankNumberSell"
+                android:id="@+id/tvBankNumberSell_edit"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_15sdp"
-                android:text="@string/bank_account_number"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_bank_account_number"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
                 android:layout_marginTop="@dimen/_16sdp"
-                android:layout_marginStart="@dimen/_16sdp"/>
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"/>
+
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/bankNumberEditTextLayout"
+                android:id="@+id/bankNumberEditTextLayout_edit"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -127,7 +150,7 @@
                 android:layout_marginEnd="@dimen/_16sdp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/bankNumberEditText"
+                    android:id="@+id/bankNumberEditText_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/bank_account_number"
@@ -137,14 +160,17 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/tvStocks"
+                android:id="@+id/tvStocks_edit"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_15sdp"
-                android:text="@string/stock"
+                android:layout_height="wrap_content"
+                android:text="@string/total_product"
+                android:textStyle="bold"
+                android:textSize="@dimen/_12ssp"
                 android:layout_marginTop="@dimen/_16sdp"
                 android:layout_marginStart="@dimen/_16sdp"/>
+
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/stocksEditTextLayout"
+                android:id="@+id/stocksEditTextLayout_edit"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -152,10 +178,10 @@
                 android:layout_marginEnd="@dimen/_16sdp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/stocksEditText"
+                    android:id="@+id/stocksEditText_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/stock"
+                    android:hint="@string/placehold_stock"
                     android:textColorHint="@color/green700"
                     android:inputType="number"
                     android:ems="10"
@@ -163,14 +189,18 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/tvStocksSize"
+                android:id="@+id/tvStocksSize_edit"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_15sdp"
+                android:layout_height="wrap_content"
                 android:text="@string/stock_size"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
                 android:layout_marginTop="@dimen/_16sdp"
-                android:layout_marginStart="@dimen/_16sdp"/>
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"/>
+
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/stockSizeEditTextLayout"
+                android:id="@+id/stockSizeEditTextLayout_edit"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -178,23 +208,27 @@
                 android:layout_marginEnd="@dimen/_16sdp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/stockSizeEditText"
+                    android:id="@+id/stockSizeEditText_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/stock_size"
+                    android:hint="@string/placehold_size_stock"
                     android:textColorHint="@color/green700"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/tvPriceSell"
+                android:id="@+id/tvPriceSell_edit"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_15sdp"
-                android:text="@string/product_price"
+                android:layout_height="wrap_content"
+                android:text="@string/product_price_per_stock_size"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
                 android:layout_marginTop="@dimen/_16sdp"
-                android:layout_marginStart="@dimen/_16sdp"/>
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"/>
+
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/priceSellEditTextLayout"
+                android:id="@+id/priceSellEditTextLayout_edit"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -202,23 +236,27 @@
                 android:layout_marginEnd="@dimen/_16sdp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/priceSellEditText"
+                    android:id="@+id/priceSellEditText_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/product_price"
+                    android:hint="@string/placehold_price_add_product"
                     android:textColorHint="@color/green700"
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/tvDescriptionSell"
+                android:id="@+id/tvDescriptionSell_edit"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_15sdp"
+                android:layout_height="wrap_content"
                 android:text="@string/product_description"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
                 android:layout_marginTop="@dimen/_16sdp"
-                android:layout_marginStart="@dimen/_16sdp"/>
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"/>
+
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/descriptionSellEditTextLayout"
+                android:id="@+id/descriptionSellEditTextLayout_edit"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -226,24 +264,26 @@
                 android:layout_marginEnd="@dimen/_16sdp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/descriptionSellEditText"
+                    android:id="@+id/descriptionSellEditText_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/product_description"
+                    android:hint="@string/placehold_description_add_product"
+                    android:minLines="3"
                     android:textColorHint="@color/green700"
                     android:inputType="textMultiLine" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/btn_done"
-                android:layout_width="@dimen/_260sdp"
+                android:id="@+id/btn_done_edit"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_24sdp"
                 android:layout_marginStart="@dimen/_16sdp"
                 android:layout_marginEnd="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:layout_marginBottom="@dimen/_24sdp"
                 android:layout_gravity="center"
-                android:text="@string/done"
-                android:textSize="@dimen/_16ssp"
+                android:text="@string/submit"
+                android:textSize="@dimen/_18ssp"
                 android:textStyle="bold"
                 android:textAllCaps="false"
                 android:textColor="@color/white"

@@ -5,11 +5,11 @@ import com.bangkit.tanikami_xml.data.remote.response.ArtikelDetaiilResponse
 import com.bangkit.tanikami_xml.data.remote.response.BuyProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.DetailProductResponse
 import com.bangkit.tanikami_xml.data.remote.response.GetBuyResponse
-import com.bangkit.tanikami_xml.data.remote.response.GetByIdProductiResponse
 import com.bangkit.tanikami_xml.data.remote.response.GetByIdTransaksiResponse
 import com.bangkit.tanikami_xml.data.remote.response.GetPurchaseBuyerResponse
 import com.bangkit.tanikami_xml.data.remote.response.LoginResponse
 import com.bangkit.tanikami_xml.data.remote.response.ProductResponse
+import com.bangkit.tanikami_xml.data.remote.response.ProductUpdateResponse
 import com.bangkit.tanikami_xml.data.remote.response.ProductUpdateStockResponse
 import com.bangkit.tanikami_xml.data.remote.response.RegisterResponse
 import com.bangkit.tanikami_xml.data.remote.response.SellProductResponse
@@ -69,18 +69,17 @@ interface ApiService {
 
     @Multipart
     @PUT("produk/{id_produk}")
-    fun updateProduct(
-        //@Part("id_produk") idProduk:Int,
-        @Part("besaran_stok") besaranStok: String,
-        @Part("nama_produk") namaProduk:String,
-        @Part("harga") harga: Int,
+    suspend fun updateProduct(
+        @Path("id_produk") idProduk:Int,
         @Part gambar_produk: MultipartBody.Part,
-        @Part("rek_penjual") rekPenjual: String,
-        @Part("stok") stok: Int,
-        @Part("deskripsi_produk") deskripsiProduk: String,
-        @Part("nama_bank") namaBank: String,
-        @Part("timestamp") timestamp: String
-    ): ProductResponse
+        @Part("nama_produk") namaProduk:RequestBody,
+        @Part("besaran_stok") besaranStok: RequestBody,
+        @Part("stok") stok: RequestBody,
+        @Part("harga") harga: RequestBody,
+        @Part("deskripsi_produk") deskripsiProduk: RequestBody,
+        @Part("nama_bank") namaBank: RequestBody,
+        @Part("rek_penjual") rekPenjual: RequestBody,
+    ): ProductUpdateResponse
 
     @GET("produk")
     suspend fun getAllProducts():ProductResponse
@@ -150,11 +149,6 @@ interface ApiService {
     suspend fun getBuybyIdPenjual(
         @Path("id_penjual") id_penjual:String
     ): GetPurchaseBuyerResponse
-
-    @GET("pembelian/produk/{id_produk}")
-    fun getPenjualanByIdProduk(
-        @Path("id_produk") id_produk: Int
-    ): GetByIdProductiResponse
 
     @FormUrlEncoded
     @PUT("produk/stok/{id_produk}")
