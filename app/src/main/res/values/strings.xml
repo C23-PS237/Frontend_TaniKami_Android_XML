@@ -197,6 +197,7 @@
     <string name="password_can_t_empty">Password can\'t empty</string>
     <string name="successfully_login">Successfully Login</string>
     <string name="password_or_email_wrong">Password or email wrong</string>
+
     <!-- Array for ML model -->
     <string-array name="label">
         <item>Apple Scab</item>

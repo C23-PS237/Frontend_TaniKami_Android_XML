@@ -13,15 +13,6 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-        <ImageButton
-            android:id="@+id/backBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/back"
-            android:contentDescription="@string/back"
-            android:backgroundTint="@color/white"
-            android:layout_marginStart="@dimen/_8sdp"/>
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

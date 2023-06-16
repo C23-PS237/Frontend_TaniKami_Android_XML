@@ -44,7 +44,7 @@ class DetailArticleFragment : Fragment() {
                     val data = it.data
                     binding.apply {
                         Glide.with(this@DetailArticleFragment)
-                            .load(data)
+                            .load(data.gambarArtikel)
                             .into(ivArticle)
 
                         tvArticleAuthor.text = data.author
