@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bangkit.tanikami_xml.R
 import com.bangkit.tanikami_xml.data.helper.Response
 import com.bangkit.tanikami_xml.data.remote.response.BuyProduct
 import com.bangkit.tanikami_xml.data.remote.response.Product
@@ -32,6 +33,11 @@ class HistoryBuyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.backBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_historyBuyFragment_to_nav_profile)
+        }
+
         historyBuyProduct()
     }
 

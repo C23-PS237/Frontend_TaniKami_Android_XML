@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TaniKami</string>
+    <string name="hello_blank_fragment">Halo fragmen kosong</string>
+    <string name="home">Beranda</string>
+    <string name="profile">Profil</string>
+    <string name="article">Artikel</string>
+    <string name="detection">Deteksi</string>
+
+    <!--OnBoarding-->
+    <string name="main_ver">Tani Kami versi 1.0.0</string>
+    <string name="description_main">TaniKami dibuat untuk membantu petani menjual panen mereka langsung kepada pelanggan di daerah lain, bahkan saat musim panen melimpah.</string>
+    <string name="welcome">Selamat datang di TaniKami</string>
+
+    <!--Sign Up-->
+    <string name="sign_up">Daftar</string>
+    <string name="sign_up_words">Daftar sekarang, dan mulai beli dan jual sesukamu.</string>
+    <string name="for_sign_in">Sudah memiliki akun?</string>
+    <string name="to_sign_in">Masuk</string>
+    <string name="for_profile_image">Masukkan foto profil</string>
+    <string name="profile_image">Gambar profil</string>
+    <string-array name="gender">
+        <item>Pria</item>
+        <item>Wanita</item>
+    </string-array>
+
+    <!--Sign In-->
+    <string name="sign_in">Masuk</string>
+    <string name="sign_in_words">Masuk sekarang dan jual panenmu dengan cepat sebelum harga produk turun.</string>
+    <string name="for_sign_up">Belum memiliki akun?</string>
+    <string name="to_sign_up">Daftar</string>
+
+    <!--Hint-->
+    <string name="hint_name">Nama</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Kata Sandi</string>
+    <string name="hint_address">Alamat</string>
+    <string name="hint_phone_number">Nomor Telepon</string>
+    <string name="hint_age">Usia</string>
+
+    <!--Profile-->
+    <string name="settings">Pengaturan</string>
+    <string name="logout">Keluar</string>
+    <string name="purchase_history">Riwayat Pembelian</string>
+    <string name="sales_history">Riwayat Penjualan</string>
+
+    <!--Fragment Uploading Bill&Fragment Detection-->
+    <string name="detection_title">Deteksi Penyakit Tanaman</string>
+    <string name="bill_image">Gambar Tagihan</string>
+    <string name="plant_image">Gambar Tanaman</string>
+    <string name="upload_transfer_bill">Unggah Tagihan Transfer</string>
+    <string name="gallery">Galeri</string>
+    <string name="camera">Kamera</string>
+    <string name="submit">Kirim</string>
+
+    <!--For Products(HomeFragment&DetailFragment)-->
+    <string name="products_image">Gambar Produk</string>
+    <string name="products_name">Nama produk yang akan dijual</string>
+    <string name="products_description">Deskripsi Produk</string>
+    <string name="products_description_value">Nilai Deskripsi Produk</string>
+    <string name="products_stock">Stok: %d %s</string>
+    <string name="products_price">Harga: %s / %s</string>
+    <string name="products_rating">Rating Produk</string>
+    <string name="products_amount">Jumlah Pembelian</string>
+    <string name="buy">Beli</string>
+    <string name="hint_amount">Isi jumlah produk yang ingin dibeli</string>
+    <string name="sold_out">Stok Habis</string>
+
+    <!--Floating Action Button-->
+    <string name="fab">Menambahkan produk baru untuk dijual</string>
+    <string name="fab_edit">Edit Produk</string>
+    <string name="fab_rating_products">Edit Produk</string>
+
+    <!--Article-->
+    <string name="article_image">Gambar Artikel</string>
+    <string name="article_title">Judul Artikel</string>
+    <string name="article_body">Isi Artikel</string>
+    <string name="article_author">Penulis Artikel</string>
+
+    <!--Add & Edit Product-->
+    <string name="add_product">Tambahkan produk yang ingin Anda jual</string>
+    <string name="edit_product">Edit Produk</string>
+    <string name="product_name">Nama Produk</string>
+    <string name="bank_name">Nama Bank Anda</string>
+    <string name="bank_account_number">Nomor Rekening Bank Anda</string>
+    <string name="id_ktp">Nomor Identitas KTP Anda</string>
+    <string name="stock">%d / %s</string>
+    <string name="stock_size">Ukuran Stok</string>
+    <string name="product_price">Rp %d / Rp %s</string>
+    <string name="product_description">Deskripsi Produk</string>
+    <string name="done">Selesai</string>
+
+    <string name="product_name_confirm">Nama Produk:</string>
+    <string name="product_stock_confirm">Stok Produk:</string>
+    <string name="product_price_confirm">Harga:</string>
+    <string name="bank_name_confirm">Nama Bank:</string>
+    <string name="account_number_confirm">Nomor Rekening:</string>
+    <string name="sell">Jual</string>
+
+    <!--Payment-->
+    <string name="payment_confirmation">Konfirmasi Pembayaran</string>
+    <string name="cost_details_title">Rincian Biaya</string>
+    <string name="tax">Pajak (2%)</string>
+    <string name="admin">Admin</string>
+    <string name="admin_cost">Rp. 2,000</string>
+    <string name="total">Total</string>
+    <string name="total_payment">Total Pembayaran</string>
+    <string name="cancel">Batal</string>
+    <string name="pay">Bayar</string>
+
+    <string name="transfer_info">Informasi Transfer</string>
+    <string name="must_be_paid">Total yang harus dibayar:</string>
+    <string name="total_note">  Bayar sesuai dengan nominal yang tertera.</string>
+    <string name="payment_method_note">Gunakan MBangking / ATM untuk membayar</string>
+    <string name="bank_name_payment">Nama Bank</string>
+    <string name="bank_account_number_payment">Nomor Rekening :</string>
+    <string name="the_bank_account_number_payment">Nomor Rekening</string>
+    <string name="payment_note">  Pembayaran harus dilakukan paling lambat 24 jam setelah pemesanan</string>
+    <string name="copy">SALIN</string>
+    <string name="capture">Ikoni Tangkapan</string>
+    <string name="switch_icon">Ikoni Beralih</string>
+    <string name="payment_method_info">Metode Pembayaran via MBangking</string>
+    <string name="payment_step">1. Pilih Transfer, tambahkan nomor rekening bank penjual.\n2. Masukkan jumlah yang ingin Anda transfer.\n3. Periksa uang yang ingin Anda transfer sudah benar.\n4. Klik Konfirmasi, dan masukkan nomor PIN Anda.\n5. Setelah itu, cetak bukti transfer Anda dan unggah dengan mengklik tombol unggah di bawah.\n6. Bukti pembayaran maksimal dapat diunggah dalam waktu 24 jam.</string>
+    <string name="button_upload_bill">Unggah Bukti Transfer</string>
+    <string name="classified_as">Instruksi: Pilih atau tangkap satu gambar daun tanaman dan klik tombol submit untuk mendeteksi penyakit</string>
+    <string name="pick_one_picture">Pilih Satu Gambar</string>
+    <string name="permission">Tidak Ada Izin Diberikan, Ajukan Kembali!!</string>
+
+    <!--Purchase History-->
+    <string name="received">Sudah Diterima</string>
+    <string name="arrived_status">Status Tiba</string>
+    <string name="payment_status">Status Pembayaran</string>
+    <string name="gender">Pilih Jenis Kelamin</string>
+    <string name="tv_product_name">Nama Produk</string>
+    <string name="tv_bank_name">Nama Bank</string>
+    <string name="tv_bank_account_number">Nomor Rekening Bank</string>
+    <string name="tv_id_ktp">Nomor Identitas KTP</string>
+    <string name="placehold_stock">Total produk yang ingin Anda jual</string>
+    <string name="placehold_size_stock">Ukuran stok produk Anda (misalnya: Kg)</string>
+    <string name="placehold_price_add_product">Harga produk per ukuran stok</string>
+    <string name="placehold_description_add_product">Deskripsi produk Anda</string>
+    <string name="btn_to_extended">Deteksi penyakit tanaman sekarang!</string>
+    <string name="des_detect_1">Ilustrasi petani yang memangkas tanaman</string>
+    <string name="title_detect1">Ambil Foto Daun</string>
+    <string name="title_detect2">Deteksi Penyakit Tanaman</string>
+    <string name="title_detect3">Cari Penyembuhan</string>
+    <string name="description_detect1">Ambil foto daun tanaman tersebut pada bagian daun yang menunjukkan gejala penyakit</string>
+    <string name="description_detect2">Unggah foto Anda ke model ML kami untuk mendeteksi penyakit tanaman tersebut</string>
+    <string name="description_detect3">Cari penyembuhan di internet dan rawat tanaman Anda dengan lebih baik</string>
+    <string name="product_price_per_stock_size">Harga Produk per Ukuran Stok</string>
+    <string name="total_product">Total Produk</string>
+    <string name="warning_register">Harap pilih terlebih dahulu gambar!!</string>
+    <string name="hint_idKtp">NIK</string>
+    <string name="register_user_success">Pendaftaran Pengguna Berhasil</string>
+    <string name="msg_register_success">msg: Anda telah berhasil membuat akun baru, selanjutnya silakan login!</string>
+    <string name="error_warning_register">Pendaftaran Gagal, kesalahan koneksi atau NIK Anda sudah terdaftar!!</string>
+    <string name="tax_value">Rp. 2,500</string>
+    <string name="amount_buy">Jumlah: %d %s</string>
+    <string name="sum_all_buy">total pembelian</string>
+    <string name="indicator_products_cost">Biaya Produk</string>
+
+    <string name="total_payment_history">Total Pembayaran:</string>
+    <string name="purchase_buyer_history">Daftar Barang Terjual</string>
+    <string name="products_price_history">%s / %s</string>
+    <string name="id_transaksi_history">ID Transaksi</string>
+    <string name="detection_msg">Kondisi tanaman Anda diklasifikasikan sebagai %s \n dengan tingkat kepercayaan: %d persen</string>
+    <string name="detection_alert_title">Hasil</string>
+    <string name="sending_cost">Biaya Pengiriman</string>
+    <string name="account_number">1330023120941</string>
+    <string name="clip_label">Nomor Rekening Penjual</string>
+    <string name="toast_indi_clip">Nomor Rekening Tersalin</string>
+    <string name="choose_one_bill_image_first">Pilih satu gambar tagihan terlebih dahulu</string>
+    <string name="back">Ikoni Kembali</string>
+    <string name="habis">Stok: KOSONG</string>
+    <string name="home_search_hints">Cari produk</string>
+    <string name="warning_connection">Koneksi internet terputus</string>
+    <string name="watning_edit_product">Harap pilih gambar baru untuk produk</string>
+    <string name="edit_data_success">Edit Data Berhasil</string>
+    <string name="total_buy">Total: %d %s</string>
+    <string name="status_purcase">DIBAYAR</string>
+    <string name="status_purcase2">BELUM DIBAYAR</string>
+    <string name="status_purchase3">TELAH TIBA</string>
+    <string name="status_purchase4">MENUNGGU</string>
+    <string name="chooser_pic">Pilih Gambar</string>
+    <string name="title_alert_up_bill">Bukti Berhasil Diunggah</string>
+    <string name="des_alert_up_nill">Bukti transfer Anda diunggah, data sedang diperbarui</string>
+    <string name="empty_warning_pname">Nama produk tidak boleh kosong</string>
+    <string name="empty_warning_bname">Nama bank tidak boleh kosong</string>
+    <string name="empty_warning_bn">Nomor rekening bank tidak boleh kosong</string>
+    <string name="empty_warning_se">Stok tidak boleh kosong</string>
+    <string name="empty_warningss">Ukuran stok tidak boleh kosong</string>
+    <string name="empty_warning_ps">Harga tidak boleh kosong</string>
+    <string name="empty_warning_ds">Deskripsi tidak boleh kosong</string>
+    <string name="data_failed_to_be_shown">Data gagal ditampilkan</string>
+    <string name="nik_can_t_empty">NIK tidak boleh kosong</string>
+    <string name="email_can_t_empty">Email tidak boleh kosong</string>
+    <string name="password_can_t_empty">Kata sandi tidak boleh kosong</string>
+    <string name="successfully_login">Berhasil Masuk</string>
+    <string name="password_or_email_wrong">Kata sandi atau email salah</string>
+</resources>

@@ -1,6 +1,8 @@
 package com.bangkit.tanikami_xml.ui.user.profile
 
+import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -41,6 +43,10 @@ class ProfileFragment : Fragment() {
             activity?.finish()
         }
 
+        binding.btnSettings.setOnClickListener {
+            startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+        }
+
         binding.btnLogout.setOnClickListener {
             // must run in lifecycle only 1 time when inserted into viewLifecycleOwner he can logout when we go to diff menu and come back
             // use safeArgs to make it works in logout and direct login
@@ -72,7 +78,7 @@ class ProfileFragment : Fragment() {
             when (it) {
                 is Response.Loading -> ""
                 is Response.Error -> {
-                    Toast.makeText(requireActivity(), "${it.error}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireActivity(), getString(R.string.warning_connection), Toast.LENGTH_SHORT).show()
                 }
                 is Response.Success -> {
                     val data = it.data
